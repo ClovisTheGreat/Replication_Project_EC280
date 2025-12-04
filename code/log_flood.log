@@ -1,0 +1,4652 @@
+-------------------------------------------------------------------------------------------------------------------------
+      name:  <unnamed>
+       log:  /Users/deniss/Replication_Project_EC280/code/log_flood.log
+  log type:  text
+ opened on:  27 Oct 2025, 21:29:26
+
+. 
+. tempfile farmval900 farmval910 farmval920 farmval925 farmval930 farmval935 farmval940 farmval945 farmval950 farmval954 
+> farmval959 icpsr1900 1900 icpsr1910 1910 icpsr1920 1920 1925 1930 1935 icpsr1940 1940 1945 icpsr1950 ag1950 1950 ag1954
+>  1954 icpsr1960 icpsr1960_2 ag1959 1960 ag1964 1964 icpsr1970 ag1969 1970 redcross haines1930 haines1930_1 haines1925 h
+> aines1925_new haines1935 haines1935_new haines1940 haines1940_new distance_1900 flood1910_1900 flood1920_1900 flood1925
+> _1900 flood1930_1900 flood1935_1900 flood1940_1900 flood1945_1900 flood1950_1900 flood1954_1900 flood1960_1900 flood196
+> 4_1900 flood1970_1900 tractors1925 flood_1900 ms_distance ruggedness_1900 brannenplantcounties_1900 new_deal_data river
+> _1900 crop_suitability
+
+. 
+. *Value of farmland and buildings in 1900-1959
+. foreach i of numlist 900 910 920 925 930 935 940 945 950 954 959 {
+  2. use "../data/farmval.dta", clear
+  3. keep if level==1
+  4. keep state county name fips faval`i'
+  5. keep if state==32|state==34|state==40|state==41|state==42|state==43|state==44|state==45|state==46|state==47|state==4
+> 8|state==49|state==51|state==52|state==53|state==54
+  6. rename faval`i' farmval
+  7. gen year = 1`i'
+  8. sort fips
+  9. save `farmval`i'', replace 
+ 10. }
+(FARM LAND VALUES PER ACRE, U.S. 1850-1959)
+(48 observations deleted)
+(1,522 observations deleted)
+(file /var/folders/hp/s04p1kyn6szc8r_fnd_r5vr00000gn/T//S_11078.000001 not found)
+file /var/folders/hp/s04p1kyn6szc8r_fnd_r5vr00000gn/T//S_11078.000001 saved as .dta format
+(FARM LAND VALUES PER ACRE, U.S. 1850-1959)
+(48 observations deleted)
+(1,522 observations deleted)
+(file /var/folders/hp/s04p1kyn6szc8r_fnd_r5vr00000gn/T//S_11078.000002 not found)
+file /var/folders/hp/s04p1kyn6szc8r_fnd_r5vr00000gn/T//S_11078.000002 saved as .dta format
+(FARM LAND VALUES PER ACRE, U.S. 1850-1959)
+(48 observations deleted)
+(1,522 observations deleted)
+(file /var/folders/hp/s04p1kyn6szc8r_fnd_r5vr00000gn/T//S_11078.000003 not found)
+file /var/folders/hp/s04p1kyn6szc8r_fnd_r5vr00000gn/T//S_11078.000003 saved as .dta format
+(FARM LAND VALUES PER ACRE, U.S. 1850-1959)
+(48 observations deleted)
+(1,522 observations deleted)
+(file /var/folders/hp/s04p1kyn6szc8r_fnd_r5vr00000gn/T//S_11078.000004 not found)
+file /var/folders/hp/s04p1kyn6szc8r_fnd_r5vr00000gn/T//S_11078.000004 saved as .dta format
+(FARM LAND VALUES PER ACRE, U.S. 1850-1959)
+(48 observations deleted)
+(1,522 observations deleted)
+(file /var/folders/hp/s04p1kyn6szc8r_fnd_r5vr00000gn/T//S_11078.000005 not found)
+file /var/folders/hp/s04p1kyn6szc8r_fnd_r5vr00000gn/T//S_11078.000005 saved as .dta format
+(FARM LAND VALUES PER ACRE, U.S. 1850-1959)
+(48 observations deleted)
+(1,522 observations deleted)
+(file /var/folders/hp/s04p1kyn6szc8r_fnd_r5vr00000gn/T//S_11078.000006 not found)
+file /var/folders/hp/s04p1kyn6szc8r_fnd_r5vr00000gn/T//S_11078.000006 saved as .dta format
+(FARM LAND VALUES PER ACRE, U.S. 1850-1959)
+(48 observations deleted)
+(1,522 observations deleted)
+(file /var/folders/hp/s04p1kyn6szc8r_fnd_r5vr00000gn/T//S_11078.000007 not found)
+file /var/folders/hp/s04p1kyn6szc8r_fnd_r5vr00000gn/T//S_11078.000007 saved as .dta format
+(FARM LAND VALUES PER ACRE, U.S. 1850-1959)
+(48 observations deleted)
+(1,522 observations deleted)
+(file /var/folders/hp/s04p1kyn6szc8r_fnd_r5vr00000gn/T//S_11078.000008 not found)
+file /var/folders/hp/s04p1kyn6szc8r_fnd_r5vr00000gn/T//S_11078.000008 saved as .dta format
+(FARM LAND VALUES PER ACRE, U.S. 1850-1959)
+(48 observations deleted)
+(1,522 observations deleted)
+(file /var/folders/hp/s04p1kyn6szc8r_fnd_r5vr00000gn/T//S_11078.000009 not found)
+file /var/folders/hp/s04p1kyn6szc8r_fnd_r5vr00000gn/T//S_11078.000009 saved as .dta format
+(FARM LAND VALUES PER ACRE, U.S. 1850-1959)
+(48 observations deleted)
+(1,522 observations deleted)
+(file /var/folders/hp/s04p1kyn6szc8r_fnd_r5vr00000gn/T//S_11078.00000a not found)
+file /var/folders/hp/s04p1kyn6szc8r_fnd_r5vr00000gn/T//S_11078.00000a saved as .dta format
+(FARM LAND VALUES PER ACRE, U.S. 1850-1959)
+(48 observations deleted)
+(1,522 observations deleted)
+(file /var/folders/hp/s04p1kyn6szc8r_fnd_r5vr00000gn/T//S_11078.00000b not found)
+file /var/folders/hp/s04p1kyn6szc8r_fnd_r5vr00000gn/T//S_11078.00000b saved as .dta format
+
+. clear
+
+. use `farmval959'
+(FARM LAND VALUES PER ACRE, U.S. 1850-1959)
+
+. replace year = 1960
+(1,551 real changes made)
+
+. save `farmval959', replace
+file /var/folders/hp/s04p1kyn6szc8r_fnd_r5vr00000gn/T//S_11078.00000b saved as .dta format
+
+. clear
+
+. 
+. ***
+. *1900
+. ***
+. 
+. *ICPSR data for 1900
+. use "../data/02896-0020-Data.dta",clear
+
+. keep if level==1
+(55 observations deleted)
+
+. keep if state==32|state==34|state==40|state==41|state==42|state==43|state==44|state==45|state==46|state==47|state==48|s
+> tate==49|state==51|state==52|state==53|state==54
+(1,471 observations deleted)
+
+. keep fips state county name area totpop nbwmnp nbwfnp nbwmfp nbwffp fbwmtot fbwftot negmtot negftot farms farmwh farmco
+> l acfarm farmwhow farmwhct farmcoow farmcoct farmcost farmwhst farmbui farmequi farmout farmlab livstock mfgestab mfgwa
+> ges mfgavear 
+
+. drop if fips==.
+(11 observations deleted)
+
+. rename area county_squaremiles
+
+. rename totpop population
+
+. gen population_race_white = nbwmnp + nbwmfp + fbwmtot + nbwfnp + nbwffp + fbwftot
+
+. gen population_race_black = negmtot + negftot
+
+. gen population_race_other = population - population_race_white - population_race_black
+
+. rename farmwh farms_white
+
+. rename farmcol farms_nonwhite
+
+. gen farms_owner = farmwhow + farmcoow
+
+. gen farms_tenant = farmwhct + farmcoct + farmwhst + farmcost
+
+. gen farms_nonwhite_tenant = farmcoct + farmcost
+
+. gen farms_tenant_cash = farmwhct + farmcoct
+
+. rename acfarm farmland
+
+. rename farmbui value_buildings
+
+. rename farmequi value_equipment
+
+. gen year = 1900
+
+. order fips state county name county_squaremiles population population_race_white population_race_black population_race_
+> other farms farms_white farms_nonwhite farms_nonwhite_tenant farms_owner farms_tenant farms_tenant_cash farmland value_
+> buildings value_equipment mfgestab mfgwages mfgavear 
+
+. keep fips state county name county_squaremiles population population_race_white population_race_black population_race_o
+> ther farms farms_white farms_nonwhite farms_nonwhite_tenant farms_owner farms_tenant farms_tenant_cash farmland value_b
+> uildings value_equipment mfgestab mfgwages mfgavear 
+
+. sort fips
+
+. save `icpsr1900', replace
+(file /var/folders/hp/s04p1kyn6szc8r_fnd_r5vr00000gn/T//S_11078.00000c not found)
+file /var/folders/hp/s04p1kyn6szc8r_fnd_r5vr00000gn/T//S_11078.00000c saved as .dta format
+
+. clear
+
+. 
+. *Agricultural data for 1900
+. use "../data/ag900co.dta"
+
+. keep if level==1
+(55 observations deleted)
+
+. keep if state==32|state==34|state==40|state==41|state==42|state==43|state==44|state==45|state==46|state==47|state==48|s
+> tate==49|state==51|state==52|state==53|state==54
+(1,479 observations deleted)
+
+. keep fips cornac oatsac wheatac cottonac riceac scaneac colts0 colts1_2 horses2_ mules0 mules1_2 mules2_ corn oats whea
+> t cotbale1 rice csugarwt
+
+. rename cornac corn_a
+
+. rename oatsac oats_a
+
+. rename wheatac wheat_a
+
+. rename cottonac cotton_a
+
+. rename riceac rice_a
+
+. rename scaneac scane_a
+
+. rename corn corn_y
+
+. rename oats oats_y
+
+. rename wheat wheat_y
+
+. rename cotbale1 cotton_y
+
+. rename rice rice_y
+
+. rename csugarwt scane_y
+
+. gen horses = colts0 + colts1_2 + horses2_
+(2 missing values generated)
+
+. gen mules = mules0 + mules1_2 + mules2_
+(2 missing values generated)
+
+. foreach var of varlist corn_a oats_a wheat_a cotton_a rice_a scane_a {
+  2. replace `var' = 0 if `var'==.
+  3. }
+(2 real changes made)
+(2 real changes made)
+(2 real changes made)
+(2 real changes made)
+(2 real changes made)
+(2 real changes made)
+
+. order fips corn_a oats_a wheat_a cotton_a rice_a scane_a corn_y oats_y wheat_y cotton_y rice_y scane_y horses mules
+
+. keep fips corn_a oats_a wheat_a cotton_a rice_a scane_a corn_y oats_y wheat_y cotton_y rice_y scane_y horses mules
+
+. sort fips
+
+. merge fips using `icpsr1900'
+(you are using old merge syntax; see [D] merge for new syntax)
+variable fips does not uniquely identify observations in the master data
+
+. keep if _merge==3
+(11 observations deleted)
+
+. drop _merge
+
+. sort fips
+
+. merge fips using `farmval900'
+(you are using old merge syntax; see [D] merge for new syntax)
+
+. keep if _merge==3
+(154 observations deleted)
+
+. drop _merge
+
+. gen value_landbuildings = farmval*farmland
+(14 missing values generated)
+
+. gen value_land = value_landbuildings-value_buildings
+(14 missing values generated)
+
+. drop farmval
+
+. order fips year state county name county_squaremiles population population_race_white population_race_black population_
+> race_other farms farms_white farms_nonwhite farms_nonwhite_tenant farms_owner farms_tenant farms_tenant_cash farmland v
+> alue_landbuildings value_land value_buildings value_equipment horses mules corn_a oats_a wheat_a cotton_a rice_a scane_
+> a corn_y oats_y wheat_y cotton_y rice_y scane_y mfgestab mfgwages mfgavear
+
+. keep fips year state county name county_squaremiles population population_race_white population_race_black population_r
+> ace_other farms farms_white farms_nonwhite farms_nonwhite_tenant farms_owner farms_tenant farms_tenant_cash farmland va
+> lue_landbuildings value_land value_buildings value_equipment horses mules corn_a oats_a wheat_a cotton_a rice_a scane_a
+>  corn_y oats_y wheat_y cotton_y rice_y scane_y mfgestab mfgwages mfgavear
+
+. sort fips
+
+. save `1900', replace
+(file /var/folders/hp/s04p1kyn6szc8r_fnd_r5vr00000gn/T//S_11078.00000d not found)
+file /var/folders/hp/s04p1kyn6szc8r_fnd_r5vr00000gn/T//S_11078.00000d saved as .dta format
+
+. clear
+
+. 
+. ***
+. *1910
+. ***
+. 
+. *ICPSR data for 1910
+. use "../data/02896-0022-Data.dta", clear
+(U.S. COUNTY DATA 1910)
+
+. keep if level==1
+(53 observations deleted)
+
+. keep if state==32|state==34|state==40|state==41|state==42|state==43|state==44|state==45|state==46|state==47|state==48|s
+> tate==49|state==51|state==52|state==53|state==54
+(1,447 observations deleted)
+
+. keep fips state county name area totpop wmtot wftot negmtot negftot farms farmnw farmfbw farmneg farmown farmten fownne
+> g farmnegt farmcten acresown acresten acresman cropval rur1910
+
+. rename area county_squaremiles
+
+. rename totpop population
+
+. gen population_race_white = wmtot + wftot
+(1 missing value generated)
+
+. gen population_race_black = negmtot + negftot
+(1 missing value generated)
+
+. gen population_race_other = population - population_race_white - population_race_black
+(1 missing value generated)
+
+. gen farms_white = farmnw + farmfbw
+
+. rename farmneg farms_nonwhite
+
+. rename farmown farms_owner
+
+. rename farmten farms_tenant
+
+. rename farmcten farms_tenant_cash
+
+. gen farmland = acresown + acresten + acresman
+
+. gen farms_nonwhite_tenant = farmnegt
+
+. rename acresown farmland_owner
+
+. rename acresten farmland_tenant
+
+. rename rur1910 population_rural
+
+. gen year = 1910
+
+. order fips state county name county_squaremiles population population_rural population_race_white population_race_black
+>  population_race_other farms farms_white farms_nonwhite farms_nonwhite_tenant farms_owner farms_tenant farms_tenant_cas
+> h farmland farmland_owner farmland_tenant cropval 
+
+. keep fips state county name county_squaremiles population population_rural population_race_white population_race_black 
+> population_race_other farms farms_white farms_nonwhite farms_nonwhite_tenant farms_owner farms_tenant farms_tenant_cash
+>  farmland farmland_owner farmland_tenant cropval 
+
+. sort fips
+
+. save `icpsr1910', replace
+(file /var/folders/hp/s04p1kyn6szc8r_fnd_r5vr00000gn/T//S_11078.00000e not found)
+file /var/folders/hp/s04p1kyn6szc8r_fnd_r5vr00000gn/T//S_11078.00000e saved as .dta format
+
+. clear
+
+. 
+. *Agricultural data for 1910
+. use "../data/ag910co.dta"
+
+. keep if level==1
+(52 observations deleted)
+
+. keep if state==32|state==34|state==40|state==41|state==42|state==43|state==44|state==45|state==46|state==47|state==48|s
+> tate==49|state==51|state==52|state==53|state==54
+(1,460 observations deleted)
+
+. keep fips farmbui farmequi livstock fawages farebord cornac oatsac wheatac cottonac riceac csugarac horses mules corn o
+> ats wheat cotton rice csugar
+
+. rename farmbui value_buildings
+
+. rename farmequi value_equipment
+
+. rename livstock value_livestock
+
+. rename fawages value_labor_wages
+
+. rename farebord value_labor_board
+
+. rename cornac corn_a
+
+. rename oatsac oats_a
+
+. rename wheatac wheat_a
+
+. rename cottonac cotton_a
+
+. rename riceac rice_a
+
+. rename csugarac scane_a
+
+. rename corn corn_y
+
+. rename oats oats_y
+
+. rename wheat wheat_y
+
+. rename cotton cotton_y
+
+. rename rice rice_y
+
+. rename csugar scane_y
+
+. foreach var of varlist corn_a oats_a wheat_a cotton_a rice_a scane_a {
+  2. replace `var' = 0 if `var'==.
+  3. }
+(1 real change made)
+(1 real change made)
+(1 real change made)
+(131 real changes made)
+(900 real changes made)
+(660 real changes made)
+
+. order fips value_buildings value_equipment value_livestock value_labor_wages value_labor_board corn_a oats_a wheat_a co
+> tton_a rice_a scane_a corn_y oats_y wheat_y cotton_y rice_y scane_y horses mules
+
+. keep fips value_buildings value_equipment value_livestock value_labor_wages value_labor_board corn_a oats_a wheat_a cot
+> ton_a rice_a scane_a corn_y oats_y wheat_y cotton_y rice_y scane_y horses mules
+
+. sort fips
+
+. merge fips using `icpsr1910'
+(you are using old merge syntax; see [D] merge for new syntax)
+
+. keep if _merge==3
+(1 observation deleted)
+
+. drop _merge
+
+. sort fips
+
+. merge fips using `farmval910'
+(you are using old merge syntax; see [D] merge for new syntax)
+
+. keep if _merge==3
+(78 observations deleted)
+
+. drop _merge
+
+. gen value_landbuildings = farmval*farmland
+(1 missing value generated)
+
+. gen value_land = value_landbuildings-value_buildings
+(1 missing value generated)
+
+. drop farmval
+
+. order fips county_squaremiles population population_rural population_race_white population_race_black population_race_o
+> ther farms farms_white farms_nonwhite farms_nonwhite_tenant farms_owner farms_tenant farms_tenant_cash farmland farmlan
+> d_owner farmland_tenant value_landbuildings value_land value_buildings value_equipment horses mules corn_a oats_a wheat
+> _a cotton_a rice_a scane_a corn_y oats_y wheat_y cotton_y rice_y scane_y cropval
+
+. keep fips county_squaremiles population population_rural population_race_white population_race_black population_race_ot
+> her farms farms_white farms_nonwhite farms_nonwhite_tenant farms_owner farms_tenant farms_tenant_cash farmland farmland
+> _owner farmland_tenant value_landbuildings value_land value_buildings value_equipment horses mules corn_a oats_a wheat_
+> a cotton_a rice_a scane_a corn_y oats_y wheat_y cotton_y rice_y scane_y cropval
+
+. sort fips
+
+. save `1910', replace
+(file /var/folders/hp/s04p1kyn6szc8r_fnd_r5vr00000gn/T//S_11078.00000f not found)
+file /var/folders/hp/s04p1kyn6szc8r_fnd_r5vr00000gn/T//S_11078.00000f saved as .dta format
+
+. clear
+
+. 
+. ***
+. *1920
+. ***
+. 
+. *ICPSR data for 1920
+. use "../data/02896-0024-Data.dta"
+(U.S. COUNTY DATA 1920)
+
+. keep if level==1
+(52 observations deleted)
+
+. keep if state==32|state==34|state==40|state==41|state==42|state==43|state==44|state==45|state==46|state==47|state==48|s
+> tate==49|state==51|state==52|state==53|state==54
+(1,528 observations deleted)
+
+. keep fips state county name area areaac totpop urb920 nwmtot nwftot fbwmtot fbwftot negmtot negftot farms farmnw farmfb
+> w farmcol farmcolt farmown farmten farmcten acresown acresten acresman farmbui farmequi livstock cropval mfgwages mfges
+> tab mfgavear
+
+. rename area county_squaremiles
+
+. rename areaac county_acres
+
+. rename totpop population
+
+. gen population_race_white = nwmtot + fbwmtot + nwftot + fbwftot
+
+. gen population_race_black = negmtot + negftot
+
+. gen population_race_other = population - population_race_white - population_race_black
+
+. gen farms_white = farmnw + farmfbw
+(1 missing value generated)
+
+. rename farmcol farms_nonwhite
+
+. rename farmown farms_owner
+
+. rename farmten farms_tenant
+
+. rename farmcten farms_tenant_cash
+
+. gen farmland = acresown + acresten + acresman
+(1 missing value generated)
+
+. rename acresown farmland_owner
+
+. rename acresten farmland_tenant
+
+. rename farmbui value_buildings
+
+. rename farmequi value_equipment
+
+. rename livstock value_livestock
+
+. rename farmcolt farms_nonwhite_tenant
+
+. gen population_rural = population - urb920
+
+. gen year = 1920
+
+. order fips state county name county_acres county_squaremiles population population_rural population_race_white populati
+> on_race_black population_race_other farms farms_white farms_nonwhite farms_nonwhite_tenant farms_owner farms_tenant far
+> ms_tenant_cash farmland farmland_owner farmland_tenant value_buildings value_equipment value_livestock cropval mfgwages
+>  mfgestab mfgavear 
+
+. keep fips state county name county_acres county_squaremiles population population_rural population_race_white populatio
+> n_race_black population_race_other farms farms_white farms_nonwhite farms_nonwhite_tenant farms_owner farms_tenant farm
+> s_tenant_cash farmland farmland_owner farmland_tenant value_buildings value_equipment value_livestock cropval mfgwages 
+> mfgestab mfgavear 
+
+. sort fips
+
+. save `icpsr1920', replace
+(file /var/folders/hp/s04p1kyn6szc8r_fnd_r5vr00000gn/T//S_11078.00000g not found)
+file /var/folders/hp/s04p1kyn6szc8r_fnd_r5vr00000gn/T//S_11078.00000g saved as .dta format
+
+. clear
+
+. 
+. *Agricultural data for 1920
+. use "../data/ag920co.dta"
+
+. keep if level==1
+(52 observations deleted)
+
+. keep if state==32|state==34|state==40|state==41|state==42|state==43|state==44|state==45|state==46|state==47|state==48|s
+> tate==49|state==51|state==52|state==53|state==54
+(1,523 observations deleted)
+
+. keep state county name fips var147 var149 var151 var165 var216 var221 var56 var63 var148 var150 var152 var166 var217 va
+> r222 var308 var309 var310
+
+. rename var147 corn_a
+
+. rename var149 oats_a
+
+. rename var151 wheat_a
+
+. rename var165 rice_a
+
+. rename var216 cotton_a
+
+. rename var221 scane_a
+
+. rename var56 horses
+
+. rename var63 mules
+
+. rename var148 corn_y
+
+. rename var150 oats_y
+
+. destring oats_y, replace
+oats_y: all characters numeric; replaced as long
+(1 missing value generated)
+
+. rename var152 wheat_y
+
+. rename var166 rice_y
+
+. rename var217 cotton_y
+
+. rename var222 scane_y
+
+. rename var308 value_labor
+
+. rename var309 value_labor_wages
+
+. rename var310 value_labor_board
+
+. gen year = 1920
+
+. foreach var of varlist corn_a oats_a wheat_a cotton_a rice_a scane_a {
+  2. replace `var' = 0 if `var'==.
+  3. }
+(1 real change made)
+(1 real change made)
+(55 real changes made)
+(121 real changes made)
+(393 real changes made)
+(47 real changes made)
+
+. sort fips
+
+. merge fips using `icpsr1920'
+(you are using old merge syntax; see [D] merge for new syntax)
+
+. keep if _merge==3
+(0 observations deleted)
+
+. drop _merge
+
+. sort fips
+
+. merge fips using `farmval920'
+(you are using old merge syntax; see [D] merge for new syntax)
+
+. keep if _merge==3
+(41 observations deleted)
+
+. drop _merge
+
+. gen value_landbuildings = farmval*farmland
+(1 missing value generated)
+
+. gen value_land = value_landbuildings-value_buildings
+(1 missing value generated)
+
+. drop farmval
+
+. sort fips
+
+. merge fips using "../data/out_migrant_counts.dta"
+(you are using old merge syntax; see [D] merge for new syntax)
+
+. drop if _merge==2
+(1,447 observations deleted)
+
+. drop _merge
+
+. order fips county_acres county_squaremiles population population_rural population_race_white population_race_black popu
+> lation_race_other farms farms_white farms_nonwhite farms_owner farms_tenant farms_tenant_cash farmland farmland_owner f
+> armland_tenant value_landbuildings value_land value_buildings value_equipment horses mules corn_a oats_a wheat_a cotton
+> _a rice_a scane_a corn_y oats_y wheat_y cotton_y rice_y scane_y people samecounty samestate samearea sameregion people_
+> white samecounty_white samestate_white samearea_white sameregion_white people_black samecounty_black samestate_black sa
+> mearea_black sameregion_black cropval mfgwages mfgestab mfgavear farms_nonwhite_tenant
+
+. keep fips county_acres county_squaremiles population population_rural population_race_white population_race_black popul
+> ation_race_other farms farms_white farms_nonwhite farms_owner farms_tenant farms_tenant_cash farmland farmland_owner fa
+> rmland_tenant value_landbuildings value_land value_buildings value_equipment horses mules corn_a oats_a wheat_a cotton_
+> a rice_a scane_a corn_y oats_y wheat_y cotton_y rice_y scane_y people samecounty samestate samearea sameregion people_w
+> hite samecounty_white samestate_white samearea_white sameregion_white people_black samecounty_black samestate_black sam
+> earea_black sameregion_black cropval mfgwages mfgestab mfgavear farms_nonwhite_tenant 
+
+. sort fips
+
+. save `1920', replace
+(file /var/folders/hp/s04p1kyn6szc8r_fnd_r5vr00000gn/T//S_11078.00000h not found)
+file /var/folders/hp/s04p1kyn6szc8r_fnd_r5vr00000gn/T//S_11078.00000h saved as .dta format
+
+. clear
+
+. 
+. ***
+. *1925
+. ***
+. 
+. *Data from Haines
+. insheet using "../data/Haines_1925.txt"
+(19 vars, 3,140 obs)
+
+. rename var2 farms
+
+. rename var42 farmland
+
+. rename var99 value_equipment
+
+. rename var169 horses
+
+. rename var173 mules
+
+. sort state county
+
+. merge state county using "../data/icpsr_fips.dta"
+(you are using old merge syntax; see [D] merge for new syntax)
+variables state county do not uniquely identify observations in the master data
+
+. keep if _merge==3
+(41 observations deleted)
+
+. drop name var* _merge
+
+. sort fips
+
+. save `haines1925', replace
+(file /var/folders/hp/s04p1kyn6szc8r_fnd_r5vr00000gn/T//S_11078.000017 not found)
+file /var/folders/hp/s04p1kyn6szc8r_fnd_r5vr00000gn/T//S_11078.000017 saved as .dta format
+
+. clear
+
+. 
+. *New Data from Haines
+. insheet using "../data/Haines_1925_new.txt"
+(14 vars, 3,262 obs)
+
+. sort state county
+
+. drop if state==0|state==.|state>73
+(122 observations deleted)
+
+. foreach var of varlist corn_a oats_a wheat_a cotton_a rice_a scane_a corn_y oats_y wheat_y cotton_y rice_y scane_y {
+  2. replace `var' = 0 if `var'==.
+  3. }
+(24 real changes made)
+(24 real changes made)
+(87 real changes made)
+(121 real changes made)
+(231 real changes made)
+(213 real changes made)
+(24 real changes made)
+(24 real changes made)
+(87 real changes made)
+(121 real changes made)
+(231 real changes made)
+(784 real changes made)
+
+. sort state county
+
+. merge state county using "../data/icpsr_fips.dta"
+(you are using old merge syntax; see [D] merge for new syntax)
+variables state county do not uniquely identify observations in the master data
+
+. keep if _merge==3
+(41 observations deleted)
+
+. drop _merge
+
+. sort fips
+
+. save `haines1925_new', replace
+(file /var/folders/hp/s04p1kyn6szc8r_fnd_r5vr00000gn/T//S_11078.000018 not found)
+file /var/folders/hp/s04p1kyn6szc8r_fnd_r5vr00000gn/T//S_11078.000018 saved as .dta format
+
+. clear
+
+. 
+. *Suresh Updated Tractor Data
+. use "../data/tractors1925.dta",clear
+
+. rename tractors1925 tractors
+
+. keep fips tractors
+
+. sort fips
+
+. save `tractors1925', replace
+(file /var/folders/hp/s04p1kyn6szc8r_fnd_r5vr00000gn/T//S_11078.00001q not found)
+file /var/folders/hp/s04p1kyn6szc8r_fnd_r5vr00000gn/T//S_11078.00001q saved as .dta format
+
+. 
+. clear
+
+. use `farmval925'
+(FARM LAND VALUES PER ACRE, U.S. 1850-1959)
+
+. keep fips farmval
+
+. sort fips
+
+. merge fips using `haines1925'
+(you are using old merge syntax; see [D] merge for new syntax)
+
+. tab _merge
+
+     _merge |      Freq.     Percent        Cum.
+------------+-----------------------------------
+          1 |         20        0.64        0.64
+          2 |      1,582       50.49       51.13
+          3 |      1,531       48.87      100.00
+------------+-----------------------------------
+      Total |      3,133      100.00
+
+. keep if _merge==3
+(1,602 observations deleted)
+
+. drop _merge
+
+. sort fips
+
+. merge fips using `haines1925_new'
+(you are using old merge syntax; see [D] merge for new syntax)
+
+. tab _merge
+
+     _merge |      Freq.     Percent        Cum.
+------------+-----------------------------------
+          2 |      1,582       50.82       50.82
+          3 |      1,531       49.18      100.00
+------------+-----------------------------------
+      Total |      3,113      100.00
+
+. keep if _merge==3
+(1,582 observations deleted)
+
+. drop _merge
+
+. sort fips
+
+. merge fips using `tractors1925'
+(you are using old merge syntax; see [D] merge for new syntax)
+
+. drop if _merge==2
+(1,536 observations deleted)
+
+. drop _merge
+
+. gen value_landbuildings = farmval*farmland
+(1 missing value generated)
+
+. drop farmval
+
+. order fips state county farms farmland value_landbuildings value_equipment horses mules corn_a oats_a wheat_a cotton_a 
+> rice_a scane_a corn_y oats_y wheat_y cotton_y rice_y scane_y tractors
+
+. keep fips state county farms farmland value_landbuildings value_equipment horses mules corn_a oats_a wheat_a cotton_a r
+> ice_a scane_a corn_y oats_y wheat_y cotton_y rice_y scane_y tractors 
+
+. sort fips
+
+. save `1925', replace
+(file /var/folders/hp/s04p1kyn6szc8r_fnd_r5vr00000gn/T//S_11078.00000i not found)
+file /var/folders/hp/s04p1kyn6szc8r_fnd_r5vr00000gn/T//S_11078.00000i saved as .dta format
+
+. clear
+
+. 
+. ***
+. *1930
+. ***
+. 
+. *Data from Haines
+. insheet using "../data/Haines_1930.txt"
+(9 vars, 3,145 obs)
+
+. keep state county horses mules tractors
+
+. sort state county
+
+. save `haines1930_1', replace
+(file /var/folders/hp/s04p1kyn6szc8r_fnd_r5vr00000gn/T//S_11078.000016 not found)
+file /var/folders/hp/s04p1kyn6szc8r_fnd_r5vr00000gn/T//S_11078.000016 saved as .dta format
+
+. clear
+
+. 
+. *New Data from Haines
+. insheet using "../data/Haines_1930_new.txt"
+(14 vars, 3,263 obs)
+
+. sort state county
+
+. drop if state==0|state==.|state>73
+(118 observations deleted)
+
+. destring cotton_a, replace force
+cotton_a: all characters numeric; replaced as long
+(46 missing values generated)
+
+. foreach var of varlist corn_a oats_a wheat_a cotton_a rice_a scane_a corn_y oats_y wheat_y cotton_y rice_y scane_y {
+  2. replace `var' = 0 if `var'==.
+  3. }
+(45 real changes made)
+(45 real changes made)
+(45 real changes made)
+(46 real changes made)
+(45 real changes made)
+(45 real changes made)
+(45 real changes made)
+(45 real changes made)
+(45 real changes made)
+(46 real changes made)
+(45 real changes made)
+(45 real changes made)
+
+. sort state county
+
+. merge state county using `haines1930_1'
+(you are using old merge syntax; see [D] merge for new syntax)
+
+. tab _merge
+
+     _merge |      Freq.     Percent        Cum.
+------------+-----------------------------------
+          3 |      3,145      100.00      100.00
+------------+-----------------------------------
+      Total |      3,145      100.00
+
+. keep if _merge==3
+(0 observations deleted)
+
+. drop _merge
+
+. sort state county
+
+. merge state county using "../data/icpsr_fips.dta"
+(you are using old merge syntax; see [D] merge for new syntax)
+
+. keep if _merge==3
+(52 observations deleted)
+
+. drop _merge
+
+. sort fips
+
+. save `haines1930', replace
+(file /var/folders/hp/s04p1kyn6szc8r_fnd_r5vr00000gn/T//S_11078.000015 not found)
+file /var/folders/hp/s04p1kyn6szc8r_fnd_r5vr00000gn/T//S_11078.000015 saved as .dta format
+
+. clear
+
+. 
+. *Data from Rhode
+. insheet using "../data/redcross_new.txt"
+(12 vars, 661 obs)
+
+. order fips state_redcross county_redcross pop1930 flooded_acres pop_affected agricultural_flooded_acres
+
+. keep fips state_redcross county_redcross pop1930 flooded_acres pop_affected agricultural_flooded_acres
+
+. foreach var of varlist flooded_acres pop_affected agricultural_flooded_acres {
+  2. replace `var' = 0 if `var'==.
+  3. }
+(520 real changes made)
+(487 real changes made)
+(490 real changes made)
+
+. sort fips
+
+. save `redcross', replace
+(file /var/folders/hp/s04p1kyn6szc8r_fnd_r5vr00000gn/T//S_11078.000014 not found)
+file /var/folders/hp/s04p1kyn6szc8r_fnd_r5vr00000gn/T//S_11078.000014 saved as .dta format
+
+. clear
+
+. 
+. *ICPSR data for 1930
+. use "../data/02896-0026-Data.dta"
+(U.S. COUNTY DATA 1930)
+
+. keep if level==1
+(52 observations deleted)
+
+. keep if state==32|state==34|state==40|state==41|state==42|state==43|state==44|state==45|state==46|state==47|state==48|s
+> tate==49|state==51|state==52|state==53|state==54
+(1,534 observations deleted)
+
+. keep fips state county name area areaac totpop urban30 nwmtot nwftot fbwmtot fbwftot negmtot negftot farms farmwh farmc
+> ol acres acfown acpown acten farmfown farmpown farmten farmcten farmbui farmequi cropval mfgwages mfgestab mfgavear
+
+. rename area county_squaremiles
+
+. rename areaac county_acres
+
+. rename totpop population
+
+. gen population_race_white = nwmtot + fbwmtot + nwftot + fbwftot
+
+. gen population_race_black = negmtot + negftot
+
+. gen population_race_other = population - population_race_white - population_race_black
+
+. gen farms_white = farmwh
+(5 missing values generated)
+
+. rename farmcol farms_nonwhite
+
+. gen farms_owner = farmfown+farmpown
+(5 missing values generated)
+
+. rename farmten farms_tenant
+
+. rename farmcten farms_tenant_cash
+
+. rename acres farmland
+
+. gen farmland_owner = acfown + acpown
+(5 missing values generated)
+
+. gen farmland_tenant = acten
+(5 missing values generated)
+
+. rename farmbui value_buildings
+
+. rename farmequi value_equipment
+
+. gen population_rural = population - urban30
+
+. order fips state county name county_acres county_squaremiles population population_rural population_race_white populati
+> on_race_black population_race_other farms farms_white farms_nonwhite farms_owner farms_tenant farms_tenant_cash farmlan
+> d farmland_owner farmland_tenant value_buildings value_equipment cropval mfgwages mfgestab mfgavear
+
+. keep fips state county name county_acres county_squaremiles population population_rural population_race_white populatio
+> n_race_black population_race_other farms farms_white farms_nonwhite farms_owner farms_tenant farms_tenant_cash farmland
+>  farmland_owner farmland_tenant value_buildings value_equipment cropval mfgwages mfgestab mfgavear
+
+. gen year = 1930
+
+. sort fips
+
+. merge fips using `farmval930'
+(you are using old merge syntax; see [D] merge for new syntax)
+
+. keep if _merge==3
+(25 observations deleted)
+
+. drop _merge
+
+. sort fips
+
+. merge fips using "../data/in_migrant_counts.dta"
+(you are using old merge syntax; see [D] merge for new syntax)
+
+. tab _merge
+
+     _merge |      Freq.     Percent        Cum.
+------------+-----------------------------------
+          1 |         31        1.01        1.01
+          2 |      1,504       49.23       50.25
+          3 |      1,520       49.75      100.00
+------------+-----------------------------------
+      Total |      3,055      100.00
+
+. drop if _merge==2
+(1,504 observations deleted)
+
+. drop _merge
+
+. sort fips
+
+. merge fips using `haines1930'
+(you are using old merge syntax; see [D] merge for new syntax)
+(variable state was byte, now int to accommodate using data's values)
+
+. tab _merge
+
+     _merge |      Freq.     Percent        Cum.
+------------+-----------------------------------
+          1 |         20        0.64        0.64
+          2 |      1,579       50.45       51.09
+          3 |      1,531       48.91      100.00
+------------+-----------------------------------
+      Total |      3,130      100.00
+
+. keep if _merge==3
+(1,599 observations deleted)
+
+. drop _merge
+
+. sort fips
+
+. merge fips using `redcross'
+(you are using old merge syntax; see [D] merge for new syntax)
+(variable fips was float, now double to accommodate using data's values)
+
+. drop if _merge==2
+(112 observations deleted)
+
+. drop state_redcross county_redcross pop1930
+
+. drop _merge
+
+. sort fips
+
+. gen value_landbuildings = farmval*farmland
+
+. gen value_land = value_landbuildings-value_buildings
+
+. drop farmval
+
+. order fips county_acres county_squaremiles population population_rural population_race_white population_race_black popu
+> lation_race_other farms farms_white farms_nonwhite farms_owner farms_tenant farms_tenant_cash farmland farmland_owner f
+> armland_tenant value_landbuildings value_land value_buildings value_equipment corn_a oats_a wheat_a cotton_a rice_a sca
+> ne_a corn_y oats_y wheat_y cotton_y rice_y scane_y horses mules tractors flooded_acres pop_affected agricultural_floode
+> d_acres in_people in_samecounty in_samestate in_samearea in_sameregion in_people_white in_samecounty_white in_samestate
+> _white in_samearea_white in_sameregion_white in_people_black in_samecounty_black in_samestate_black in_samearea_black i
+> n_sameregion_black cropval mfgwages mfgestab mfgavear
+
+. keep fips county_acres county_squaremiles population population_rural population_race_white population_race_black popul
+> ation_race_other farms farms_white farms_nonwhite farms_owner farms_tenant farms_tenant_cash farmland farmland_owner fa
+> rmland_tenant value_landbuildings value_land value_buildings value_equipment corn_a oats_a wheat_a cotton_a rice_a scan
+> e_a corn_y oats_y wheat_y cotton_y rice_y scane_y horses mules tractors flooded_acres pop_affected agricultural_flooded
+> _acres in_people in_samecounty in_samestate in_samearea in_sameregion in_people_white in_samecounty_white in_samestate_
+> white in_samearea_white in_sameregion_white in_people_black in_samecounty_black in_samestate_black in_samearea_black in
+> _sameregion_black cropval mfgwages mfgestab mfgavear
+
+. sort fips
+
+. save `1930', replace
+(file /var/folders/hp/s04p1kyn6szc8r_fnd_r5vr00000gn/T//S_11078.00000j not found)
+file /var/folders/hp/s04p1kyn6szc8r_fnd_r5vr00000gn/T//S_11078.00000j saved as .dta format
+
+. clear
+
+. 
+. 
+. ***
+. *1935
+. ***
+. 
+. *Data from Haines
+. insheet using "../data/Haines_1935.txt"
+(17 vars, 3,181 obs)
+
+. rename var2 farms
+
+. rename var12 farmland
+
+. rename var95 horses
+
+. rename var100 mules
+
+. sort state county
+
+. merge state county using "../data/icpsr_fips.dta"
+(you are using old merge syntax; see [D] merge for new syntax)
+variables state county do not uniquely identify observations in the master data
+
+. keep if _merge==3
+(86 observations deleted)
+
+. drop name var* _merge
+
+. sort fips
+
+. save `haines1935', replace
+(file /var/folders/hp/s04p1kyn6szc8r_fnd_r5vr00000gn/T//S_11078.000019 not found)
+file /var/folders/hp/s04p1kyn6szc8r_fnd_r5vr00000gn/T//S_11078.000019 saved as .dta format
+
+. clear
+
+. 
+. *New Data from Haines
+. insheet using "../data/Haines_1935_new.txt"
+(16 vars, 3,269 obs)
+
+. sort state county
+
+. drop if state==0|state==.|state>73
+(121 observations deleted)
+
+. gen wheat_a = wheat1_a+wheat2_a
+(28 missing values generated)
+
+. gen wheat_y = wheat1_y+wheat2_y
+(28 missing values generated)
+
+. drop wheat1* wheat2*
+
+. foreach var of varlist corn_a oats_a wheat_a cotton_a rice_a scane_a corn_y oats_y wheat_y cotton_y rice_y scane_y {
+  2. replace `var' = 0 if `var'==.
+  3. }
+(28 real changes made)
+(28 real changes made)
+(28 real changes made)
+(29 real changes made)
+(28 real changes made)
+(33 real changes made)
+(28 real changes made)
+(28 real changes made)
+(28 real changes made)
+(29 real changes made)
+(28 real changes made)
+(33 real changes made)
+
+. sort state county
+
+. merge state county using "../data/icpsr_fips.dta"
+(you are using old merge syntax; see [D] merge for new syntax)
+
+. keep if _merge==3
+(53 observations deleted)
+
+. drop _merge
+
+. sort fips
+
+. save `haines1935_new', replace
+(file /var/folders/hp/s04p1kyn6szc8r_fnd_r5vr00000gn/T//S_11078.00001a not found)
+file /var/folders/hp/s04p1kyn6szc8r_fnd_r5vr00000gn/T//S_11078.00001a saved as .dta format
+
+. clear
+
+. 
+. use `farmval935'
+(FARM LAND VALUES PER ACRE, U.S. 1850-1959)
+
+. keep fips farmval
+
+. sort fips
+
+. merge fips using `haines1935'
+(you are using old merge syntax; see [D] merge for new syntax)
+
+. tab _merge
+
+     _merge |      Freq.     Percent        Cum.
+------------+-----------------------------------
+          1 |         22        0.70        0.70
+          2 |      1,582       50.49       51.20
+          3 |      1,529       48.80      100.00
+------------+-----------------------------------
+      Total |      3,133      100.00
+
+. keep if _merge==3
+(1,604 observations deleted)
+
+. drop _merge
+
+. sort fips
+
+. merge fips using `haines1935_new'
+(you are using old merge syntax; see [D] merge for new syntax)
+(variable state was byte, now int to accommodate using data's values)
+
+. tab _merge
+
+     _merge |      Freq.     Percent        Cum.
+------------+-----------------------------------
+          2 |      1,582       50.85       50.85
+          3 |      1,529       49.15      100.00
+------------+-----------------------------------
+      Total |      3,111      100.00
+
+. keep if _merge==3
+(1,582 observations deleted)
+
+. drop _merge
+
+. gen value_landbuildings = farmval*farmland
+(1 missing value generated)
+
+. drop farmval
+
+. order fips state county farms farmland value_landbuildings horses mules corn_a oats_a wheat_a cotton_a rice_a scane_a c
+> orn_y oats_y wheat_y cotton_y rice_y scane_y
+
+. keep fips state county farms farmland value_landbuildings horses mules corn_a oats_a wheat_a cotton_a rice_a scane_a co
+> rn_y oats_y wheat_y cotton_y rice_y scane_y
+
+. sort fips
+
+. save `1935', replace
+(file /var/folders/hp/s04p1kyn6szc8r_fnd_r5vr00000gn/T//S_11078.00000k not found)
+file /var/folders/hp/s04p1kyn6szc8r_fnd_r5vr00000gn/T//S_11078.00000k saved as .dta format
+
+. clear
+
+. 
+. ***
+. *1940
+. ***
+. 
+. *New Data from Haines
+. insheet using "../data/Haines_1940_new.txt"
+(14 vars, 3,265 obs)
+
+. sort state county
+
+. drop if state==0|state==.|state>73
+(117 observations deleted)
+
+. destring oats_y, replace
+oats_y: all characters numeric; replaced as long
+(28 missing values generated)
+
+. destring wheat_y, replace
+wheat_y: all characters numeric; replaced as long
+(28 missing values generated)
+
+. foreach var of varlist corn_a oats_a wheat_a cotton_a rice_a scane_a corn_y oats_y wheat_y cotton_y rice_y scane_y {
+  2. replace `var' = 0 if `var'==.
+  3. }
+(29 real changes made)
+(31 real changes made)
+(29 real changes made)
+(30 real changes made)
+(193 real changes made)
+(32 real changes made)
+(28 real changes made)
+(28 real changes made)
+(28 real changes made)
+(31 real changes made)
+(189 real changes made)
+(32 real changes made)
+
+. sort state county
+
+. merge state county using "../data/icpsr_fips.dta"
+(you are using old merge syntax; see [D] merge for new syntax)
+
+. keep if _merge==3
+(53 observations deleted)
+
+. drop _merge
+
+. sort fips
+
+. save `haines1940', replace
+(file /var/folders/hp/s04p1kyn6szc8r_fnd_r5vr00000gn/T//S_11078.00001b not found)
+file /var/folders/hp/s04p1kyn6szc8r_fnd_r5vr00000gn/T//S_11078.00001b saved as .dta format
+
+. clear
+
+. 
+. *ICPSR data for 1940
+. use "../data/02896-0032-Data.dta"
+(U.S. COUNTY DATA 1940)
+
+. keep if level==1
+(52 observations deleted)
+
+. keep if state==32|state==34|state==40|state==41|state==42|state==43|state==44|state==45|state==46|state==47|state==48|s
+> tate==49|state==51|state==52|state==53|state==54
+(1,534 observations deleted)
+
+. keep fips state county name area areaac totpop urb940 nwtot fbwtot negtot farms farmwh farmnonw acfarms acfown acpown a
+> cten accten acsten farmfown farmpown farmcten farmten buildval equipval cropval mfgwages mfgestab mfgavear
+
+. rename area county_squaremiles
+
+. rename areaac county_acres
+
+. rename totpop population
+
+. gen population_race_white = nwtot + fbwtot
+
+. gen population_race_black = negtot
+
+. gen population_race_other = population - population_race_white - population_race_black
+
+. gen farms_white = farmwh
+(24 missing values generated)
+
+. rename farmnonw farms_nonwhite
+
+. gen farms_owner = farmfown+farmpown
+(24 missing values generated)
+
+. rename farmten farms_tenant
+
+. rename farmcten farms_tenant_cash
+
+. rename acfarms farmland
+
+. gen farmland_owner = acfown + acpown
+(24 missing values generated)
+
+. gen farmland_tenant = acten
+(24 missing values generated)
+
+. rename buildval value_buildings
+
+. rename equipval value_equipment
+
+. gen population_rural = population - urb940
+
+. order fips state county name county_acres county_squaremiles population population_rural population_race_white populati
+> on_race_black population_race_other farms farms_white farms_nonwhite farms_owner farms_tenant farms_tenant_cash farmlan
+> d farmland_owner farmland_tenant value_buildings value_equipment cropval mfgwages mfgestab mfgavear
+
+. keep fips state county name county_acres county_squaremiles population population_rural population_race_white populatio
+> n_race_black population_race_other farms farms_white farms_nonwhite farms_owner farms_tenant farms_tenant_cash farmland
+>  farmland_owner farmland_tenant value_buildings value_equipment cropval mfgwages mfgestab mfgavear
+
+. gen year = 1940
+
+. sort fips
+
+. save `icpsr1940', replace
+(file /var/folders/hp/s04p1kyn6szc8r_fnd_r5vr00000gn/T//S_11078.00000l not found)
+file /var/folders/hp/s04p1kyn6szc8r_fnd_r5vr00000gn/T//S_11078.00000l saved as .dta format
+
+. clear
+
+. 
+. use "../data/02896-0070-Data.dta"
+(U.S. County Data Book, 1947)
+
+. keep if level==1
+(61 observations deleted)
+
+. keep if state==32|state==34|state==40|state==41|state==42|state==43|state==44|state==45|state==46|state==47|state==48|s
+> tate==49|state==51|state==52|state==53|state==54
+(1,526 observations deleted)
+
+. keep fips var57 var56
+
+. rename var57 tractors
+
+. rename var56 mules_horses
+
+. sort fips
+
+. merge fips using `icpsr1940'
+(you are using old merge syntax; see [D] merge for new syntax)
+
+. keep if _merge==3
+(4 observations deleted)
+
+. drop _merge
+
+. sort fips
+
+. merge fips using `farmval940'
+(you are using old merge syntax; see [D] merge for new syntax)
+
+. keep if _merge==3
+(29 observations deleted)
+
+. drop _merge
+
+. sort fips
+
+. merge fips using `haines1940'
+(you are using old merge syntax; see [D] merge for new syntax)
+
+. keep if _merge==3
+(1,604 observations deleted)
+
+. drop _merge
+
+. gen value_landbuildings = farmval*farmland
+
+. gen value_land = value_landbuildings-value_buildings
+
+. drop farmval
+
+. foreach var of varlist corn_a oats_a wheat_a cotton_a rice_a scane_a corn_y oats_y wheat_y cotton_y rice_y scane_y {
+  2. replace `var' = 0 if `var'==.
+  3. }
+(0 real changes made)
+(0 real changes made)
+(0 real changes made)
+(0 real changes made)
+(0 real changes made)
+(0 real changes made)
+(0 real changes made)
+(0 real changes made)
+(0 real changes made)
+(0 real changes made)
+(0 real changes made)
+(0 real changes made)
+
+. order fips county_acres county_squaremiles population population_rural population_race_white population_race_black popu
+> lation_race_other farms farms_white farms_nonwhite farms_owner farms_tenant farms_tenant_cash farmland farmland_owner f
+> armland_tenant value_landbuildings value_land value_buildings value_equipment mules_horses tractors corn_a oats_a wheat
+> _a cotton_a rice_a scane_a corn_y oats_y wheat_y cotton_y rice_y scane_y cropval mfgwages mfgestab mfgavear
+
+. keep fips county_acres county_squaremiles population population_rural population_race_white population_race_black popul
+> ation_race_other farms farms_white farms_nonwhite farms_owner farms_tenant farms_tenant_cash farmland farmland_owner fa
+> rmland_tenant value_landbuildings value_land value_buildings value_equipment mules_horses tractors corn_a oats_a wheat_
+> a cotton_a rice_a scane_a corn_y oats_y wheat_y cotton_y rice_y scane_y cropval mfgwages mfgestab mfgavear
+
+. sort fips
+
+. save `1940', replace
+(file /var/folders/hp/s04p1kyn6szc8r_fnd_r5vr00000gn/T//S_11078.00000m not found)
+file /var/folders/hp/s04p1kyn6szc8r_fnd_r5vr00000gn/T//S_11078.00000m saved as .dta format
+
+. clear
+
+. 
+. 
+. ***
+. *1945
+. ***
+. 
+. use "../data/02896-0071-Data.dta"
+
+. keep if level==1
+(62 observations deleted)
+
+. keep if state==32|state==34|state==40|state==41|state==42|state==43|state==44|state==45|state==46|state==47|state==48|s
+> tate==49|state==51|state==52|state==53|state==54
+(1,526 observations deleted)
+
+. keep fips var69 var71 var82
+
+. rename var69 farms
+
+. rename var71 farmland
+
+. replace farmland = farmland*1000
+(1,550 real changes made)
+
+. rename var82 tractors
+
+. sort fips
+
+. merge fips using `farmval945'
+(you are using old merge syntax; see [D] merge for new syntax)
+
+. keep if _merge==3
+(33 observations deleted)
+
+. drop _merge
+
+. gen value_landbuildings = farmval*farmland
+
+. order fips farms farmland value_landbuildings tractors
+
+. keep fips farms farmland value_landbuildings tractors
+
+. sort fips
+
+. save `1945', replace
+(file /var/folders/hp/s04p1kyn6szc8r_fnd_r5vr00000gn/T//S_11078.00000n not found)
+file /var/folders/hp/s04p1kyn6szc8r_fnd_r5vr00000gn/T//S_11078.00000n saved as .dta format
+
+. clear
+
+. 
+. ***
+. *1950
+. ***
+. 
+. *ICPSR data for 1950
+. use "../data/02896-0035-Data.dta"
+(U.S. COUNTY DATA 1950)
+
+. keep if level==1
+(52 observations deleted)
+
+. keep if state==32|state==34|state==40|state==41|state==42|state==43|state==44|state==45|state==46|state==47|state==48|s
+> tate==49|state==51|state==52|state==53|state==54
+(1,534 observations deleted)
+
+. keep fips state county name area areaac totpop urb950 nwmtot nwftot fbwmtot fbwftot negmtot negftot farms farmwh farmno
+> nw acres acfown acpown acten farmfown farmpown farmcten farmten cropval 
+
+. rename area county_squaremiles
+
+. rename areaac county_acres
+
+. rename totpop population
+
+. gen population_race_white = nwmtot + nwftot + fbwmtot + fbwftot
+(1 missing value generated)
+
+. gen population_race_black = negmtot + negftot
+(1 missing value generated)
+
+. gen population_race_other = population - population_race_white - population_race_black
+(1 missing value generated)
+
+. gen farms_white = farmwh
+(27 missing values generated)
+
+. rename farmnonw farms_nonwhite
+
+. gen farms_owner = farmfown+farmpown
+(27 missing values generated)
+
+. rename farmten farms_tenant
+
+. rename farmcten farms_tenant_cash
+
+. rename acres farmland
+
+. gen farmland_owner = acfown + acpown
+(27 missing values generated)
+
+. gen farmland_tenant = acten
+(27 missing values generated)
+
+. gen population_rural = population - urb950
+(1 missing value generated)
+
+. order fips state county name county_acres county_squaremiles population population_rural population_race_white populati
+> on_race_black population_race_other farms farms_white farms_nonwhite farms_owner farms_tenant farms_tenant_cash farmlan
+> d farmland_owner farmland_tenant cropval
+
+. keep fips state county name county_acres county_squaremiles population population_rural population_race_white populatio
+> n_race_black population_race_other farms farms_white farms_nonwhite farms_owner farms_tenant farms_tenant_cash farmland
+>  farmland_owner farmland_tenant cropval
+
+. gen year = 1950
+
+. sort fips
+
+. save `icpsr1950', replace
+(file /var/folders/hp/s04p1kyn6szc8r_fnd_r5vr00000gn/T//S_11078.00000o not found)
+file /var/folders/hp/s04p1kyn6szc8r_fnd_r5vr00000gn/T//S_11078.00000o saved as .dta format
+
+. clear
+
+. 
+. *Agricultural data for 1950
+. use "../data/usag1949.cos.crops.dta"
+
+. keep fips item742 item744
+
+. rename item742 horses
+
+. rename item744 mules_horses
+
+. sort fips
+
+. save `ag1950', replace
+(file /var/folders/hp/s04p1kyn6szc8r_fnd_r5vr00000gn/T//S_11078.00000p not found)
+file /var/folders/hp/s04p1kyn6szc8r_fnd_r5vr00000gn/T//S_11078.00000p saved as .dta format
+
+. clear
+
+. 
+. use "../data/usag1949.work.dta"
+
+. keep if state==32|state==34|state==40|state==41|state==42|state==43|state==44|state==45|state==46|state==47|state==48|s
+> tate==49|state==51|state==52|state==53|state==54
+(1,521 observations deleted)
+
+. keep state county fips var2 var3 var13 var14 var23 var24 var27 var28 var72 var73 var80 var82
+
+. rename var2 corn_a
+
+. rename var3 corn_y
+
+. rename var13 wheat_a
+
+. rename var14 wheat_y
+
+. rename var23 oats_a
+
+. rename var24 oats_y
+
+. rename var27 rice_a
+
+. rename var28 rice_y
+
+. rename var72 cotton_a
+
+. rename var73 cotton_y
+
+. rename var80 scane_a
+
+. rename var82 scane_y
+
+. foreach var of varlist corn_a oats_a wheat_a cotton_a rice_a scane_a corn_y oats_y wheat_y cotton_y rice_y scane_y {
+  2. replace `var' = 0 if `var'==.
+  3. }
+(0 real changes made)
+(0 real changes made)
+(0 real changes made)
+(0 real changes made)
+(0 real changes made)
+(0 real changes made)
+(0 real changes made)
+(0 real changes made)
+(0 real changes made)
+(0 real changes made)
+(0 real changes made)
+(0 real changes made)
+
+. gen year = 1950
+
+. sort fips
+
+. merge fips using `icpsr1950'
+(you are using old merge syntax; see [D] merge for new syntax)
+
+. keep if _merge==3
+(38 observations deleted)
+
+. drop _merge
+
+. sort fips
+
+. merge fips using `ag1950'
+(you are using old merge syntax; see [D] merge for new syntax)
+
+. keep if _merge==3
+(1,620 observations deleted)
+
+. drop _merge
+
+. sort fips
+
+. merge fips using `farmval950'
+(you are using old merge syntax; see [D] merge for new syntax)
+
+. keep if _merge==3
+(10 observations deleted)
+
+. drop _merge
+
+. gen value_landbuildings = farmval*farmland
+
+. drop farmval
+
+. order fips county_acres county_squaremiles population population_rural population_race_white population_race_black popu
+> lation_race_other farms farms_white farms_nonwhite farms_owner farms_tenant farms_tenant_cash farmland farmland_owner f
+> armland_tenant value_landbuildings horses mules_horses corn_a oats_a wheat_a cotton_a rice_a scane_a corn_y oats_y whea
+> t_y cotton_y rice_y scane_y cropval
+
+. keep fips county_acres county_squaremiles population population_rural population_race_white population_race_black popul
+> ation_race_other farms farms_white farms_nonwhite farms_owner farms_tenant farms_tenant_cash farmland farmland_owner fa
+> rmland_tenant value_landbuildings horses mules_horses corn_a oats_a wheat_a cotton_a rice_a scane_a corn_y oats_y wheat
+> _y cotton_y rice_y scane_y cropval
+
+. sort fips
+
+. save `1950', replace
+(file /var/folders/hp/s04p1kyn6szc8r_fnd_r5vr00000gn/T//S_11078.00000q not found)
+file /var/folders/hp/s04p1kyn6szc8r_fnd_r5vr00000gn/T//S_11078.00000q saved as .dta format
+
+. clear
+
+. 
+. 
+. ***
+. *1954
+. ***
+. 
+. use "../data/usag1954.cos.crops.dta"
+
+. keep fips item101 item119 item122 item113 item175 item187 item742 item744 item401 item419 item422 item413 item475 item4
+> 87
+
+. rename item101 corn_a
+
+. rename item119 oats_a
+
+. rename item122 rice_a
+
+. rename item113 wheat_a
+
+. rename item175 cotton_a
+
+. rename item187 scane_a
+
+. rename item742 horses
+
+. rename item744 mules_horses
+
+. rename item401 corn_y
+
+. rename item413 wheat_y
+
+. rename item419 oats_y
+
+. rename item422 rice_y
+
+. rename item475 cotton_y
+
+. rename item487 scane_y
+
+. foreach var of varlist corn_a oats_a wheat_a cotton_a rice_a scane_a corn_y oats_y wheat_y cotton_y rice_y scane_y {
+  2. replace `var' = 0 if `var'==.
+  3. }
+(156 real changes made)
+(130 real changes made)
+(212 real changes made)
+(2,050 real changes made)
+(2,985 real changes made)
+(3,119 real changes made)
+(156 real changes made)
+(130 real changes made)
+(212 real changes made)
+(2,050 real changes made)
+(2,984 real changes made)
+(3,120 real changes made)
+
+. sort fips
+
+. save `ag1954', replace
+(file /var/folders/hp/s04p1kyn6szc8r_fnd_r5vr00000gn/T//S_11078.00000r not found)
+file /var/folders/hp/s04p1kyn6szc8r_fnd_r5vr00000gn/T//S_11078.00000r saved as .dta format
+
+. clear
+
+. 
+. use "../data/02896-0073-Data.dta"
+(U.S. COUNTY & CITY DATA BOOK, 1956: STATES & COUNTIES)
+
+. keep if level==1
+(52 observations deleted)
+
+. keep if state==32|state==34|state==40|state==41|state==42|state==43|state==44|state==45|state==46|state==47|state==48|s
+> tate==49|state==51|state==52|state==53|state==54
+(1,534 observations deleted)
+
+. keep fips var100 var101 var112 var113 var126
+
+. rename var100 farms
+
+. rename var101 farmland
+
+. replace farmland = farmland*1000
+(1,544 real changes made)
+
+. rename var112 value_perfarm
+
+. rename var113 value_peracre
+
+. gen value_landbuildings_perfarm = value_perfarm*farms
+(35 missing values generated)
+
+. gen value_landbuildings_peracre = value_peracre*farmland
+(37 missing values generated)
+
+. rename var126 tractors
+
+. keep fips farmland farms value_landbuildings_perfarm value_landbuildings_peracre tractors
+
+. order fips farmland farms value_landbuildings_perfarm value_landbuildings_peracre tractors
+
+. sort fips
+
+. merge fips using `ag1954'
+(you are using old merge syntax; see [D] merge for new syntax)
+
+. keep if _merge==3
+(1,588 observations deleted)
+
+. drop _merge
+
+. sort fips
+
+. merge fips using `farmval954'
+(you are using old merge syntax; see [D] merge for new syntax)
+
+. gen value_landbuildings = farmval*farmland
+(40 missing values generated)
+
+. drop farmval
+
+. keep if _merge==3
+(37 observations deleted)
+
+. drop _merge
+
+. order fips farms farmland value_landbuildings value_landbuildings_peracre value_landbuildings_perfarm horses mules_hors
+> es tractors corn_a oats_a wheat_a cotton_a rice_a scane_a corn_y oats_y wheat_y cotton_y rice_y scane_y
+
+. keep fips farms farmland value_landbuildings value_landbuildings_peracre value_landbuildings_perfarm horses mules_horse
+> s tractors corn_a oats_a wheat_a cotton_a rice_a scane_a corn_y oats_y wheat_y cotton_y rice_y scane_y 
+
+. sort fips
+
+. save `1954', replace
+(file /var/folders/hp/s04p1kyn6szc8r_fnd_r5vr00000gn/T//S_11078.00000s not found)
+file /var/folders/hp/s04p1kyn6szc8r_fnd_r5vr00000gn/T//S_11078.00000s saved as .dta format
+
+. clear
+
+. 
+. ***
+. *1960
+. ***
+. 
+. *ICPSR data for 1960
+. use "../data/02896-0038-Data.dta"
+
+. keep if level==1
+(52 observations deleted)
+
+. keep if state==32|state==34|state==40|state==41|state==42|state==43|state==44|state==45|state==46|state==47|state==48|s
+> tate==49|state==51|state==52|state==53|state==54
+(1,553 observations deleted)
+
+. keep fips state county name totpop wmtot wftot negmtot negftot 
+
+. rename totpop population
+
+. gen population_race_white = wmtot + wftot
+
+. gen population_race_black = negmtot + negftot
+
+. gen population_race_other = population - population_race_white - population_race_black
+
+. order fips state county name population population_race_white population_race_black population_race_other 
+
+. keep fips state county name population population_race_white population_race_black population_race_other 
+
+. gen year = 1960
+
+. sort fips
+
+. save `icpsr1960', replace
+(file /var/folders/hp/s04p1kyn6szc8r_fnd_r5vr00000gn/T//S_11078.00000t not found)
+file /var/folders/hp/s04p1kyn6szc8r_fnd_r5vr00000gn/T//S_11078.00000t saved as .dta format
+
+. clear
+
+. 
+. use "../data/02896-0074-Data.dta"
+(U.S. COUNTY & CITY DATA BOOK, 1962: COUNTIES)
+
+. keep if level==1
+(51 observations deleted)
+
+. keep if state==32|state==34|state==40|state==41|state==42|state==43|state==44|state==45|state==46|state==47|state==48|s
+> tate==49|state==51|state==52|state==53|state==54
+(1,554 observations deleted)
+
+. keep fips var146 var147 var149 var6
+
+. rename var146 value_perfarm
+
+. rename var147 value_peracre
+
+. rename var149 cropval
+
+. rename var6 percent_urban
+
+. sort fips
+
+. save `icpsr1960_2', replace
+(file /var/folders/hp/s04p1kyn6szc8r_fnd_r5vr00000gn/T//S_11078.00000u not found)
+file /var/folders/hp/s04p1kyn6szc8r_fnd_r5vr00000gn/T//S_11078.00000u saved as .dta format
+
+. clear
+
+. 
+. use "../data/usag1959.cos.crops.dta"
+
+. keep fips item101 item119 item122 item113 item175 item187 item742 item744 item401 item419 item422 item413 item475 item4
+> 87
+
+. rename item101 corn_a
+
+. rename item119 oats_a
+
+. rename item122 rice_a
+
+. rename item113 wheat_a
+
+. rename item175 cotton_a
+
+. rename item187 scane_a
+
+. rename item742 horses
+
+. rename item744 mules_horses
+
+. rename item401 corn_y
+
+. rename item413 wheat_y
+
+. rename item419 oats_y
+
+. rename item422 rice_y
+
+. rename item475 cotton_y
+
+. rename item487 scane_y
+
+. foreach var of varlist corn_a oats_a wheat_a cotton_a rice_a scane_a corn_y oats_y wheat_y cotton_y rice_y scane_y {
+  2. replace `var' = 0 if `var'==.
+  3. }
+(156 real changes made)
+(130 real changes made)
+(212 real changes made)
+(2,050 real changes made)
+(2,985 real changes made)
+(3,119 real changes made)
+(156 real changes made)
+(130 real changes made)
+(212 real changes made)
+(2,050 real changes made)
+(2,984 real changes made)
+(3,120 real changes made)
+
+. sort fips
+
+. save `ag1959', replace
+(file /var/folders/hp/s04p1kyn6szc8r_fnd_r5vr00000gn/T//S_11078.00000v not found)
+file /var/folders/hp/s04p1kyn6szc8r_fnd_r5vr00000gn/T//S_11078.00000v saved as .dta format
+
+. clear
+
+. 
+. *Agricultural data for 1960 (documentation starting page 85)
+. use "../data/usag1959.work.dta",clear
+
+. keep if state==32|state==34|state==40|state==41|state==42|state==43|state==44|state==45|state==46|state==47|state==48|s
+> tate==49|state==51|state==52|state==53|state==54
+(1,521 observations deleted)
+
+. keep state county counname fips var250 var254 var276 var277 var279 var282 var283 var287 var334
+
+. rename counname name
+
+. rename var250 farms
+
+. rename var254 farmland
+
+. rename var276 farmfown
+
+. rename var277 farmpown
+
+. gen farms_owner = farmfown + farmpown
+
+. rename var279 farms_tenant
+
+. rename var282 acfown
+
+. rename var283 acpown
+
+. rename var287 acten
+
+. gen farmland_owner = acfown + acpown
+
+. gen farmland_tenant = acten
+
+. rename var334 value_labor
+
+. gen year = 1960
+
+. sort fips
+
+. merge fips using `icpsr1960'
+(you are using old merge syntax; see [D] merge for new syntax)
+
+. keep if _merge==3
+(40 observations deleted)
+
+. drop _merge
+
+. sort fips
+
+. merge fips using `icpsr1960_2'
+(you are using old merge syntax; see [D] merge for new syntax)
+
+. keep if _merge==3
+(37 observations deleted)
+
+. drop _merge
+
+. sort fips
+
+. merge fips using `ag1959'
+(you are using old merge syntax; see [D] merge for new syntax)
+
+. keep if _merge==3
+(1,620 observations deleted)
+
+. drop _merge
+
+. sort fips
+
+. merge fips using `farmval959'
+(you are using old merge syntax; see [D] merge for new syntax)
+
+. keep if _merge==3
+(10 observations deleted)
+
+. drop _merge
+
+. gen value_landbuildings = farmval*farmland
+(1 missing value generated)
+
+. gen value_landbuildings_peracre = value_peracre*farmland
+(1 missing value generated)
+
+. gen value_landbuildings_perfarm = value_perfarm*farms
+(1 missing value generated)
+
+. gen population_rural = population * (1 - (percent_urban / 100))
+
+. drop farmval
+
+. order fips population population_rural population_race_white population_race_black population_race_other farms farms_ow
+> ner farms_tenant farmland farmland_owner farmland_tenant value_landbuildings value_landbuildings_peracre value_landbuil
+> dings_perfarm horses mules_horses corn_a oats_a wheat_a cotton_a rice_a scane_a corn_y oats_y wheat_y cotton_y rice_y s
+> cane_y cropval
+
+. keep fips population population_rural population_race_white population_race_black population_race_other farms farms_own
+> er farms_tenant farmland farmland_owner farmland_tenant value_landbuildings value_landbuildings_peracre value_landbuild
+> ings_perfarm horses mules_horses corn_a oats_a wheat_a cotton_a rice_a scane_a corn_y oats_y wheat_y cotton_y rice_y sc
+> ane_y cropval
+
+. sort fips
+
+. save `1960', replace
+(file /var/folders/hp/s04p1kyn6szc8r_fnd_r5vr00000gn/T//S_11078.00000w not found)
+file /var/folders/hp/s04p1kyn6szc8r_fnd_r5vr00000gn/T//S_11078.00000w saved as .dta format
+
+. clear
+
+. 
+. 
+. ***
+. *1964
+. ***
+. 
+. use "../data/usag1964.cos.crops.dta"
+
+. keep fips item101 item119 item122 item113 item175 item187 item742 item744 item401 item419 item422 item413 item475 item4
+> 87
+
+. rename item101 corn_a
+
+. rename item119 oats_a
+
+. rename item122 rice_a
+
+. rename item113 wheat_a
+
+. rename item175 cotton_a
+
+. rename item187 scane_a
+
+. rename item742 horses
+
+. rename item744 mules_horses
+
+. rename item401 corn_y
+
+. rename item413 wheat_y
+
+. rename item419 oats_y
+
+. rename item422 rice_y
+
+. rename item475 cotton_y
+
+. rename item487 scane_y
+
+. foreach var of varlist corn_a oats_a wheat_a cotton_a rice_a scane_a corn_y oats_y wheat_y cotton_y rice_y scane_y {
+  2. replace `var' = 0 if `var'==.
+  3. }
+(156 real changes made)
+(130 real changes made)
+(212 real changes made)
+(2,050 real changes made)
+(2,985 real changes made)
+(3,119 real changes made)
+(156 real changes made)
+(130 real changes made)
+(212 real changes made)
+(2,050 real changes made)
+(2,984 real changes made)
+(3,120 real changes made)
+
+. sort fips
+
+. save `ag1964', replace
+(file /var/folders/hp/s04p1kyn6szc8r_fnd_r5vr00000gn/T//S_11078.00000x not found)
+file /var/folders/hp/s04p1kyn6szc8r_fnd_r5vr00000gn/T//S_11078.00000x saved as .dta format
+
+. clear
+
+. 
+. use "../data/02896-0075-Data.dta"
+(U.S. COUNTY & CITY DATA BOOK, 1967: COUNTIES)
+
+. keep if level==1
+(52 observations deleted)
+
+. keep if state==32|state==34|state==40|state==41|state==42|state==43|state==44|state==45|state==46|state==47|state==48|s
+> tate==49|state==51|state==52|state==53|state==54
+(1,554 observations deleted)
+
+. keep fips var124 var126 var128 var129
+
+. rename var124 farms
+
+. rename var126 farmland
+
+. replace farmland = farmland*1000
+(1,545 real changes made)
+
+. rename var129 value_perfarm
+
+. replace value_perfarm = value_perfarm*1000
+variable value_perfarm was int now long
+(1,545 real changes made)
+
+. rename var128 value_peracre
+
+. gen value_landbuildings_perfarm = value_perfarm*farms
+(5 missing values generated)
+
+. gen value_landbuildings_peracre = value_peracre*farmland
+(6 missing values generated)
+
+. sort fips
+
+. merge fips using `ag1964'
+(you are using old merge syntax; see [D] merge for new syntax)
+
+. keep if _merge==3
+(1,582 observations deleted)
+
+. drop _merge
+
+. order fips farms farmland value_landbuildings_peracre value_landbuildings_perfarm horses mules_horses corn_a oats_a whe
+> at_a cotton_a rice_a scane_a corn_y oats_y wheat_y cotton_y rice_y scane_y
+
+. keep fips farms farmland value_landbuildings_peracre value_landbuildings_perfarm horses mules_horses corn_a oats_a whea
+> t_a cotton_a rice_a scane_a corn_y oats_y wheat_y cotton_y rice_y scane_y
+
+. sort fips
+
+. save `1964', replace
+(file /var/folders/hp/s04p1kyn6szc8r_fnd_r5vr00000gn/T//S_11078.000010 not found)
+file /var/folders/hp/s04p1kyn6szc8r_fnd_r5vr00000gn/T//S_11078.000010 saved as .dta format
+
+. clear
+
+. ***
+. *1969
+. ***
+. 
+. use "../data/02896-0076-Data.dta"
+(U.S. COUNTY & CITY DATA BOOK, 1972: COUNTIES)
+
+. keep if level==1
+(52 observations deleted)
+
+. keep if state==32|state==34|state==40|state==41|state==42|state==43|state==44|state==45|state==46|state==47|state==48|s
+> tate==49|state==51|state==52|state==53|state==54
+(1,556 observations deleted)
+
+. keep fips var3 var9 var10 var173 var175 var178 var179 var121 var124 var128
+
+. rename var3 population
+
+. rename var9 population_race_white
+
+. rename var10 population_race_black
+
+. gen population_race_other = population-population_race_white-population_race_black
+(479 missing values generated)
+
+. rename var173 farms
+
+. rename var175 farmland
+
+. replace farmland = farmland*1000
+(1,541 real changes made)
+
+. rename var178 value_perfarm
+
+. replace value_perfarm = value_perfarm*1000
+variable value_perfarm was int now long
+(1,541 real changes made)
+
+. rename var179 value_peracre
+
+. rename var121 mfgestab
+
+. rename var124 mfgavear
+
+. rename var128 mfgwages
+
+. replace mfgwages=mfgwages*1000000
+variable mfgwages was long now double
+(1,239 real changes made)
+
+. replace mfgavear=mfgavear*100
+(1,184 real changes made)
+
+. gen value_landbuildings_perfarm = value_perfarm*farms
+(2 missing values generated)
+
+. gen value_landbuildings_peracre = value_peracre*farmland
+(2 missing values generated)
+
+. gen year = 1970
+
+. sort fips
+
+. save `icpsr1970', replace
+(file /var/folders/hp/s04p1kyn6szc8r_fnd_r5vr00000gn/T//S_11078.000011 not found)
+file /var/folders/hp/s04p1kyn6szc8r_fnd_r5vr00000gn/T//S_11078.000011 saved as .dta format
+
+. clear
+
+. 
+. use "../data/usag1969.cos.crops.dta", clear
+
+. rename stateicp state
+
+. keep if state==32|state==34|state==40|state==41|state==42|state==43|state==44|state==45|state==46|state==47|state==48|s
+> tate==49|state==51|state==52|state==53|state==54
+(1,559 observations deleted)
+
+. keep fips item101 item119 item122 item113 item175 item187 item742 item744 item401 item419 item422 item413 item475 item4
+> 87
+
+. rename item101 corn_a
+
+. rename item119 oats_a
+
+. rename item122 rice_a
+
+. rename item113 wheat_a
+
+. rename item175 cotton_a
+
+. rename item187 scane_a
+
+. rename item742 horses
+
+. rename item744 mules_horses
+
+. rename item401 corn_y
+
+. rename item413 wheat_y
+
+. rename item419 oats_y
+
+. rename item422 rice_y
+
+. rename item475 cotton_y
+
+. rename item487 scane_y
+
+. foreach var of varlist corn_a oats_a wheat_a cotton_a rice_a scane_a corn_y oats_y wheat_y cotton_y rice_y scane_y {
+  2. replace `var' = 0 if `var'==.
+  3. }
+(60 real changes made)
+(76 real changes made)
+(135 real changes made)
+(557 real changes made)
+(1,459 real changes made)
+(1,564 real changes made)
+(60 real changes made)
+(76 real changes made)
+(135 real changes made)
+(557 real changes made)
+(1,459 real changes made)
+(1,565 real changes made)
+
+. sort fips
+
+. save `ag1969', replace
+(file /var/folders/hp/s04p1kyn6szc8r_fnd_r5vr00000gn/T//S_11078.000012 not found)
+file /var/folders/hp/s04p1kyn6szc8r_fnd_r5vr00000gn/T//S_11078.000012 saved as .dta format
+
+. 
+. use "../data/usag74.1969.allfarms.work.dta", clear
+
+. keep if state==32|state==34|state==40|state==41|state==42|state==43|state==44|state==45|state==46|state==47|state==48|s
+> tate==49|state==51|state==52|state==53|state==54
+(1,544 observations deleted)
+
+. keep fips item06002 item06019 item06022 item01001 item02004 item02007 item02010 item02005 item02008 item02011
+
+. rename item01001 farms
+
+. rename item06002 farmequi
+
+. replace farmequi = farmequi*1000
+(1,557 real changes made)
+
+. rename farmequi value_equipment
+
+. rename item06019 tractors_wheel
+
+. rename item06022 tractors_crawler
+
+. gen farms_owner = item02004 + item02007
+
+. gen farms_tenant = item02010
+
+. gen farmland_owner = item02005 + item02008
+
+. gen farmland_tenant = item02011
+
+. sort fips
+
+. merge fips using `ag1969'
+(you are using old merge syntax; see [D] merge for new syntax)
+
+. keep if _merge==3
+(43 observations deleted)
+
+. drop _merge
+
+. sort fips
+
+. merge fips using `icpsr1970'
+(you are using old merge syntax; see [D] merge for new syntax)
+(variable farms was float, now double to accommodate using data's values)
+
+. keep if _merge==3
+(61 observations deleted)
+
+. drop _merge
+
+. order fips population population_race_white population_race_black population_race_other farms farms_owner farms_tenant 
+> farmland farmland_owner farmland_tenant value_landbuildings_peracre value_landbuildings_perfarm value_equipment horses 
+> mules_horses tractors_wheel tractors_crawler corn_a oats_a wheat_a cotton_a rice_a scane_a corn_y oats_y wheat_y cotton
+> _y rice_y scane_y
+
+. keep fips population population_race_white population_race_black population_race_other farms farms_owner farms_tenant f
+> armland farmland_owner farmland_tenant value_landbuildings_peracre value_landbuildings_perfarm value_equipment horses m
+> ules_horses tractors_wheel tractors_crawler corn_a oats_a wheat_a cotton_a rice_a scane_a corn_y oats_y wheat_y cotton_
+> y rice_y scane_y
+
+. sort fips
+
+. save `1970', replace
+(file /var/folders/hp/s04p1kyn6szc8r_fnd_r5vr00000gn/T//S_11078.000013 not found)
+file /var/folders/hp/s04p1kyn6szc8r_fnd_r5vr00000gn/T//S_11078.000013 saved as .dta format
+
+. clear
+
+. 
+. 
+. *Adjust for country border changes
+. 
+. insheet using "../data/Export1910_1900.txt", tab
+(6 vars, 19,533 obs)
+
+. keep if state==state_1
+(123 observations deleted)
+
+. gen percent = new_area/area
+
+. rename id fips
+
+. sort fips
+
+. merge fips using `1910'
+(you are using old merge syntax; see [D] merge for new syntax)
+variable fips does not uniquely identify observations in the master data
+
+. keep if _merge==3
+(5,971 observations deleted)
+
+. drop _merge
+
+. foreach var of varlist county_squaremiles population population_rural population_race_white population_race_black popul
+> ation_race_other farms farms_white farms_nonwhite farms_nonwhite_tenant farms_owner farms_tenant farms_tenant_cash farm
+> land farmland_owner farmland_tenant value_landbuildings value_land value_buildings value_equipment horses mules corn_a 
+> oats_a wheat_a cotton_a rice_a scane_a corn_y oats_y wheat_y cotton_y rice_y scane_y cropval{
+  2. replace `var' = `var'*percent
+  3. replace `var' = -100000000000000000000000 if `var'==.&percent>0.01
+  4. }
+variable county_squaremiles was long now double
+(12,288 real changes made)
+(0 real changes made)
+variable population was long now double
+(12,288 real changes made)
+(0 real changes made)
+variable population_rural was long now double
+(12,271 real changes made)
+(0 real changes made)
+(12,288 real changes made)
+(0 real changes made)
+(12,288 real changes made)
+(0 real changes made)
+(6,842 real changes made)
+(0 real changes made)
+variable farms was long now double
+(12,288 real changes made)
+(0 real changes made)
+(12,288 real changes made)
+(0 real changes made)
+variable farms_nonwhite was long now double
+(11,545 real changes made)
+(0 real changes made)
+(11,229 real changes made)
+(0 real changes made)
+variable farms_owner was long now double
+(12,288 real changes made)
+(0 real changes made)
+variable farms_tenant was long now double
+(12,288 real changes made)
+(0 real changes made)
+variable farms_tenant_cash was long now double
+(12,138 real changes made)
+(0 real changes made)
+(12,288 real changes made)
+(0 real changes made)
+variable farmland_owner was long now double
+(12,288 real changes made)
+(0 real changes made)
+variable farmland_tenant was long now double
+(12,288 real changes made)
+(0 real changes made)
+(12,288 real changes made)
+(1 real change made)
+(12,288 real changes made)
+(1 real change made)
+(12,288 real changes made)
+(0 real changes made)
+variable value_equipment was long now double
+(12,288 real changes made)
+(0 real changes made)
+variable horses was long now double
+(12,288 real changes made)
+(0 real changes made)
+variable mules was long now double
+(12,236 real changes made)
+(0 real changes made)
+variable corn_a was long now double
+(11,294 real changes made)
+(0 real changes made)
+variable oats_a was long now double
+(6,165 real changes made)
+(0 real changes made)
+variable wheat_a was long now double
+(2,031 real changes made)
+(0 real changes made)
+variable cotton_a was long now double
+(5,060 real changes made)
+(0 real changes made)
+variable rice_a was long now double
+(7,335 real changes made)
+(0 real changes made)
+variable scane_a was long now double
+(9,451 real changes made)
+(0 real changes made)
+(11,294 real changes made)
+(0 real changes made)
+variable oats_y was long now double
+(6,165 real changes made)
+(0 real changes made)
+variable wheat_y was long now double
+(2,033 real changes made)
+(0 real changes made)
+variable cotton_y was long now double
+(5,060 real changes made)
+(183 real changes made)
+variable rice_y was long now double
+(7,482 real changes made)
+(842 real changes made)
+variable scane_y was long now double
+(9,451 real changes made)
+(581 real changes made)
+(12,288 real changes made)
+(0 real changes made)
+
+. collapse (sum) county_squaremiles population population_rural population_race_white population_race_black population_ra
+> ce_other farms farms_white farms_nonwhite farms_nonwhite_tenant farms_owner farms_tenant farms_tenant_cash farmland far
+> mland_owner farmland_tenant value_landbuildings value_land value_buildings value_equipment horses mules corn_a oats_a w
+> heat_a cotton_a rice_a scane_a corn_y oats_y wheat_y cotton_y rice_y scane_y cropval, by(id_1)
+
+. foreach var of varlist county_squaremiles population population_rural population_race_white population_race_black popul
+> ation_race_other farms farms_white farms_nonwhite farms_nonwhite_tenant farms_owner farms_tenant farms_tenant_cash farm
+> land farmland_owner farmland_tenant value_landbuildings value_land value_buildings value_equipment horses mules corn_a 
+> oats_a wheat_a cotton_a rice_a scane_a corn_y oats_y wheat_y cotton_y rice_y scane_y cropval {
+  2. replace `var' = . if `var' < 0
+  3. }
+(0 real changes made)
+(0 real changes made)
+(0 real changes made)
+(0 real changes made)
+(0 real changes made)
+(0 real changes made)
+(0 real changes made)
+(0 real changes made)
+(0 real changes made)
+(0 real changes made)
+(0 real changes made)
+(0 real changes made)
+(0 real changes made)
+(0 real changes made)
+(0 real changes made)
+(0 real changes made)
+(1 real change made, 1 to missing)
+(2 real changes made, 2 to missing)
+(0 real changes made)
+(0 real changes made)
+(0 real changes made)
+(0 real changes made)
+(0 real changes made)
+(0 real changes made)
+(0 real changes made)
+(0 real changes made)
+(0 real changes made)
+(0 real changes made)
+(0 real changes made)
+(0 real changes made)
+(0 real changes made)
+(174 real changes made, 174 to missing)
+(802 real changes made, 802 to missing)
+(557 real changes made, 557 to missing)
+(0 real changes made)
+
+. gen year=1910
+
+. save `flood1910_1900', replace
+(file /var/folders/hp/s04p1kyn6szc8r_fnd_r5vr00000gn/T//S_11078.00001e not found)
+file /var/folders/hp/s04p1kyn6szc8r_fnd_r5vr00000gn/T//S_11078.00001e saved as .dta format
+
+. clear
+
+. 
+. insheet using "../data/Export1920_1900.txt", tab
+(6 vars, 19,969 obs)
+
+. keep if state==state_1
+(125 observations deleted)
+
+. gen percent = new_area/area
+
+. rename id fips
+
+. sort fips
+
+. merge fips using `1920'
+(you are using old merge syntax; see [D] merge for new syntax)
+variable fips does not uniquely identify observations in the master data
+(variable fips was long, now double to accommodate using data's values)
+
+. keep if _merge==3
+(6,252 observations deleted)
+
+. drop _merge
+
+. foreach var of varlist county_acres county_squaremiles population population_rural population_race_white population_rac
+> e_black population_race_other farms farms_white farms_nonwhite farms_nonwhite_tenant farms_owner farms_tenant farms_ten
+> ant_cash farmland farmland_owner farmland_tenant value_landbuildings value_land value_buildings value_equipment horses 
+> mules corn_a oats_a wheat_a cotton_a rice_a scane_a corn_y oats_y wheat_y cotton_y rice_y scane_y cropval people sameco
+> unty samestate samearea sameregion people_white samecounty_white samestate_white samearea_white sameregion_white people
+> _black samecounty_black samestate_black samearea_black sameregion_black mfgwages mfgestab mfgavear{
+  2. replace `var' = `var'*percent
+  3. replace `var' = -100000000000000000000000 if `var'==.&percent>0.01
+  4. }
+variable county_acres was long now double
+(12,449 real changes made)
+(0 real changes made)
+variable county_squaremiles was long now double
+(12,449 real changes made)
+(0 real changes made)
+variable population was long now double
+(12,449 real changes made)
+(0 real changes made)
+(12,440 real changes made)
+(0 real changes made)
+(12,449 real changes made)
+(0 real changes made)
+(12,447 real changes made)
+(0 real changes made)
+(9,340 real changes made)
+(0 real changes made)
+variable farms was long now double
+(12,449 real changes made)
+(0 real changes made)
+(12,449 real changes made)
+(0 real changes made)
+variable farms_nonwhite was long now double
+(11,933 real changes made)
+(0 real changes made)
+variable farms_nonwhite_tenant was long now double
+(11,504 real changes made)
+(0 real changes made)
+variable farms_owner was long now double
+(12,449 real changes made)
+(0 real changes made)
+variable farms_tenant was long now double
+(12,407 real changes made)
+(0 real changes made)
+variable farms_tenant_cash was long now double
+(11,945 real changes made)
+(0 real changes made)
+(12,449 real changes made)
+(0 real changes made)
+variable farmland_owner was long now double
+(12,449 real changes made)
+(0 real changes made)
+variable farmland_tenant was long now double
+(12,407 real changes made)
+(0 real changes made)
+(12,449 real changes made)
+(1 real change made)
+(12,449 real changes made)
+(1 real change made)
+(12,449 real changes made)
+(0 real changes made)
+(12,449 real changes made)
+(0 real changes made)
+variable horses was long now double
+(12,449 real changes made)
+(0 real changes made)
+variable mules was long now double
+(12,449 real changes made)
+(0 real changes made)
+variable corn_a was long now double
+(12,449 real changes made)
+(0 real changes made)
+variable oats_a was long now double
+(6,951 real changes made)
+(0 real changes made)
+variable wheat_a was long now double
+(2,808 real changes made)
+(0 real changes made)
+variable cotton_a was long now double
+(5,929 real changes made)
+(0 real changes made)
+variable rice_a was long now double
+(6,678 real changes made)
+(0 real changes made)
+variable scane_a was long now double
+(7,790 real changes made)
+(0 real changes made)
+(12,449 real changes made)
+(0 real changes made)
+variable oats_y was long now double
+(6,951 real changes made)
+(0 real changes made)
+variable wheat_y was long now double
+(2,808 real changes made)
+(76 real changes made)
+variable cotton_y was long now double
+(5,929 real changes made)
+(124 real changes made)
+variable rice_y was long now double
+(6,682 real changes made)
+(426 real changes made)
+variable scane_y was long now double
+(7,790 real changes made)
+(76 real changes made)
+(12,449 real changes made)
+(0 real changes made)
+(11,306 real changes made)
+(105 real changes made)
+(8,427 real changes made)
+(105 real changes made)
+(10,739 real changes made)
+(105 real changes made)
+(11,236 real changes made)
+(105 real changes made)
+(10,929 real changes made)
+(105 real changes made)
+(3,764 real changes made)
+(105 real changes made)
+(3,755 real changes made)
+(105 real changes made)
+(3,764 real changes made)
+(105 real changes made)
+(3,764 real changes made)
+(105 real changes made)
+(3,764 real changes made)
+(105 real changes made)
+(3,743 real changes made)
+(105 real changes made)
+(3,565 real changes made)
+(105 real changes made)
+(3,737 real changes made)
+(105 real changes made)
+(3,741 real changes made)
+(105 real changes made)
+(3,743 real changes made)
+(105 real changes made)
+(11,208 real changes made)
+(156 real changes made)
+variable mfgestab was long now double
+(11,208 real changes made)
+(156 real changes made)
+variable mfgavear was long now double
+(11,208 real changes made)
+(156 real changes made)
+
+. collapse (sum) county_acres county_squaremiles population population_rural population_race_white population_race_black 
+> population_race_other farms farms_white farms_nonwhite farms_nonwhite_tenant farms_owner farms_tenant farms_tenant_cash
+>  farmland farmland_owner farmland_tenant value_landbuildings value_land value_buildings value_equipment horses mules co
+> rn_a oats_a wheat_a cotton_a rice_a scane_a corn_y oats_y wheat_y cotton_y rice_y scane_y cropval people samecounty sam
+> estate samearea sameregion people_white samecounty_white samestate_white samearea_white sameregion_white people_black s
+> amecounty_black samestate_black samearea_black sameregion_black mfgwages mfgestab mfgavear, by(id_1)
+
+. foreach var of varlist county_acres county_squaremiles population population_rural population_race_white population_rac
+> e_black population_race_other farms farms_white farms_nonwhite farms_nonwhite_tenant farms_owner farms_tenant farms_ten
+> ant_cash farmland farmland_owner farmland_tenant value_landbuildings value_land value_buildings value_equipment horses 
+> mules corn_a oats_a wheat_a cotton_a rice_a scane_a corn_y oats_y wheat_y cotton_y rice_y scane_y cropval people sameco
+> unty samestate samearea sameregion people_white samecounty_white samestate_white samearea_white sameregion_white people
+> _black samecounty_black samestate_black samearea_black sameregion_black mfgwages mfgestab mfgavear{
+  2. replace `var' = . if `var' < 0
+  3. }
+(0 real changes made)
+(0 real changes made)
+(0 real changes made)
+(0 real changes made)
+(0 real changes made)
+(0 real changes made)
+(0 real changes made)
+(0 real changes made)
+(0 real changes made)
+(0 real changes made)
+(0 real changes made)
+(0 real changes made)
+(0 real changes made)
+(0 real changes made)
+(0 real changes made)
+(0 real changes made)
+(0 real changes made)
+(1 real change made, 1 to missing)
+(1 real change made, 1 to missing)
+(0 real changes made)
+(0 real changes made)
+(0 real changes made)
+(0 real changes made)
+(0 real changes made)
+(0 real changes made)
+(0 real changes made)
+(0 real changes made)
+(0 real changes made)
+(0 real changes made)
+(0 real changes made)
+(0 real changes made)
+(45 real changes made, 45 to missing)
+(119 real changes made, 119 to missing)
+(382 real changes made, 382 to missing)
+(40 real changes made, 40 to missing)
+(0 real changes made)
+(88 real changes made, 88 to missing)
+(88 real changes made, 88 to missing)
+(88 real changes made, 88 to missing)
+(88 real changes made, 88 to missing)
+(88 real changes made, 88 to missing)
+(88 real changes made, 88 to missing)
+(88 real changes made, 88 to missing)
+(88 real changes made, 88 to missing)
+(88 real changes made, 88 to missing)
+(88 real changes made, 88 to missing)
+(88 real changes made, 88 to missing)
+(88 real changes made, 88 to missing)
+(88 real changes made, 88 to missing)
+(88 real changes made, 88 to missing)
+(88 real changes made, 88 to missing)
+(134 real changes made, 134 to missing)
+(134 real changes made, 134 to missing)
+(134 real changes made, 134 to missing)
+
+. gen year=1920
+
+. save `flood1920_1900', replace
+(file /var/folders/hp/s04p1kyn6szc8r_fnd_r5vr00000gn/T//S_11078.00001f not found)
+file /var/folders/hp/s04p1kyn6szc8r_fnd_r5vr00000gn/T//S_11078.00001f saved as .dta format
+
+. clear
+
+. 
+. insheet using "../data/Export1930_1900.txt", tab
+(6 vars, 20,189 obs)
+
+. keep if state==state_1
+(124 observations deleted)
+
+. gen percent = new_area/area
+
+. rename id fips
+
+. sort fips
+
+. merge fips using `1930'
+(you are using old merge syntax; see [D] merge for new syntax)
+variable fips does not uniquely identify observations in the master data
+(variable fips was long, now double to accommodate using data's values)
+
+. keep if _merge==3
+(7,342 observations deleted)
+
+. drop _merge
+
+. foreach var of varlist county_acres county_squaremiles population population_rural population_race_white population_rac
+> e_black population_race_other farms farms_white farms_nonwhite farms_owner farms_tenant farms_tenant_cash farmland farm
+> land_owner farmland_tenant value_landbuildings value_land value_buildings value_equipment corn_a oats_a wheat_a cotton_
+> a rice_a scane_a corn_y oats_y wheat_y cotton_y rice_y scane_y horses mules tractors flooded_acres pop_affected agricul
+> tural_flooded_acres in_people in_samecounty in_samestate in_samearea in_sameregion in_people_white in_samecounty_white 
+> in_samestate_white in_samearea_white in_sameregion_white in_people_black in_samecounty_black in_samestate_black in_same
+> area_black in_sameregion_black cropval mfgwages mfgestab mfgavear{
+  2. replace `var' = `var'*percent
+  3. replace `var' = -100000000000000000000000 if `var'==.&percent>0.01
+  4. }
+variable county_acres was long now double
+(11,609 real changes made)
+(0 real changes made)
+variable county_squaremiles was long now double
+(11,609 real changes made)
+(0 real changes made)
+variable population was long now double
+(11,609 real changes made)
+(0 real changes made)
+(11,600 real changes made)
+(0 real changes made)
+(11,609 real changes made)
+(0 real changes made)
+(11,609 real changes made)
+(0 real changes made)
+(9,143 real changes made)
+(0 real changes made)
+variable farms was long now double
+(11,609 real changes made)
+(0 real changes made)
+(11,609 real changes made)
+(0 real changes made)
+variable farms_nonwhite was long now double
+(11,443 real changes made)
+(0 real changes made)
+(11,609 real changes made)
+(0 real changes made)
+variable farms_tenant was long now double
+(11,567 real changes made)
+(0 real changes made)
+variable farms_tenant_cash was long now double
+(11,409 real changes made)
+(0 real changes made)
+variable farmland was long now double
+(11,609 real changes made)
+(0 real changes made)
+(11,609 real changes made)
+(0 real changes made)
+(11,567 real changes made)
+(0 real changes made)
+(11,609 real changes made)
+(0 real changes made)
+(11,609 real changes made)
+(0 real changes made)
+(11,609 real changes made)
+(0 real changes made)
+(11,609 real changes made)
+(0 real changes made)
+variable corn_a was long now double
+(11,206 real changes made)
+(0 real changes made)
+variable oats_a was long now double
+(8,548 real changes made)
+(0 real changes made)
+variable wheat_a was long now double
+(3,529 real changes made)
+(0 real changes made)
+variable cotton_a was long now double
+(9,343 real changes made)
+(0 real changes made)
+variable rice_a was long now double
+(1,288 real changes made)
+(0 real changes made)
+variable scane_a was long now double
+(3,004 real changes made)
+(0 real changes made)
+variable corn_y was long now double
+(11,206 real changes made)
+(0 real changes made)
+variable oats_y was long now double
+(8,548 real changes made)
+(0 real changes made)
+variable wheat_y was long now double
+(3,529 real changes made)
+(0 real changes made)
+variable cotton_y was long now double
+(9,343 real changes made)
+(0 real changes made)
+variable rice_y was long now double
+(1,413 real changes made)
+(0 real changes made)
+variable scane_y was long now double
+(3,004 real changes made)
+(0 real changes made)
+variable horses was long now double
+(10,686 real changes made)
+(3 real changes made)
+variable mules was long now double
+(10,643 real changes made)
+(7 real changes made)
+variable tractors was long now double
+(10,482 real changes made)
+(0 real changes made)
+variable flooded_acres was long now double
+(3,391 real changes made)
+(1,082 real changes made)
+variable pop_affected was long now double
+(3,714 real changes made)
+(1,082 real changes made)
+variable agricultural_flooded_acres was long now double
+(3,714 real changes made)
+(1,082 real changes made)
+(11,103 real changes made)
+(35 real changes made)
+(8,238 real changes made)
+(35 real changes made)
+(9,870 real changes made)
+(35 real changes made)
+(11,074 real changes made)
+(35 real changes made)
+(10,786 real changes made)
+(35 real changes made)
+(5,583 real changes made)
+(35 real changes made)
+(3,829 real changes made)
+(35 real changes made)
+(3,841 real changes made)
+(35 real changes made)
+(5,306 real changes made)
+(35 real changes made)
+(4,711 real changes made)
+(35 real changes made)
+(4,586 real changes made)
+(35 real changes made)
+(3,523 real changes made)
+(35 real changes made)
+(3,808 real changes made)
+(35 real changes made)
+(3,953 real changes made)
+(35 real changes made)
+(4,321 real changes made)
+(35 real changes made)
+(11,609 real changes made)
+(0 real changes made)
+(10,912 real changes made)
+(266 real changes made)
+variable mfgestab was long now double
+(10,912 real changes made)
+(266 real changes made)
+variable mfgavear was long now double
+(10,912 real changes made)
+(266 real changes made)
+
+. collapse (sum) county_acres county_squaremiles population population_rural population_race_white population_race_black 
+> population_race_other farms farms_white farms_nonwhite farms_owner farms_tenant farms_tenant_cash farmland farmland_own
+> er farmland_tenant value_landbuildings value_land value_buildings value_equipment corn_a oats_a wheat_a cotton_a rice_a
+>  scane_a corn_y oats_y wheat_y cotton_y rice_y scane_y horses mules tractors flooded_acres pop_affected agricultural_fl
+> ooded_acres in_people in_samecounty in_samestate in_samearea in_sameregion in_people_white in_samecounty_white in_sames
+> tate_white in_samearea_white in_sameregion_white in_people_black in_samecounty_black in_samestate_black in_samearea_bla
+> ck in_sameregion_black cropval mfgwages mfgestab mfgavear, by(id_1)
+
+. foreach var of varlist county_acres county_squaremiles population population_rural population_race_white population_rac
+> e_black population_race_other farms farms_white farms_nonwhite farms_owner farms_tenant farms_tenant_cash farmland farm
+> land_owner farmland_tenant value_landbuildings value_land value_buildings value_equipment corn_a oats_a wheat_a cotton_
+> a rice_a scane_a corn_y oats_y wheat_y cotton_y rice_y scane_y horses mules tractors flooded_acres pop_affected agricul
+> tural_flooded_acres in_people in_samecounty in_samestate in_samearea in_sameregion in_people_white in_samecounty_white 
+> in_samestate_white in_samearea_white in_sameregion_white in_people_black in_samecounty_black in_samestate_black in_same
+> area_black in_sameregion_black cropval mfgwages mfgestab mfgavear{
+  2. replace `var' = . if `var' < 0
+  3. }
+(0 real changes made)
+(0 real changes made)
+(0 real changes made)
+(0 real changes made)
+(0 real changes made)
+(0 real changes made)
+(0 real changes made)
+(0 real changes made)
+(0 real changes made)
+(0 real changes made)
+(0 real changes made)
+(0 real changes made)
+(0 real changes made)
+(0 real changes made)
+(0 real changes made)
+(0 real changes made)
+(0 real changes made)
+(0 real changes made)
+(0 real changes made)
+(0 real changes made)
+(0 real changes made)
+(0 real changes made)
+(0 real changes made)
+(0 real changes made)
+(0 real changes made)
+(0 real changes made)
+(0 real changes made)
+(0 real changes made)
+(0 real changes made)
+(0 real changes made)
+(0 real changes made)
+(0 real changes made)
+(1 real change made, 1 to missing)
+(2 real changes made, 2 to missing)
+(0 real changes made)
+(858 real changes made, 858 to missing)
+(858 real changes made, 858 to missing)
+(858 real changes made, 858 to missing)
+(31 real changes made, 31 to missing)
+(31 real changes made, 31 to missing)
+(31 real changes made, 31 to missing)
+(31 real changes made, 31 to missing)
+(31 real changes made, 31 to missing)
+(31 real changes made, 31 to missing)
+(31 real changes made, 31 to missing)
+(31 real changes made, 31 to missing)
+(31 real changes made, 31 to missing)
+(31 real changes made, 31 to missing)
+(31 real changes made, 31 to missing)
+(31 real changes made, 31 to missing)
+(31 real changes made, 31 to missing)
+(31 real changes made, 31 to missing)
+(31 real changes made, 31 to missing)
+(0 real changes made)
+(245 real changes made, 245 to missing)
+(245 real changes made, 245 to missing)
+(245 real changes made, 245 to missing)
+
+. gen year=1930
+
+. save `flood1930_1900', replace
+(file /var/folders/hp/s04p1kyn6szc8r_fnd_r5vr00000gn/T//S_11078.00001h not found)
+file /var/folders/hp/s04p1kyn6szc8r_fnd_r5vr00000gn/T//S_11078.00001h saved as .dta format
+
+. clear
+
+. 
+. insheet using "../data/Export1940_1900.txt", tab
+(6 vars, 20,218 obs)
+
+. keep if state==state_1
+(124 observations deleted)
+
+. gen percent = new_area/area
+
+. rename id fips
+
+. sort fips
+
+. merge fips using `1940'
+(you are using old merge syntax; see [D] merge for new syntax)
+variable fips does not uniquely identify observations in the master data
+(variable fips was long, now double to accommodate using data's values)
+
+. keep if _merge==3
+(7,425 observations deleted)
+
+. drop _merge
+
+. foreach var of varlist county_acres county_squaremiles population population_rural population_race_white population_rac
+> e_black population_race_other farms farms_white farms_nonwhite farms_owner farms_tenant farms_tenant_cash farmland farm
+> land_owner farmland_tenant value_landbuildings value_land value_buildings value_equipment mules_horses tractors corn_a 
+> oats_a wheat_a cotton_a rice_a scane_a corn_y oats_y wheat_y cotton_y rice_y scane_y cropval{
+  2. replace `var' = `var'*percent
+  3. replace `var' = -100000000000000000000000 if `var'==.&percent>0.01
+  4. }
+variable county_acres was long now double
+(11,572 real changes made)
+(0 real changes made)
+variable county_squaremiles was long now double
+(11,572 real changes made)
+(0 real changes made)
+variable population was long now double
+(11,572 real changes made)
+(0 real changes made)
+(11,562 real changes made)
+(0 real changes made)
+(11,572 real changes made)
+(0 real changes made)
+(11,567 real changes made)
+(0 real changes made)
+(9,203 real changes made)
+(0 real changes made)
+variable farms was long now double
+(11,572 real changes made)
+(0 real changes made)
+(11,572 real changes made)
+(0 real changes made)
+variable farms_nonwhite was long now double
+(11,274 real changes made)
+(0 real changes made)
+(11,572 real changes made)
+(0 real changes made)
+variable farms_tenant was long now double
+(11,572 real changes made)
+(0 real changes made)
+variable farms_tenant_cash was long now double
+(11,572 real changes made)
+(0 real changes made)
+variable farmland was long now double
+(11,572 real changes made)
+(0 real changes made)
+(11,572 real changes made)
+(0 real changes made)
+(11,572 real changes made)
+(0 real changes made)
+(11,572 real changes made)
+(0 real changes made)
+(11,572 real changes made)
+(0 real changes made)
+(11,572 real changes made)
+(0 real changes made)
+(11,572 real changes made)
+(0 real changes made)
+variable mules_horses was long now double
+(10,607 real changes made)
+(0 real changes made)
+variable tractors was long now double
+(10,603 real changes made)
+(18 real changes made)
+variable corn_a was long now double
+(11,572 real changes made)
+(0 real changes made)
+variable oats_a was long now double
+(4,157 real changes made)
+(0 real changes made)
+variable wheat_a was long now double
+(2,254 real changes made)
+(0 real changes made)
+variable cotton_a was long now double
+(5,153 real changes made)
+(0 real changes made)
+variable rice_a was long now double
+(4,332 real changes made)
+(0 real changes made)
+variable scane_a was long now double
+(3,787 real changes made)
+(0 real changes made)
+(11,572 real changes made)
+(0 real changes made)
+variable oats_y was long now double
+(4,163 real changes made)
+(0 real changes made)
+variable wheat_y was long now double
+(2,254 real changes made)
+(0 real changes made)
+variable cotton_y was long now double
+(5,150 real changes made)
+(0 real changes made)
+(4,332 real changes made)
+(0 real changes made)
+variable scane_y was long now double
+(3,787 real changes made)
+(0 real changes made)
+(11,572 real changes made)
+(0 real changes made)
+
+. collapse (sum) county_acres county_squaremiles population population_rural population_race_white population_race_black 
+> population_race_other farms farms_white farms_nonwhite farms_owner farms_tenant farms_tenant_cash farmland farmland_own
+> er farmland_tenant value_landbuildings value_land value_buildings value_equipment mules_horses tractors corn_a oats_a w
+> heat_a cotton_a rice_a scane_a corn_y oats_y wheat_y cotton_y rice_y scane_y cropval, by(id_1)
+
+. foreach var of varlist county_acres county_squaremiles population population_rural population_race_white population_rac
+> e_black population_race_other farms farms_white farms_nonwhite farms_owner farms_tenant farms_tenant_cash farmland farm
+> land_owner farmland_tenant value_landbuildings value_land value_buildings value_equipment mules_horses tractors corn_a 
+> oats_a wheat_a cotton_a rice_a scane_a corn_y oats_y wheat_y cotton_y rice_y scane_y cropval{
+  2. replace `var' = . if `var' < 0
+  3. }
+(0 real changes made)
+(0 real changes made)
+(0 real changes made)
+(0 real changes made)
+(0 real changes made)
+(0 real changes made)
+(0 real changes made)
+(0 real changes made)
+(0 real changes made)
+(0 real changes made)
+(0 real changes made)
+(0 real changes made)
+(0 real changes made)
+(0 real changes made)
+(0 real changes made)
+(0 real changes made)
+(0 real changes made)
+(0 real changes made)
+(0 real changes made)
+(0 real changes made)
+(0 real changes made)
+(15 real changes made, 15 to missing)
+(0 real changes made)
+(0 real changes made)
+(0 real changes made)
+(0 real changes made)
+(0 real changes made)
+(0 real changes made)
+(0 real changes made)
+(0 real changes made)
+(0 real changes made)
+(0 real changes made)
+(0 real changes made)
+(0 real changes made)
+(0 real changes made)
+
+. gen year=1940
+
+. save `flood1940_1900', replace
+(file /var/folders/hp/s04p1kyn6szc8r_fnd_r5vr00000gn/T//S_11078.00001j not found)
+file /var/folders/hp/s04p1kyn6szc8r_fnd_r5vr00000gn/T//S_11078.00001j saved as .dta format
+
+. clear
+
+. 
+. insheet using "../data/Export1950_1900.txt", tab
+(6 vars, 20,243 obs)
+
+. keep if state==state_1
+(124 observations deleted)
+
+. gen percent = new_area/area
+
+. rename id fips
+
+. sort fips
+
+. merge fips using `1950'
+(you are using old merge syntax; see [D] merge for new syntax)
+variable fips does not uniquely identify observations in the master data
+(variable fips was long, now double to accommodate using data's values)
+
+. keep if _merge==3
+(6,458 observations deleted)
+
+. drop _merge
+
+. foreach var of varlist county_acres county_squaremiles population population_rural population_race_white population_rac
+> e_black population_race_other farms farms_white farms_nonwhite farms_owner farms_tenant farms_tenant_cash farmland farm
+> land_owner farmland_tenant value_landbuildings horses mules_horses corn_a oats_a wheat_a cotton_a rice_a scane_a corn_y
+>  oats_y wheat_y cotton_y rice_y scane_y cropval{
+  2. replace `var' = `var'*percent
+  3. replace `var' = -100000000000000000000000 if `var'==.&percent>0.01
+  4. }
+variable county_acres was long now double
+(12,564 real changes made)
+(0 real changes made)
+(12,564 real changes made)
+(0 real changes made)
+variable population was long now double
+(12,564 real changes made)
+(0 real changes made)
+(12,553 real changes made)
+(0 real changes made)
+(12,564 real changes made)
+(0 real changes made)
+(12,106 real changes made)
+(0 real changes made)
+(11,341 real changes made)
+(0 real changes made)
+variable farms was long now double
+(12,564 real changes made)
+(0 real changes made)
+(12,564 real changes made)
+(0 real changes made)
+variable farms_nonwhite was long now double
+(10,550 real changes made)
+(0 real changes made)
+(12,564 real changes made)
+(0 real changes made)
+variable farms_tenant was long now double
+(11,641 real changes made)
+(0 real changes made)
+variable farms_tenant_cash was long now double
+(11,242 real changes made)
+(0 real changes made)
+variable farmland was long now double
+(12,564 real changes made)
+(0 real changes made)
+(12,564 real changes made)
+(0 real changes made)
+(11,641 real changes made)
+(0 real changes made)
+(12,564 real changes made)
+(0 real changes made)
+(0 real changes made)
+variable horses was byte now double
+(19 real changes made)
+(0 real changes made)
+variable mules_horses was byte now double
+(7 real changes made)
+(11,232 real changes made)
+(0 real changes made)
+(4,726 real changes made)
+(0 real changes made)
+(2,617 real changes made)
+(0 real changes made)
+(3,959 real changes made)
+(0 real changes made)
+(3,715 real changes made)
+(0 real changes made)
+(1,165 real changes made)
+(0 real changes made)
+(11,232 real changes made)
+(0 real changes made)
+(4,726 real changes made)
+(0 real changes made)
+(2,617 real changes made)
+(0 real changes made)
+(3,926 real changes made)
+(0 real changes made)
+(3,715 real changes made)
+(0 real changes made)
+(954 real changes made)
+(0 real changes made)
+(12,564 real changes made)
+(0 real changes made)
+
+. collapse (sum) county_acres county_squaremiles population population_rural population_race_white population_race_black 
+> population_race_other farms farms_white farms_nonwhite farms_owner farms_tenant farms_tenant_cash farmland farmland_own
+> er farmland_tenant value_landbuildings horses mules_horses corn_a oats_a wheat_a cotton_a rice_a scane_a corn_y oats_y 
+> wheat_y cotton_y rice_y scane_y cropval, by(id_1)
+
+. foreach var of varlist county_acres county_squaremiles population population_rural population_race_white population_rac
+> e_black population_race_other farms farms_white farms_nonwhite farms_owner farms_tenant farms_tenant_cash farmland farm
+> land_owner farmland_tenant value_landbuildings horses mules_horses corn_a oats_a wheat_a cotton_a rice_a scane_a corn_y
+>  oats_y wheat_y cotton_y rice_y scane_y cropval {
+  2. replace `var' = . if `var' < 0
+  3. }
+(0 real changes made)
+(0 real changes made)
+(0 real changes made)
+(0 real changes made)
+(0 real changes made)
+(0 real changes made)
+(0 real changes made)
+(0 real changes made)
+(0 real changes made)
+(0 real changes made)
+(0 real changes made)
+(0 real changes made)
+(0 real changes made)
+(0 real changes made)
+(0 real changes made)
+(0 real changes made)
+(0 real changes made)
+(9 real changes made, 9 to missing)
+(4 real changes made, 4 to missing)
+(0 real changes made)
+(0 real changes made)
+(0 real changes made)
+(0 real changes made)
+(0 real changes made)
+(0 real changes made)
+(0 real changes made)
+(0 real changes made)
+(0 real changes made)
+(0 real changes made)
+(0 real changes made)
+(0 real changes made)
+(0 real changes made)
+
+. gen year=1950
+
+. save `flood1950_1900', replace
+(file /var/folders/hp/s04p1kyn6szc8r_fnd_r5vr00000gn/T//S_11078.00001l not found)
+file /var/folders/hp/s04p1kyn6szc8r_fnd_r5vr00000gn/T//S_11078.00001l saved as .dta format
+
+. clear
+
+. 
+. insheet using "../data/Export1960_1900.txt", tab
+(6 vars, 20,283 obs)
+
+. keep if state==state_1
+(124 observations deleted)
+
+. gen percent = new_area/area
+
+. rename id fips
+
+. sort fips
+
+. merge fips using `1960'
+(you are using old merge syntax; see [D] merge for new syntax)
+variable fips does not uniquely identify observations in the master data
+(variable fips was long, now double to accommodate using data's values)
+
+. keep if _merge==3
+(6,468 observations deleted)
+
+. drop _merge
+
+. foreach var of varlist population population_rural population_race_white population_race_black population_race_other fa
+> rms farms_owner farms_tenant farmland farmland_owner farmland_tenant value_landbuildings value_landbuildings_peracre va
+> lue_landbuildings_perfarm horses mules_horses corn_a oats_a wheat_a cotton_a rice_a scane_a corn_y oats_y wheat_y cotto
+> n_y rice_y scane_y cropval{
+  2. replace `var' = `var'*percent
+  3. replace `var' = -100000000000000000000000 if `var'==.&percent>0.01
+  4. }
+variable population was long now double
+(12,598 real changes made)
+(0 real changes made)
+(12,587 real changes made)
+(0 real changes made)
+(12,598 real changes made)
+(0 real changes made)
+(12,132 real changes made)
+(0 real changes made)
+(11,991 real changes made)
+(0 real changes made)
+variable farms was int now float
+(12,598 real changes made)
+(0 real changes made)
+(12,598 real changes made)
+(0 real changes made)
+variable farms_tenant was int now float
+(12,596 real changes made)
+(0 real changes made)
+(12,598 real changes made)
+(0 real changes made)
+(12,598 real changes made)
+(0 real changes made)
+(12,596 real changes made)
+(0 real changes made)
+(12,593 real changes made)
+(4 real changes made)
+(12,593 real changes made)
+(4 real changes made)
+(12,593 real changes made)
+(4 real changes made)
+(0 real changes made)
+variable horses was byte now double
+(19 real changes made)
+variable mules_horses was int now float
+(11,670 real changes made)
+(7 real changes made)
+(10,219 real changes made)
+(0 real changes made)
+(6,305 real changes made)
+(0 real changes made)
+(3,417 real changes made)
+(0 real changes made)
+(3,985 real changes made)
+(0 real changes made)
+(1,528 real changes made)
+(0 real changes made)
+(1,286 real changes made)
+(0 real changes made)
+(10,219 real changes made)
+(0 real changes made)
+(6,305 real changes made)
+(0 real changes made)
+(3,417 real changes made)
+(0 real changes made)
+(3,985 real changes made)
+(0 real changes made)
+(1,528 real changes made)
+(0 real changes made)
+(1,286 real changes made)
+(0 real changes made)
+variable cropval was long now double
+(12,593 real changes made)
+(5 real changes made)
+
+. collapse (sum) population population_rural population_race_white population_race_black population_race_other farms farm
+> s_owner farms_tenant farmland farmland_owner farmland_tenant value_landbuildings value_landbuildings_peracre value_land
+> buildings_perfarm horses mules_horses corn_a oats_a wheat_a cotton_a rice_a scane_a corn_y oats_y wheat_y cotton_y rice
+> _y scane_y cropval, by(id_1)
+
+. foreach var of varlist population population_rural population_race_white population_race_black population_race_other fa
+> rms farms_owner farms_tenant farmland farmland_owner farmland_tenant value_landbuildings value_landbuildings_peracre va
+> lue_landbuildings_perfarm horses mules_horses corn_a oats_a wheat_a cotton_a rice_a scane_a corn_y oats_y wheat_y cotto
+> n_y rice_y scane_y cropval{
+  2. replace `var' = . if `var' < 0
+  3. }
+(0 real changes made)
+(0 real changes made)
+(0 real changes made)
+(0 real changes made)
+(0 real changes made)
+(0 real changes made)
+(0 real changes made)
+(0 real changes made)
+(0 real changes made)
+(0 real changes made)
+(0 real changes made)
+(3 real changes made, 3 to missing)
+(3 real changes made, 3 to missing)
+(3 real changes made, 3 to missing)
+(9 real changes made, 9 to missing)
+(4 real changes made, 4 to missing)
+(0 real changes made)
+(0 real changes made)
+(0 real changes made)
+(0 real changes made)
+(0 real changes made)
+(0 real changes made)
+(0 real changes made)
+(0 real changes made)
+(0 real changes made)
+(0 real changes made)
+(0 real changes made)
+(0 real changes made)
+(4 real changes made, 4 to missing)
+
+. gen year=1960
+
+. save `flood1960_1900', replace
+(file /var/folders/hp/s04p1kyn6szc8r_fnd_r5vr00000gn/T//S_11078.00001n not found)
+file /var/folders/hp/s04p1kyn6szc8r_fnd_r5vr00000gn/T//S_11078.00001n saved as .dta format
+
+. clear
+
+. 
+. 
+. insheet using "../data/Export1970_1900.txt", tab
+(6 vars, 20,307 obs)
+
+. keep if state==state_1
+(112 observations deleted)
+
+. gen percent = new_area/area
+
+. rename id fips
+
+. sort fips
+
+. merge fips using `1970'
+(you are using old merge syntax; see [D] merge for new syntax)
+variable fips does not uniquely identify observations in the master data
+(variable fips was long, now double to accommodate using data's values)
+
+. keep if _merge==3
+(7,618 observations deleted)
+
+. drop _merge
+
+. foreach var of varlist population population_race_white population_race_black population_race_other farms farms_owner f
+> arms_tenant farmland farmland_owner farmland_tenant value_landbuildings_peracre value_landbuildings_perfarm value_equip
+> ment horses mules_horses tractors_wheel tractors_crawler corn_a oats_a wheat_a cotton_a rice_a scane_a corn_y oats_y wh
+> eat_y cotton_y rice_y scane_y{
+  2. replace `var' = `var'*percent
+  3. replace `var' = -100000000000000000000000 if `var'==.&percent>0.01
+  4. }
+variable population was long now double
+(11,490 real changes made)
+(0 real changes made)
+variable population_race_white was long now double
+(11,490 real changes made)
+(0 real changes made)
+variable population_race_black was long now double
+(10,551 real changes made)
+(466 real changes made)
+(9,533 real changes made)
+(466 real changes made)
+(11,490 real changes made)
+(0 real changes made)
+(11,490 real changes made)
+(0 real changes made)
+(11,327 real changes made)
+(0 real changes made)
+variable farmland was long now double
+(11,485 real changes made)
+(0 real changes made)
+(11,490 real changes made)
+(0 real changes made)
+(11,327 real changes made)
+(0 real changes made)
+(11,485 real changes made)
+(0 real changes made)
+(11,485 real changes made)
+(0 real changes made)
+(11,490 real changes made)
+(0 real changes made)
+variable horses was int now float
+(11,485 real changes made)
+(2 real changes made)
+(0 real changes made)
+variable mules_horses was byte now double
+(2 real changes made)
+(11,490 real changes made)
+(0 real changes made)
+(0 real changes made)
+(0 real changes made)
+(10,799 real changes made)
+(0 real changes made)
+(0 real changes made)
+(0 real changes made)
+(4,882 real changes made)
+(0 real changes made)
+(2,876 real changes made)
+(0 real changes made)
+(0 real changes made)
+(0 real changes made)
+(0 real changes made)
+(0 real changes made)
+(10,341 real changes made)
+(0 real changes made)
+(0 real changes made)
+(0 real changes made)
+(4,882 real changes made)
+(0 real changes made)
+(2,876 real changes made)
+(0 real changes made)
+(0 real changes made)
+(0 real changes made)
+(0 real changes made)
+(0 real changes made)
+
+. collapse (sum) population population_race_white population_race_black population_race_other farms farms_owner farms_ten
+> ant farmland farmland_owner farmland_tenant value_landbuildings_peracre value_landbuildings_perfarm value_equipment hor
+> ses mules_horses tractors_wheel tractors_crawler corn_a oats_a wheat_a cotton_a rice_a scane_a corn_y oats_y wheat_y co
+> tton_y rice_y scane_y, by(id_1)
+
+. foreach var of varlist population population_race_white population_race_black population_race_other farms farms_owner f
+> arms_tenant farmland farmland_owner farmland_tenant value_landbuildings_peracre value_landbuildings_perfarm value_equip
+> ment horses mules_horses tractors_wheel tractors_crawler corn_a oats_a wheat_a cotton_a rice_a scane_a corn_y oats_y wh
+> eat_y cotton_y rice_y scane_y{
+  2. replace `var' = . if `var' < 0
+  3. }
+(0 real changes made)
+(0 real changes made)
+(438 real changes made, 438 to missing)
+(438 real changes made, 438 to missing)
+(0 real changes made)
+(0 real changes made)
+(0 real changes made)
+(0 real changes made)
+(0 real changes made)
+(0 real changes made)
+(0 real changes made)
+(0 real changes made)
+(0 real changes made)
+(2 real changes made, 2 to missing)
+(2 real changes made, 2 to missing)
+(0 real changes made)
+(0 real changes made)
+(0 real changes made)
+(0 real changes made)
+(0 real changes made)
+(0 real changes made)
+(0 real changes made)
+(0 real changes made)
+(0 real changes made)
+(0 real changes made)
+(0 real changes made)
+(0 real changes made)
+(0 real changes made)
+(0 real changes made)
+
+. gen year=1970
+
+. save `flood1970_1900', replace
+(file /var/folders/hp/s04p1kyn6szc8r_fnd_r5vr00000gn/T//S_11078.00001p not found)
+file /var/folders/hp/s04p1kyn6szc8r_fnd_r5vr00000gn/T//S_11078.00001p saved as .dta format
+
+. clear
+
+. 
+. *1925 border adjustment
+. insheet using "../data/Export1920_1900.txt", tab
+(6 vars, 19,969 obs)
+
+. keep if state==state_1
+(125 observations deleted)
+
+. gen percent = new_area/area
+
+. rename id fips
+
+. sort fips
+
+. merge fips using `1925'
+(you are using old merge syntax; see [D] merge for new syntax)
+variable fips does not uniquely identify observations in the master data
+(variable fips was long, now double to accommodate using data's values)
+
+. keep if _merge==3
+(6,252 observations deleted)
+
+. drop _merge
+
+. foreach var of varlist farms farmland value_landbuildings value_equipment horses mules corn_a oats_a wheat_a cotton_a r
+> ice_a scane_a corn_y oats_y wheat_y cotton_y rice_y scane_y tractors{
+  2. replace `var' = `var'*percent
+  3. replace `var' = -100000000000000000000000 if `var'==.&percent>0.01
+  4. }
+variable farms was long now double
+(12,449 real changes made)
+(0 real changes made)
+variable farmland was long now double
+(12,449 real changes made)
+(0 real changes made)
+(12,449 real changes made)
+(1 real change made)
+variable value_equipment was long now double
+(12,449 real changes made)
+(0 real changes made)
+variable horses was long now double
+(12,449 real changes made)
+(0 real changes made)
+variable mules was long now double
+(11,526 real changes made)
+(0 real changes made)
+variable corn_a was long now double
+(11,001 real changes made)
+(0 real changes made)
+variable oats_a was long now double
+(5,041 real changes made)
+(0 real changes made)
+variable wheat_a was long now double
+(2,513 real changes made)
+(0 real changes made)
+variable cotton_a was long now double
+(7,124 real changes made)
+(0 real changes made)
+variable rice_a was long now double
+(5,789 real changes made)
+(0 real changes made)
+variable scane_a was long now double
+(4,423 real changes made)
+(0 real changes made)
+variable corn_y was long now double
+(11,001 real changes made)
+(0 real changes made)
+variable oats_y was long now double
+(5,041 real changes made)
+(0 real changes made)
+variable wheat_y was long now double
+(2,513 real changes made)
+(0 real changes made)
+variable cotton_y was long now double
+(7,124 real changes made)
+(0 real changes made)
+variable rice_y was long now double
+(5,897 real changes made)
+(0 real changes made)
+variable scane_y was long now double
+(3,443 real changes made)
+(0 real changes made)
+variable tractors was long now double
+(11,052 real changes made)
+(26 real changes made)
+
+. collapse (sum) farms farmland value_landbuildings value_equipment horses mules corn_a oats_a wheat_a cotton_a rice_a sc
+> ane_a corn_y oats_y wheat_y cotton_y rice_y scane_y tractors, by(id_1)
+
+. foreach var of varlist farms farmland value_landbuildings value_equipment horses mules corn_a oats_a wheat_a cotton_a r
+> ice_a scane_a corn_y oats_y wheat_y cotton_y rice_y scane_y tractors{
+  2. replace `var' = . if `var' < 0
+  3. }
+(0 real changes made)
+(0 real changes made)
+(1 real change made, 1 to missing)
+(0 real changes made)
+(0 real changes made)
+(0 real changes made)
+(0 real changes made)
+(0 real changes made)
+(0 real changes made)
+(0 real changes made)
+(0 real changes made)
+(0 real changes made)
+(0 real changes made)
+(0 real changes made)
+(0 real changes made)
+(0 real changes made)
+(0 real changes made)
+(0 real changes made)
+(21 real changes made, 21 to missing)
+
+. gen year = 1925
+
+. save `flood1925_1900', replace
+(file /var/folders/hp/s04p1kyn6szc8r_fnd_r5vr00000gn/T//S_11078.00001g not found)
+file /var/folders/hp/s04p1kyn6szc8r_fnd_r5vr00000gn/T//S_11078.00001g saved as .dta format
+
+. clear
+
+. 
+. *1935 border adjustment
+. insheet using "../data/Export1930_1900.txt", tab
+(6 vars, 20,189 obs)
+
+. keep if state==state_1
+(124 observations deleted)
+
+. gen percent = new_area/area
+
+. rename id fips
+
+. sort fips
+
+. merge fips using `1935'
+(you are using old merge syntax; see [D] merge for new syntax)
+variable fips does not uniquely identify observations in the master data
+(variable fips was long, now double to accommodate using data's values)
+(variable state was byte, now int to accommodate using data's values)
+
+. keep if _merge==3
+(7,344 observations deleted)
+
+. drop _merge
+
+. foreach var of varlist farms farmland value_landbuildings horses mules corn_a oats_a wheat_a cotton_a rice_a scane_a co
+> rn_y oats_y wheat_y cotton_y rice_y scane_y {
+  2. replace `var' = `var'*percent
+  3. replace `var' = -100000000000000000000000 if `var'==.&percent>0.01
+  4. }
+variable farms was long now double
+(11,608 real changes made)
+(0 real changes made)
+variable farmland was long now double
+(11,608 real changes made)
+(0 real changes made)
+(11,608 real changes made)
+(1 real change made)
+variable horses was long now double
+(10,685 real changes made)
+(0 real changes made)
+variable mules was long now double
+(10,685 real changes made)
+(0 real changes made)
+variable corn_a was long now double
+(11,540 real changes made)
+(0 real changes made)
+variable oats_a was long now double
+(3,298 real changes made)
+(0 real changes made)
+(2,269 real changes made)
+(0 real changes made)
+variable cotton_a was long now double
+(5,199 real changes made)
+(0 real changes made)
+variable rice_a was long now double
+(3,029 real changes made)
+(0 real changes made)
+variable scane_a was long now double
+(7,229 real changes made)
+(0 real changes made)
+variable corn_y was long now double
+(11,540 real changes made)
+(0 real changes made)
+variable oats_y was long now double
+(3,298 real changes made)
+(0 real changes made)
+(2,310 real changes made)
+(0 real changes made)
+variable cotton_y was long now double
+(5,199 real changes made)
+(0 real changes made)
+variable rice_y was long now double
+(3,037 real changes made)
+(0 real changes made)
+variable scane_y was long now double
+(7,235 real changes made)
+(0 real changes made)
+
+. collapse (sum) farms farmland value_landbuildings horses mules corn_a oats_a wheat_a cotton_a rice_a scane_a corn_y oat
+> s_y wheat_y cotton_y rice_y scane_y, by(id_1)
+
+. foreach var of varlist farms farmland value_landbuildings horses mules corn_a oats_a wheat_a cotton_a rice_a scane_a co
+> rn_y oats_y wheat_y cotton_y rice_y scane_y {
+  2. replace `var' = . if `var' < 0
+  3. }
+(0 real changes made)
+(0 real changes made)
+(1 real change made, 1 to missing)
+(0 real changes made)
+(0 real changes made)
+(0 real changes made)
+(0 real changes made)
+(0 real changes made)
+(0 real changes made)
+(0 real changes made)
+(0 real changes made)
+(0 real changes made)
+(0 real changes made)
+(0 real changes made)
+(0 real changes made)
+(0 real changes made)
+(0 real changes made)
+
+. gen year = 1935
+
+. save `flood1935_1900', replace
+(file /var/folders/hp/s04p1kyn6szc8r_fnd_r5vr00000gn/T//S_11078.00001i not found)
+file /var/folders/hp/s04p1kyn6szc8r_fnd_r5vr00000gn/T//S_11078.00001i saved as .dta format
+
+. clear
+
+. 
+. *1945 border adjustment
+. insheet using "../data/Export1940_1900.txt", tab
+(6 vars, 20,218 obs)
+
+. keep if state==state_1
+(124 observations deleted)
+
+. gen percent = new_area/area
+
+. rename id fips
+
+. sort fips
+
+. merge fips using `1945'
+(you are using old merge syntax; see [D] merge for new syntax)
+variable fips does not uniquely identify observations in the master data
+(variable fips was long, now double to accommodate using data's values)
+
+. keep if _merge==3
+(6,422 observations deleted)
+
+. drop _merge
+
+. foreach var of varlist farms farmland value_landbuildings tractors {
+  2. replace `var' = `var'*percent
+  3. replace `var' = -100000000000000000000000 if `var'==.&percent>0.01
+  4. }
+variable farms was long now double
+(12,569 real changes made)
+(0 real changes made)
+variable farmland was long now double
+(12,569 real changes made)
+(0 real changes made)
+(12,569 real changes made)
+(0 real changes made)
+variable tractors was long now double
+(12,369 real changes made)
+(0 real changes made)
+
+. collapse (sum) farms farmland value_landbuildings tractors, by(id_1)
+
+. foreach var of varlist farms farmland value_landbuildings tractors {
+  2. replace `var' = . if `var' < 0
+  3. }
+(0 real changes made)
+(0 real changes made)
+(0 real changes made)
+(0 real changes made)
+
+. gen year = 1945
+
+. save `flood1945_1900', replace
+(file /var/folders/hp/s04p1kyn6szc8r_fnd_r5vr00000gn/T//S_11078.00001k not found)
+file /var/folders/hp/s04p1kyn6szc8r_fnd_r5vr00000gn/T//S_11078.00001k saved as .dta format
+
+. clear
+
+. 
+. *1954 border adjustment
+. insheet using "../data/Export1950_1900.txt", tab
+(6 vars, 20,243 obs)
+
+. keep if state==state_1
+(124 observations deleted)
+
+. gen percent = new_area/area
+
+. rename id fips
+
+. sort fips
+
+. merge fips using `1954'
+(you are using old merge syntax; see [D] merge for new syntax)
+variable fips does not uniquely identify observations in the master data
+(variable fips was long, now double to accommodate using data's values)
+
+. keep if _merge==3
+(6,450 observations deleted)
+
+. drop _merge
+
+. foreach var of varlist farms farmland value_landbuildings value_landbuildings_peracre value_landbuildings_perfarm horse
+> s mules_horses tractors corn_a oats_a wheat_a cotton_a rice_a scane_a corn_y oats_y wheat_y cotton_y rice_y scane_y {
+  2. replace `var' = `var'*percent
+  3. replace `var' = -100000000000000000000000 if `var'==.&percent>0.01
+  4. }
+variable farms was long now double
+(12,564 real changes made)
+(4 real changes made)
+variable farmland was long now double
+(11,641 real changes made)
+(8 real changes made)
+(11,641 real changes made)
+(8 real changes made)
+(11,641 real changes made)
+(8 real changes made)
+(12,564 real changes made)
+(4 real changes made)
+(0 real changes made)
+variable horses was byte now double
+(19 real changes made)
+variable mules_horses was int now float
+(11,643 real changes made)
+(7 real changes made)
+variable tractors was long now double
+(12,564 real changes made)
+(4 real changes made)
+(10,339 real changes made)
+(0 real changes made)
+(6,180 real changes made)
+(0 real changes made)
+(2,421 real changes made)
+(0 real changes made)
+(4,427 real changes made)
+(0 real changes made)
+(3,725 real changes made)
+(0 real changes made)
+variable scane_a was int now float
+(1,165 real changes made)
+(0 real changes made)
+(10,339 real changes made)
+(0 real changes made)
+(6,180 real changes made)
+(0 real changes made)
+(2,421 real changes made)
+(0 real changes made)
+(4,427 real changes made)
+(0 real changes made)
+(3,725 real changes made)
+(0 real changes made)
+(1,165 real changes made)
+(0 real changes made)
+
+. collapse (sum) farms farmland value_landbuildings value_landbuildings_peracre value_landbuildings_perfarm horses mules_
+> horses tractors corn_a oats_a wheat_a cotton_a rice_a scane_a corn_y oats_y wheat_y cotton_y rice_y scane_y, by(id_1)
+
+. foreach var of varlist farms farmland value_landbuildings value_landbuildings_peracre value_landbuildings_perfarm horse
+> s mules_horses tractors corn_a oats_a wheat_a cotton_a rice_a scane_a corn_y oats_y wheat_y cotton_y rice_y scane_y {
+  2. replace `var' = . if `var' < 0
+  3. }
+(3 real changes made, 3 to missing)
+(5 real changes made, 5 to missing)
+(5 real changes made, 5 to missing)
+(5 real changes made, 5 to missing)
+(3 real changes made, 3 to missing)
+(9 real changes made, 9 to missing)
+(4 real changes made, 4 to missing)
+(3 real changes made, 3 to missing)
+(0 real changes made)
+(0 real changes made)
+(0 real changes made)
+(0 real changes made)
+(0 real changes made)
+(0 real changes made)
+(0 real changes made)
+(0 real changes made)
+(0 real changes made)
+(0 real changes made)
+(0 real changes made)
+(0 real changes made)
+
+. gen year = 1954
+
+. save `flood1954_1900', replace
+(file /var/folders/hp/s04p1kyn6szc8r_fnd_r5vr00000gn/T//S_11078.00001m not found)
+file /var/folders/hp/s04p1kyn6szc8r_fnd_r5vr00000gn/T//S_11078.00001m saved as .dta format
+
+. clear
+
+. 
+. *1964 border adjustment
+. insheet using "../data/Export1960_1900.txt", tab
+(6 vars, 20,283 obs)
+
+. keep if state==state_1
+(124 observations deleted)
+
+. gen percent = new_area/area
+
+. rename id fips
+
+. sort fips
+
+. merge fips using `1964'
+(you are using old merge syntax; see [D] merge for new syntax)
+variable fips does not uniquely identify observations in the master data
+(variable fips was long, now double to accommodate using data's values)
+
+. keep if _merge==3
+(6,395 observations deleted)
+
+. drop _merge
+
+. foreach var of varlist farms farmland value_landbuildings_peracre value_landbuildings_perfarm horses mules_horses corn_
+> a oats_a wheat_a cotton_a rice_a scane_a corn_y oats_y wheat_y cotton_y rice_y scane_y {
+  2. replace `var' = `var'*percent
+  3. replace `var' = -100000000000000000000000 if `var'==.&percent>0.01
+  4. }
+variable farms was long now double
+(12,599 real changes made)
+(5 real changes made)
+variable farmland was long now double
+(12,597 real changes made)
+(6 real changes made)
+(12,597 real changes made)
+(6 real changes made)
+(12,141 real changes made)
+(5 real changes made)
+(0 real changes made)
+variable horses was byte now double
+(75 real changes made)
+(0 real changes made)
+variable mules_horses was byte now double
+(63 real changes made)
+(10,300 real changes made)
+(0 real changes made)
+(4,875 real changes made)
+(0 real changes made)
+(4,061 real changes made)
+(0 real changes made)
+(3,566 real changes made)
+(0 real changes made)
+(499 real changes made)
+(0 real changes made)
+(1,472 real changes made)
+(0 real changes made)
+(10,300 real changes made)
+(0 real changes made)
+(4,875 real changes made)
+(0 real changes made)
+(4,061 real changes made)
+(0 real changes made)
+(3,566 real changes made)
+(0 real changes made)
+(499 real changes made)
+(0 real changes made)
+(1,472 real changes made)
+(0 real changes made)
+
+. collapse (sum) farms farmland value_landbuildings_peracre value_landbuildings_perfarm horses mules_horses corn_a oats_a
+>  wheat_a cotton_a rice_a scane_a corn_y oats_y wheat_y cotton_y rice_y scane_y, by(id_1)
+
+. foreach var of varlist farms farmland value_landbuildings_peracre value_landbuildings_perfarm horses mules_horses corn_
+> a oats_a wheat_a cotton_a rice_a scane_a corn_y oats_y wheat_y cotton_y rice_y scane_y {
+  2. replace `var' = . if `var' < 0
+  3. }
+(4 real changes made, 4 to missing)
+(5 real changes made, 5 to missing)
+(5 real changes made, 5 to missing)
+(4 real changes made, 4 to missing)
+(54 real changes made, 54 to missing)
+(50 real changes made, 50 to missing)
+(0 real changes made)
+(0 real changes made)
+(0 real changes made)
+(0 real changes made)
+(0 real changes made)
+(0 real changes made)
+(0 real changes made)
+(0 real changes made)
+(0 real changes made)
+(0 real changes made)
+(0 real changes made)
+(0 real changes made)
+
+. gen year = 1964
+
+. save `flood1964_1900', replace
+(file /var/folders/hp/s04p1kyn6szc8r_fnd_r5vr00000gn/T//S_11078.00001o not found)
+file /var/folders/hp/s04p1kyn6szc8r_fnd_r5vr00000gn/T//S_11078.00001o saved as .dta format
+
+. clear
+
+. 
+. *Prepare flooded share
+. insheet using "../data/flooded_1900.txt", tab
+(4 vars, 374 obs)
+
+. collapse (sum) new_area (mean) area, by(fips)
+
+. gen flooded_share = new_area/area
+
+. sort fips
+
+. save `flood_1900', replace
+(file /var/folders/hp/s04p1kyn6szc8r_fnd_r5vr00000gn/T//S_11078.00001r not found)
+file /var/folders/hp/s04p1kyn6szc8r_fnd_r5vr00000gn/T//S_11078.00001r saved as .dta format
+
+. clear
+
+. 
+. *Prepare distance to flooded area data
+. insheet using "../data/distance_1900.txt", tab
+(4 vars, 539 obs)
+
+. sort fips
+
+. save `distance_1900', replace
+(file /var/folders/hp/s04p1kyn6szc8r_fnd_r5vr00000gn/T//S_11078.00001d not found)
+file /var/folders/hp/s04p1kyn6szc8r_fnd_r5vr00000gn/T//S_11078.00001d saved as .dta format
+
+. clear all
+
+. 
+. *Prepare distance to MS data
+. insheet using "../data/ms_distance.txt", tab
+(2 vars, 305 obs)
+
+. sort fips distance_ms
+
+. by fips: gen n = [_n]
+
+. drop if n==2
+(1 observation deleted)
+
+. drop n
+
+. save `ms_distance', replace
+(file /var/folders/hp/s04p1kyn6szc8r_fnd_r5vr00000gn/T//S_11078.00001s not found)
+file /var/folders/hp/s04p1kyn6szc8r_fnd_r5vr00000gn/T//S_11078.00001s saved as .dta format
+
+. clear
+
+. 
+. *Prepare ruggedness
+. use "../data/1900_strm_distance_gaez.dta"
+
+. keep fips altitude_std_meters altitude_range_meters
+
+. drop if fips==0
+(41 observations deleted)
+
+. sort fips
+
+. save `ruggedness_1900', replace
+(file /var/folders/hp/s04p1kyn6szc8r_fnd_r5vr00000gn/T//S_11078.00001t not found)
+file /var/folders/hp/s04p1kyn6szc8r_fnd_r5vr00000gn/T//S_11078.00001t saved as .dta format
+
+. clear
+
+. 
+. *Prepare plantation
+. insheet using "../data/Export1910_1900.txt", tab
+(6 vars, 19,533 obs)
+
+. keep if state==state_1
+(123 observations deleted)
+
+. gen percent = new_area/area
+
+. rename id fips
+
+. sort fips
+
+. merge fips using "../data/brannenplantcounties_1910.dta"
+(you are using old merge syntax; see [D] merge for new syntax)
+variable fips does not uniquely identify observations in the master data
+variable fips does not uniquely identify observations in ../data/brannenplantcounties_1910.dta
+
+. keep if _merge==3
+(137 observations deleted)
+
+. drop _merge
+
+. foreach var of varlist Brannen_Plantation{
+  2. replace `var' = `var'*percent
+  3. replace `var' = -100000000000000000000000 if `var'==.&percent>0.01
+  4. }
+(515 real changes made)
+(0 real changes made)
+
+. collapse (sum) Brannen_Plantation, by(id_1)
+
+. foreach var of varlist Brannen_Plantation{
+  2. replace `var' = . if `var' < 0
+  3. }
+(0 real changes made)
+
+. rename id_1 fips
+
+. keep fips Brannen_Plantation
+
+. sort fips
+
+. save `brannenplantcounties_1900',replace
+(file /var/folders/hp/s04p1kyn6szc8r_fnd_r5vr00000gn/T//S_11078.00001u not found)
+file /var/folders/hp/s04p1kyn6szc8r_fnd_r5vr00000gn/T//S_11078.00001u saved as .dta format
+
+. clear
+
+. 
+. *Prepare New Deal Data
+. use "../data/new_deal_spending.dta", clear
+
+. keep if state==32|state==34|state==40|state==41|state==42|state==43|state==44|state==45|state==46|state==47|state==48|s
+> tate==49|state==51|state==52|state==53|state==54
+(1,502 observations deleted)
+
+. drop if mod(county,1000)==0
+(4 observations deleted)
+
+. sort state county
+
+. merge state county using "../data/icpsr_fips.dta"
+(you are using old merge syntax; see [D] merge for new syntax)
+
+. keep if _merge==3
+(1,668 observations deleted)
+
+. keep fips pc*
+
+. sort fips
+
+. save `new_deal_data', replace
+(file /var/folders/hp/s04p1kyn6szc8r_fnd_r5vr00000gn/T//S_11078.00001v not found)
+file /var/folders/hp/s04p1kyn6szc8r_fnd_r5vr00000gn/T//S_11078.00001v saved as .dta format
+
+. 
+. *Prepare distance to major river
+. use "../data/1900_strm_distance.dta"
+
+. keep fips Distance_Major_River_Meters
+
+. gen fips_state = floor(fips/1000)
+
+. keep if fips_state==5|fips_state==22|fips_state==28|fips_state==47|fips_state==1|fips_state==13|fips_state==37|fips_sta
+> te==45|fips_state==12
+(2,150 observations deleted)
+
+. gen distance_river = Distance_Major_River_Meters/1000
+
+. order fips distance_river
+
+. keep fips distance_river
+
+. sort fips
+
+. save `river_1900', replace
+(file /var/folders/hp/s04p1kyn6szc8r_fnd_r5vr00000gn/T//S_11078.00001w not found)
+file /var/folders/hp/s04p1kyn6szc8r_fnd_r5vr00000gn/T//S_11078.00001w saved as .dta format
+
+. clear
+
+. 
+. *Prepare crop suitability
+. use "../data/1900_strm_distance_gaez.dta"
+
+. keep fips cottongaezprod_mean maizegaezprod_mean wheatgaezprod_mean ricegaezprod_mean oatgaezprod_mean sugargaezprod_me
+> an
+
+. drop if fips==0
+(41 observations deleted)
+
+. rename cottongaezprod_mean cotton_suitability
+
+. rename maizegaezprod_mean corn_suitability
+
+. rename wheatgaezprod_mean wheat_suitability
+
+. rename ricegaezprod_mean rice_suitability
+
+. rename oatgaezprod_mean oats_suitability
+
+. rename sugargaezprod_mean scane_suitability
+
+. sort fips
+
+. save `crop_suitability', replace
+(file /var/folders/hp/s04p1kyn6szc8r_fnd_r5vr00000gn/T//S_11078.00001x not found)
+file /var/folders/hp/s04p1kyn6szc8r_fnd_r5vr00000gn/T//S_11078.00001x saved as .dta format
+
+. clear
+
+. 
+. *Append all files
+. use `1900', clear
+
+. rename fips id_1
+
+. append using `flood1910_1900'
+(variable county_squaremiles was long, now double to accommodate using data's values)
+(variable population was long, now double to accommodate using data's values)
+(variable population_race_white was float, now double to accommodate using data's values)
+(variable population_race_black was float, now double to accommodate using data's values)
+(variable population_race_other was float, now double to accommodate using data's values)
+(variable farms was long, now double to accommodate using data's values)
+(variable farms_white was long, now double to accommodate using data's values)
+(variable farms_nonwhite was long, now double to accommodate using data's values)
+(variable farms_nonwhite_tenant was float, now double to accommodate using data's values)
+(variable farms_owner was float, now double to accommodate using data's values)
+(variable farms_tenant was float, now double to accommodate using data's values)
+(variable farms_tenant_cash was float, now double to accommodate using data's values)
+(variable farmland was long, now double to accommodate using data's values)
+(variable value_landbuildings was float, now double to accommodate using data's values)
+(variable value_land was float, now double to accommodate using data's values)
+(variable value_equipment was long, now double to accommodate using data's values)
+(variable horses was float, now double to accommodate using data's values)
+(variable mules was float, now double to accommodate using data's values)
+(variable corn_a was long, now double to accommodate using data's values)
+(variable oats_a was long, now double to accommodate using data's values)
+(variable wheat_a was long, now double to accommodate using data's values)
+(variable cotton_a was long, now double to accommodate using data's values)
+(variable rice_a was long, now double to accommodate using data's values)
+(variable scane_a was long, now double to accommodate using data's values)
+(variable oats_y was long, now double to accommodate using data's values)
+(variable wheat_y was long, now double to accommodate using data's values)
+(variable cotton_y was long, now double to accommodate using data's values)
+(variable rice_y was long, now double to accommodate using data's values)
+(variable scane_y was long, now double to accommodate using data's values)
+
+. append using `flood1920_1900'
+(variable mfgestab was long, now double to accommodate using data's values)
+(variable mfgavear was long, now double to accommodate using data's values)
+
+. append using `flood1925_1900'
+
+. append using `flood1930_1900'
+
+. append using `flood1935_1900'
+
+. append using `flood1940_1900'
+
+. append using `flood1945_1900'
+
+. append using `flood1950_1900'
+
+. append using `flood1954_1900'
+
+. append using `flood1960_1900'
+
+. append using `flood1964_1900'
+
+. append using `flood1970_1900'
+
+. rename id_1 fips
+
+. sort fips
+
+. merge fips using `flood_1900'
+(you are using old merge syntax; see [D] merge for new syntax)
+variable fips does not uniquely identify observations in the master data
+(variable fips was float, now double to accommodate using data's values)
+
+. drop if _merge==2
+(0 observations deleted)
+
+. drop _merge
+
+. sort fips
+
+. merge fips using `distance_1900'
+(you are using old merge syntax; see [D] merge for new syntax)
+variable fips does not uniquely identify observations in the master data
+variable fips does not uniquely identify observations in
+    /var/folders/hp/s04p1kyn6szc8r_fnd_r5vr00000gn/T//S_11078.00001d
+
+. drop _merge
+
+. sort fips year
+
+. by fips: replace state = sum(state)
+(16,738 real changes made)
+
+. by fips: replace county = sum(county)
+(16,738 real changes made)
+
+. by fips: replace name = name[_n-1] if name[_n-1]!=""
+(16,702 real changes made)
+
+. by fips: replace x_centroid = x_centroid[_n-1] if x_centroid[_n-1]!=.
+(1 real change made)
+
+. by fips: replace y_centroid = y_centroid[_n-1] if y_centroid[_n-1]!=.
+(1 real change made)
+
+. keep if state==32|state==34|state==40|state==41|state==42|state==43|state==44|state==45|state==46|state==47|state==48|s
+> tate==49|state==51|state==52|state==53|state==54
+(36 observations deleted)
+
+. sort fips year
+
+. order fips year state county name county_acres county_squaremiles population population_rural population_race_white pop
+> ulation_race_black population_race_other farms farms_white farms_nonwhite farms_nonwhite_tenant farms_owner farms_tenan
+> t farms_tenant_cash farmland farmland_owner farmland_tenant value_landbuildings value_landbuildings_peracre value_landb
+> uildings_perfarm value_land value_buildings value_equipment cropval horses mules mules_horses tractors tractors_wheel t
+> ractors_crawler cotton_a corn_a oats_a wheat_a rice_a scane_a cotton_y corn_y oats_y wheat_y rice_y scane_y flooded_sha
+> re distance x_centroid y_centroid flooded_acres pop_affected agricultural_flooded_acres people samecounty samestate sam
+> earea sameregion people_white samecounty_white samestate_white samearea_white sameregion_white people_black samecounty_
+> black samestate_black samearea_black sameregion_black in_people in_samecounty in_samestate in_samearea in_sameregion in
+> _people_white in_samecounty_white in_samestate_white in_samearea_white in_sameregion_white in_people_black in_samecount
+> y_black in_samestate_black in_samearea_black in_sameregion_black mfgwages mfgestab mfgavear
+
+. keep fips year state county name county_acres county_squaremiles population population_rural population_race_white popu
+> lation_race_black population_race_other farms farms_white farms_nonwhite farms_nonwhite_tenant farms_owner farms_tenant
+>  farms_tenant_cash farmland farmland_owner farmland_tenant value_landbuildings value_landbuildings_peracre value_landbu
+> ildings_perfarm value_land value_buildings value_equipment cropval horses mules mules_horses tractors tractors_wheel tr
+> actors_crawler cotton_a corn_a oats_a wheat_a rice_a scane_a cotton_y corn_y oats_y wheat_y rice_y scane_y flooded_shar
+> e distance x_centroid y_centroid flooded_acres pop_affected agricultural_flooded_acres people samecounty samestate same
+> area sameregion people_white samecounty_white samestate_white samearea_white sameregion_white people_black samecounty_b
+> lack samestate_black samearea_black sameregion_black in_people in_samecounty in_samestate in_samearea in_sameregion in_
+> people_white in_samecounty_white in_samestate_white in_samearea_white in_sameregion_white in_people_black in_samecounty
+> _black in_samestate_black in_samearea_black in_sameregion_black mfgwages mfgestab mfgavear
+
+. 
+. replace value_landbuildings = (value_landbuildings_peracre + value_landbuildings_perfarm) / 2 if value_landbuildings_pe
+> racre!=.&value_landbuildings_perfarm!=.
+(5,550 real changes made)
+
+. drop value_landbuildings_peracre value_landbuildings_perfarm
+
+. replace mules_horses = horses+mules if horses!=.&mules!=.&mules_horses==.
+(8,382 real changes made)
+
+. replace tractors = tractors_wheel if tractors_wheel!=.
+(1,389 real changes made)
+
+. drop tractors_wheel tractors_crawler
+
+. 
+. sort fips year
+
+. merge fips using `crop_suitability'
+(you are using old merge syntax; see [D] merge for new syntax)
+variable fips does not uniquely identify observations in the master data
+
+. tab _merge
+
+     _merge |      Freq.     Percent        Cum.
+------------+-----------------------------------
+          1 |         22        0.11        0.11
+          2 |      1,405        7.20        7.31
+          3 |     18,096       92.69      100.00
+------------+-----------------------------------
+      Total |     19,523      100.00
+
+. drop if _merge==2
+(1,405 observations deleted)
+
+. drop _merge
+
+. sort fips year
+
+. merge fips using `ms_distance'
+(you are using old merge syntax; see [D] merge for new syntax)
+variable fips does not uniquely identify observations in the master data
+
+. drop _merge
+
+. sort fips year
+
+. merge fips using `ruggedness_1900'
+(you are using old merge syntax; see [D] merge for new syntax)
+variable fips does not uniquely identify observations in the master data
+
+. drop if _merge==2
+(1,405 observations deleted)
+
+. drop _merge
+
+. sort fips year
+
+. merge fips using `river_1900'
+(you are using old merge syntax; see [D] merge for new syntax)
+variable fips does not uniquely identify observations in the master data
+
+. drop if _merge==2
+(1 observation deleted)
+
+. drop _merge
+
+. sort fips year
+
+. merge fips using `brannenplantcounties_1900'
+(you are using old merge syntax; see [D] merge for new syntax)
+variable fips does not uniquely identify observations in the master data
+
+. drop if _merge==2
+(1,406 observations deleted)
+
+. drop _merge
+
+. sort fips
+
+. merge fips using `new_deal_data'
+(you are using old merge syntax; see [D] merge for new syntax)
+variable fips does not uniquely identify observations in the master data
+
+. sort fips year
+
+. compress
+  variable year was float now int
+  variable state was int now byte
+  variable county was float now int
+  variable fips was double now long
+  variable name was str25 now str17
+  (309,961 bytes saved)
+
+. save flood_base1900.dta, replace 
+(file flood_base1900.dta not found)
+file flood_base1900.dta saved
+
+. 
+. log close
+      name:  <unnamed>
+       log:  /Users/deniss/Replication_Project_EC280/code/log_flood.log
+  log type:  text
+ closed on:  27 Oct 2025, 21:29:29
+-------------------------------------------------------------------------------------------------------------------------

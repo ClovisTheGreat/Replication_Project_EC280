@@ -1,0 +1,2286 @@
+-------------------------------------------------------------------------------------------------------------------------
+      name:  <unnamed>
+       log:  /Users/deniss/Replication_Project_EC280/code/flood_preanalysis.log
+  log type:  text
+ opened on:  27 Oct 2025, 21:29:33
+
+. 
+. *Import data
+. use flood_base1900.dta
+
+. 
+. *ID variables
+. gen statefips=floor(fips/1000)
+
+. keep if statefips==5|statefips==22|statefips==28|statefips==47|statefips==1|statefips==13|statefips==37|statefips==45|s
+> tatefips==12
+(9,231 observations deleted)
+
+. tab statefips, gen(d_s_)
+
+  statefips |      Freq.     Percent        Cum.
+------------+-----------------------------------
+          1 |        859        9.54        9.54
+          5 |        975       10.83       20.37
+         12 |        593        6.59       26.96
+         13 |      1,797       19.96       46.92
+         22 |        771        8.56       55.49
+         28 |        982       10.91       66.40
+         37 |      1,264       14.04       80.44
+         45 |        526        5.84       86.28
+         47 |      1,235       13.72      100.00
+------------+-----------------------------------
+      Total |      9,002      100.00
+
+. gen double state_year = statefips*10000+year
+(49 missing values generated)
+
+. tab state_year, gen(d_sy_)
+
+ state_year |      Freq.     Percent        Cum.
+------------+-----------------------------------
+      11900 |         66        0.74        0.74
+      11910 |         66        0.74        1.47
+      11920 |         66        0.74        2.21
+      11925 |         66        0.74        2.95
+      11930 |         66        0.74        3.69
+      11935 |         66        0.74        4.42
+      11940 |         66        0.74        5.16
+      11945 |         66        0.74        5.90
+      11950 |         66        0.74        6.63
+      11954 |         66        0.74        7.37
+      11960 |         66        0.74        8.11
+      11964 |         66        0.74        8.85
+      11970 |         66        0.74        9.58
+      51900 |         75        0.84       10.42
+      51910 |         75        0.84       11.26
+      51920 |         75        0.84       12.10
+      51925 |         75        0.84       12.93
+      51930 |         75        0.84       13.77
+      51935 |         75        0.84       14.61
+      51940 |         75        0.84       15.45
+      51945 |         75        0.84       16.29
+      51950 |         75        0.84       17.12
+      51954 |         75        0.84       17.96
+      51960 |         75        0.84       18.80
+      51964 |         75        0.84       19.64
+      51970 |         75        0.84       20.47
+     121900 |         45        0.50       20.98
+     121910 |         45        0.50       21.48
+     121920 |         45        0.50       21.98
+     121925 |         45        0.50       22.48
+     121930 |         45        0.50       22.99
+     121935 |         45        0.50       23.49
+     121940 |         45        0.50       23.99
+     121945 |         45        0.50       24.49
+     121950 |         45        0.50       25.00
+     121954 |         45        0.50       25.50
+     121960 |         45        0.50       26.00
+     121964 |         45        0.50       26.51
+     121970 |         44        0.49       27.00
+     131900 |        137        1.53       28.53
+     131910 |        137        1.53       30.06
+     131920 |        137        1.53       31.59
+     131925 |        137        1.53       33.12
+     131930 |        137        1.53       34.65
+     131935 |        135        1.51       36.16
+     131940 |        137        1.53       37.69
+     131945 |        137        1.53       39.22
+     131950 |        137        1.53       40.75
+     131954 |        137        1.53       42.28
+     131960 |        137        1.53       43.81
+     131964 |        137        1.53       45.34
+     131970 |        137        1.53       46.87
+     221900 |         59        0.66       47.53
+     221910 |         59        0.66       48.18
+     221920 |         59        0.66       48.84
+     221925 |         59        0.66       49.50
+     221930 |         59        0.66       50.16
+     221935 |         59        0.66       50.82
+     221940 |         59        0.66       51.48
+     221945 |         59        0.66       52.14
+     221950 |         59        0.66       52.80
+     221954 |         59        0.66       53.46
+     221960 |         59        0.66       54.12
+     221964 |         59        0.66       54.77
+     221970 |         58        0.65       55.42
+     281900 |         75        0.84       56.26
+     281910 |         75        0.84       57.10
+     281920 |         75        0.84       57.94
+     281925 |         75        0.84       58.77
+     281930 |         75        0.84       59.61
+     281935 |         75        0.84       60.45
+     281940 |         75        0.84       61.29
+     281945 |         75        0.84       62.12
+     281950 |         75        0.84       62.96
+     281954 |         75        0.84       63.80
+     281960 |         75        0.84       64.64
+     281964 |         75        0.84       65.48
+     281970 |         75        0.84       66.31
+     371900 |         97        1.08       67.40
+     371910 |         97        1.08       68.48
+     371920 |         97        1.08       69.56
+     371925 |         97        1.08       70.65
+     371930 |         97        1.08       71.73
+     371935 |         97        1.08       72.81
+     371940 |         97        1.08       73.90
+     371945 |         97        1.08       74.98
+     371950 |         97        1.08       76.06
+     371954 |         97        1.08       77.15
+     371960 |         97        1.08       78.23
+     371964 |         97        1.08       79.31
+     371970 |         97        1.08       80.40
+     451900 |         40        0.45       80.84
+     451910 |         40        0.45       81.29
+     451920 |         40        0.45       81.74
+     451925 |         40        0.45       82.18
+     451930 |         40        0.45       82.63
+     451935 |         40        0.45       83.08
+     451940 |         40        0.45       83.53
+     451945 |         40        0.45       83.97
+     451950 |         40        0.45       84.42
+     451954 |         40        0.45       84.87
+     451960 |         40        0.45       85.31
+     451964 |         40        0.45       85.76
+     451970 |         40        0.45       86.21
+     471900 |         95        1.06       87.27
+     471910 |         95        1.06       88.33
+     471920 |         95        1.06       89.39
+     471925 |         95        1.06       90.45
+     471930 |         95        1.06       91.51
+     471935 |         95        1.06       92.57
+     471940 |         95        1.06       93.63
+     471945 |         95        1.06       94.69
+     471950 |         95        1.06       95.76
+     471954 |         95        1.06       96.82
+     471960 |         95        1.06       97.88
+     471964 |         95        1.06       98.94
+     471970 |         95        1.06      100.00
+------------+-----------------------------------
+      Total |      8,953      100.00
+
+. tab year, gen(d_year_)
+
+       year |      Freq.     Percent        Cum.
+------------+-----------------------------------
+       1900 |        689        7.70        7.70
+       1910 |        689        7.70       15.39
+       1920 |        689        7.70       23.09
+       1925 |        689        7.70       30.78
+       1930 |        689        7.70       38.48
+       1935 |        687        7.67       46.15
+       1940 |        689        7.70       53.85
+       1945 |        689        7.70       61.54
+       1950 |        689        7.70       69.24
+       1954 |        689        7.70       76.94
+       1960 |        689        7.70       84.63
+       1964 |        689        7.70       92.33
+       1970 |        687        7.67      100.00
+------------+-----------------------------------
+      Total |      8,953      100.00
+
+. 
+. *Generate county weight
+. gen county_1920 = county_acres if year==1920
+(8,313 missing values generated)
+
+. sort fips
+
+. by fips: egen county_w = max(county_1920)
+(49 missing values generated)
+
+. drop county_1920
+
+. 
+. *Outcome variables
+. rename population_race_black population_black
+
+. rename population_race_white population_white
+
+. rename value_landbuildings value_lb
+
+. 
+. gen lnpopulation_black = ln(population_black)
+(3,614 missing values generated)
+
+. gen lnpopulation = ln(population)
+(3,492 missing values generated)
+
+. gen frac_black = (population_black)/(population_white+population_black)
+(3,586 missing values generated)
+
+. gen lnfrac_black = ln(frac_black)
+(3,614 missing values generated)
+
+. gen fracfarms_nonwhite =farms_nonwhite/farms
+(4,868 missing values generated)
+
+. gen lnfracfarms_nonwhite =log(farms_nonwhite/farms)
+(4,940 missing values generated)
+
+. 
+. gen lnvalue_equipment = ln(value_equipment)
+(4,181 missing values generated)
+
+. gen avfarmsize = (farmland/farms)
+(50 missing values generated)
+
+. gen lnavfarmsize = ln(avfarmsize)
+(50 missing values generated)
+
+. gen lnlandbuildingvalue = ln(value_lb)
+(50 missing values generated)
+
+. gen lnlandbuildingvaluef = ln(value_lb/farmland)
+(50 missing values generated)
+
+. gen lnlandvaluef = ln(value_land/farmland)
+(5,558 missing values generated)
+
+. gen lnlandvalue = ln(value_land)
+(5,558 missing values generated)
+
+. gen lnfarmland = ln(farmland)
+(50 missing values generated)
+
+. gen lnfarms_nonwhite_t = ln(farms_nonwhite_tenant/farms_tenant)
+(6,979 missing values generated)
+
+. 
+. gen lnmules_horses = ln(mules_horses)
+(2,810 missing values generated)
+
+. gen lntractors = ln(tractors)
+(4,889 missing values generated)
+
+. gen tractorsperfarm = tractors/farms
+(4,881 missing values generated)
+
+. gen lntractorsperfarm = log(tractors/farms)
+(4,889 missing values generated)
+
+. gen cropland = corn_a + wheat_a + oats_a + rice_a + cotton_a + scane_a
+(738 missing values generated)
+
+. gen cotton_cc = cotton_a / (cotton_a + corn_a)
+(755 missing values generated)
+
+. gen lncotton_yield = ln(cotton_y/cotton_a)
+(1,823 missing values generated)
+
+. gen lncorn_yield = ln(corn_y/corn_a)
+(755 missing values generated)
+
+. 
+. gen lncropval_p = ln(cropval/population)
+(4,868 missing values generated)
+
+. gen lncropval_rp = ln(cropval/population_rural)
+(4,874 missing values generated)
+
+. 
+. gen mfgavewages= mfgwages/mfgavear
+(7,038 missing values generated)
+
+. gen lnmfgestab = log(mfgestab)
+(7,038 missing values generated)
+
+. gen lnmfgavewages= log(mfgavewages)
+(7,038 missing values generated)
+
+. gen lnmfgavear= log(mfgavear)
+(7,038 missing values generated)
+
+. 
+. 
+. foreach var of varlist population population_black tractorsperfarm value_equipment farmland value_lb tractors mules_hor
+> ses mfgwages mfgavewages mfgestab {
+  2. gen ln`var'_a = ln(`var'/county_w)
+  3. }
+(3,492 missing values generated)
+(3,614 missing values generated)
+(4,889 missing values generated)
+(4,181 missing values generated)
+(50 missing values generated)
+(50 missing values generated)
+(4,889 missing values generated)
+(2,810 missing values generated)
+(7,038 missing values generated)
+(7,038 missing values generated)
+(7,038 missing values generated)
+
+. foreach var of varlist population population_black value_equipment value_lb tractors mules_horses farmland cropland cot
+> ton_a corn_a rice_a scane_a oats_a wheat_a {
+  2. gen `var'_a = (`var'*100)/county_w
+  3. }
+(3,492 missing values generated)
+(3,586 missing values generated)
+(4,181 missing values generated)
+(50 missing values generated)
+(4,881 missing values generated)
+(744 missing values generated)
+(50 missing values generated)
+(738 missing values generated)
+(738 missing values generated)
+(738 missing values generated)
+(738 missing values generated)
+(738 missing values generated)
+(738 missing values generated)
+(738 missing values generated)
+
+. foreach var of varlist avfarmsize {
+  2. gen `var'_a = `var'/county_w
+  3. }
+(50 missing values generated)
+
+. foreach var of varlist value_lb {
+  2. gen `var'_f = (`var'*100)/farmland
+  3. gen ln`var'_f = ln(`var'/farmland)
+  4. }
+(50 missing values generated)
+(50 missing values generated)
+
+. 
+. *Balance panel
+. gen drop = 0
+
+. replace drop = 1 if lnpopulation==.&(year==1900|year==1910|year==1920|year==1930|year==1940|year==1950|year==1960|year=
+> =1970)
+(0 real changes made)
+
+. replace drop = 1 if lnpopulation_black==.&(year==1900|year==1910|year==1920|year==1930|year==1940|year==1950|year==1960
+> |year==1970)
+(122 real changes made)
+
+. replace drop = 1 if lnvalue_lb_a==.&(year==1900|year==1910|year==1920|year==1925|year==1930|year==1935|year==1940|year=
+> =1945|year==1950|year==1954|year==1960|year==1964|year==1970)
+(1 real change made)
+
+. replace drop = 1 if lnvalue_equipment==.&(year==1900|year==1910|year==1920|year==1925|year==1930|year==1940|year==1970)
+(0 real changes made)
+
+. replace drop = 1 if cropland==.&(year==1900|year==1910|year==1920|year==1925|year==1930|year==1935|year==1940|year==195
+> 0|year==1954|year==1960|year==1964|year==1970)
+(0 real changes made)
+
+. sort fips year
+
+. by fips: egen drop_county = max(drop)
+
+. drop if drop_county==1
+(1,235 observations deleted)
+
+. drop drop_county
+
+. sort fips year
+
+. by fips: gen number = [_N]
+
+. drop if number<13&(state == 42 | state==45 | state==46 | state==54)
+(12 observations deleted)
+
+. drop if number<12
+(49 observations deleted)
+
+. drop number
+
+. 
+. gen drop_tractors = 0
+
+. replace drop_tractors = 1 if lntractors==.&year==1925
+(8 real changes made)
+
+. sort fips year
+
+. by fips: egen balance_tractors = max(drop_tractors)
+
+. replace lntractors_a = . if balance_tractors==1
+(36 real changes made, 36 to missing)
+
+. replace lntractors = . if balance_tractors==1
+(36 real changes made, 36 to missing)
+
+. replace tractors_a = . if balance_tractors==1
+(40 real changes made, 40 to missing)
+
+. replace tractors = . if balance_tractors==1
+(40 real changes made, 40 to missing)
+
+. 
+. *Minimal matching variables
+. gen cotton_c = cotton_a/cropland if year==1920
+(7,113 missing values generated)
+
+. 
+. *restrict sample
+. drop if frac_black < 0.10 & year==1920
+(57 observations deleted)
+
+. drop if cotton_c < 0.15 & year==1920
+(98 observations deleted)
+
+. drop cotton_c
+
+. sort fips year
+
+. by fips: gen number = [_N]
+
+. keep if number==13
+(1,870 observations deleted)
+
+. drop number
+
+. drop if fips == 47149|fips==47071|fips==22023
+(39 observations deleted)
+
+. 
+. *Flood variables
+. rename flooded_share percent_flood
+
+. replace percent_flood = 0 if percent_flood==.
+(4,745 real changes made)
+
+. gen flood = (percent_flood>0)
+
+. sum percent_flood if flood==1&year==1930
+
+    Variable |        Obs        Mean    Std. dev.       Min        Max
+-------------+---------------------------------------------------------
+percent_fl~d |         69    .4472251    .3000639   .0124922   1.000074
+
+. gen flood_intensity = (percent_flood)*flood
+
+. foreach i of numlist 1900 1910 1920 1925 1930 1935 1940 1945 1950 1954 1960 1964 1970 {
+  2. gen f_int_`i' = 0
+  3. replace f_int_`i' = flood_intensity if year==`i'
+  4. }
+(69 real changes made)
+(69 real changes made)
+(69 real changes made)
+(69 real changes made)
+(69 real changes made)
+(69 real changes made)
+(69 real changes made)
+(69 real changes made)
+(69 real changes made)
+(69 real changes made)
+(69 real changes made)
+(69 real changes made)
+(69 real changes made)
+
+. 
+. *Red cross flood variables
+. gen redcross_flooded_acres = flooded_acres/county_w if year==1930
+(5,479 missing values generated)
+
+. replace redcross_flooded_acres = 0 if redcross_flooded_acres==.&year==1930
+(271 real changes made)
+
+. regress flood_intensity redcross_flooded_acres
+
+      Source |       SS           df       MS      Number of obs   =       434
+-------------+----------------------------------   F(1, 432)       =   5222.82
+       Model |  16.3747743         1  16.3747743   Prob > F        =    0.0000
+    Residual |  1.35442218       432  .003135237   R-squared       =    0.9236
+-------------+----------------------------------   Adj R-squared   =    0.9234
+       Total |  17.7291965       433  .040945027   Root MSE        =    .05599
+
+----------------------------------------------------------------------------------------
+       flood_intensity | Coefficient  Std. err.      t    P>|t|     [95% conf. interval]
+-----------------------+----------------------------------------------------------------
+redcross_flooded_acres |   1.000801   .0138483    72.27   0.000     .9735824    1.028019
+                 _cons |   .0061757   .0028339     2.18   0.030     .0006057    .0117457
+----------------------------------------------------------------------------------------
+
+. 
+. gen redcross_flooded_people = pop_affected/population if year==1930
+(5,479 missing values generated)
+
+. replace redcross_flooded_people = 0 if redcross_flooded_people==.&year==1930
+(271 real changes made)
+
+. regress flood_intensity redcross_flooded_people
+
+      Source |       SS           df       MS      Number of obs   =       434
+-------------+----------------------------------   F(1, 432)       =   2811.20
+       Model |  15.3676392         1  15.3676392   Prob > F        =    0.0000
+    Residual |  2.36155733       432  .005466568   R-squared       =    0.8668
+-------------+----------------------------------   Adj R-squared   =    0.8665
+       Total |  17.7291965       433  .040945027   Root MSE        =    .07394
+
+-----------------------------------------------------------------------------------------
+        flood_intensity | Coefficient  Std. err.      t    P>|t|     [95% conf. interval]
+------------------------+----------------------------------------------------------------
+redcross_flooded_people |   1.009304    .019036    53.02   0.000     .9718891    1.046719
+                  _cons |   .0107523   .0037271     2.88   0.004     .0034268    .0180779
+-----------------------------------------------------------------------------------------
+
+. 
+. gen redcross_flooded_acres_ag = agricultural_flooded_acres/farmland if year==1930
+(5,479 missing values generated)
+
+. replace redcross_flooded_acres_ag = 0 if redcross_flooded_acres_ag==.&year==1930
+(271 real changes made)
+
+. regress flood_intensity redcross_flooded_acres_ag
+
+      Source |       SS           df       MS      Number of obs   =       434
+-------------+----------------------------------   F(1, 432)       =   2145.42
+       Model |  14.7576154         1  14.7576154   Prob > F        =    0.0000
+    Residual |  2.97158106       432   .00687866   R-squared       =    0.8324
+-------------+----------------------------------   Adj R-squared   =    0.8320
+       Total |  17.7291965       433  .040945027   Root MSE        =    .08294
+
+-------------------------------------------------------------------------------------------
+          flood_intensity | Coefficient  Std. err.      t    P>|t|     [95% conf. interval]
+--------------------------+----------------------------------------------------------------
+redcross_flooded_acres_ag |   1.468477   .0317038    46.32   0.000     1.406164     1.53079
+                    _cons |   .0066567   .0042173     1.58   0.115    -.0016322    .0149456
+-------------------------------------------------------------------------------------------
+
+. 
+. sort fips year
+
+. by fips: egen flood_intensity_2 = max(redcross_flooded_acres)
+
+. by fips: egen flood_intensity_3 = max(redcross_flooded_people)
+
+. by fips: egen flood_intensity_4 = max(redcross_flooded_acres_ag)
+
+. foreach i of numlist 1900 1910 1920 1925 1930 1935 1940 1945 1950 1954 1960 1964 1970 {
+  2. gen f2_int_`i' = 0
+  3. replace f2_int_`i' = flood_intensity_2 if year==`i'
+  4. }
+(70 real changes made)
+(70 real changes made)
+(70 real changes made)
+(70 real changes made)
+(70 real changes made)
+(70 real changes made)
+(70 real changes made)
+(70 real changes made)
+(70 real changes made)
+(70 real changes made)
+(70 real changes made)
+(70 real changes made)
+(70 real changes made)
+
+. foreach i of numlist 1900 1910 1920 1925 1930 1935 1940 1945 1950 1954 1960 1964 1970 {
+  2. gen f3_int_`i' = 0
+  3. replace f3_int_`i' = flood_intensity_3 if year==`i'
+  4. }
+(86 real changes made)
+(86 real changes made)
+(86 real changes made)
+(86 real changes made)
+(86 real changes made)
+(86 real changes made)
+(86 real changes made)
+(86 real changes made)
+(86 real changes made)
+(86 real changes made)
+(86 real changes made)
+(86 real changes made)
+(86 real changes made)
+
+. foreach i of numlist 1900 1910 1920 1925 1930 1935 1940 1945 1950 1954 1960 1964 1970 {
+  2. gen f4_int_`i' = 0
+  3. replace f4_int_`i' = flood_intensity_4 if year==`i'
+  4. }
+(86 real changes made)
+(86 real changes made)
+(86 real changes made)
+(86 real changes made)
+(86 real changes made)
+(86 real changes made)
+(86 real changes made)
+(86 real changes made)
+(86 real changes made)
+(86 real changes made)
+(86 real changes made)
+(86 real changes made)
+(86 real changes made)
+
+. 
+. *Distance to MS river
+. foreach i of numlist 1900 1910 1920 1925 1930 1935 1940 1945 1950 1954 1960 1964 1970 {
+  2. gen ld_`i' = 0
+  3. replace ld_`i' = distance_ms if year==`i'
+  4. }
+(403 real changes made, 271 to missing)
+(403 real changes made, 271 to missing)
+(403 real changes made, 271 to missing)
+(403 real changes made, 271 to missing)
+(403 real changes made, 271 to missing)
+(403 real changes made, 271 to missing)
+(403 real changes made, 271 to missing)
+(403 real changes made, 271 to missing)
+(403 real changes made, 271 to missing)
+(403 real changes made, 271 to missing)
+(403 real changes made, 271 to missing)
+(403 real changes made, 271 to missing)
+(403 real changes made, 271 to missing)
+
+. 
+. *Crop suitability
+. foreach i of numlist 1900 1910 1920 1925 1930 1935 1940 1945 1950 1954 1960 1964 1970 {
+  2. foreach j in cotton corn wheat oats rice scane {
+  3. gen `j'_s_`i' = 0
+  4. replace `j'_s_`i' = `j'_suitability if year==`i'
+  5. }
+  6. }
+(434 real changes made)
+(434 real changes made)
+(434 real changes made)
+(434 real changes made)
+(434 real changes made)
+(265 real changes made)
+(434 real changes made)
+(434 real changes made)
+(434 real changes made)
+(434 real changes made)
+(434 real changes made)
+(265 real changes made)
+(434 real changes made)
+(434 real changes made)
+(434 real changes made)
+(434 real changes made)
+(434 real changes made)
+(265 real changes made)
+(434 real changes made)
+(434 real changes made)
+(434 real changes made)
+(434 real changes made)
+(434 real changes made)
+(265 real changes made)
+(434 real changes made)
+(434 real changes made)
+(434 real changes made)
+(434 real changes made)
+(434 real changes made)
+(265 real changes made)
+(434 real changes made)
+(434 real changes made)
+(434 real changes made)
+(434 real changes made)
+(434 real changes made)
+(265 real changes made)
+(434 real changes made)
+(434 real changes made)
+(434 real changes made)
+(434 real changes made)
+(434 real changes made)
+(265 real changes made)
+(434 real changes made)
+(434 real changes made)
+(434 real changes made)
+(434 real changes made)
+(434 real changes made)
+(265 real changes made)
+(434 real changes made)
+(434 real changes made)
+(434 real changes made)
+(434 real changes made)
+(434 real changes made)
+(265 real changes made)
+(434 real changes made)
+(434 real changes made)
+(434 real changes made)
+(434 real changes made)
+(434 real changes made)
+(265 real changes made)
+(434 real changes made)
+(434 real changes made)
+(434 real changes made)
+(434 real changes made)
+(434 real changes made)
+(265 real changes made)
+(434 real changes made)
+(434 real changes made)
+(434 real changes made)
+(434 real changes made)
+(434 real changes made)
+(265 real changes made)
+(434 real changes made)
+(434 real changes made)
+(434 real changes made)
+(434 real changes made)
+(434 real changes made)
+(265 real changes made)
+
+. 
+. *Longitude and latitude
+. foreach i of numlist 1900 1910 1920 1925 1930 1935 1940 1945 1950 1954 1960 1964 1970 {
+  2. gen dx_`i' = 0
+  3. replace dx_`i' = x_centroid/1000 if year==`i'
+  4. gen dy_`i' = 0
+  5. replace dy_`i' = y_centroid/1000 if year==`i'
+  6. }
+(434 real changes made, 271 to missing)
+(434 real changes made, 271 to missing)
+(434 real changes made, 271 to missing)
+(434 real changes made, 271 to missing)
+(434 real changes made, 271 to missing)
+(434 real changes made, 271 to missing)
+(434 real changes made, 271 to missing)
+(434 real changes made, 271 to missing)
+(434 real changes made, 271 to missing)
+(434 real changes made, 271 to missing)
+(434 real changes made, 271 to missing)
+(434 real changes made, 271 to missing)
+(434 real changes made, 271 to missing)
+(434 real changes made, 271 to missing)
+(434 real changes made, 271 to missing)
+(434 real changes made, 271 to missing)
+(434 real changes made, 271 to missing)
+(434 real changes made, 271 to missing)
+(434 real changes made, 271 to missing)
+(434 real changes made, 271 to missing)
+(434 real changes made, 271 to missing)
+(434 real changes made, 271 to missing)
+(434 real changes made, 271 to missing)
+(434 real changes made, 271 to missing)
+(434 real changes made, 271 to missing)
+(434 real changes made, 271 to missing)
+
+. 
+. *Ruggedness
+. foreach i of numlist 1900 1910 1920 1925 1930 1935 1940 1945 1950 1954 1960 1964 1970 {
+  2. gen rug_`i' = 0
+  3. replace rug_`i' = altitude_std_meters if year==`i'
+  4. gen rug2_`i' = 0
+  5. replace rug2_`i' = altitude_range_meters if year==`i'
+  6. }
+(434 real changes made)
+(434 real changes made)
+(434 real changes made)
+(434 real changes made)
+(434 real changes made)
+(434 real changes made)
+(434 real changes made)
+(434 real changes made)
+(434 real changes made)
+(434 real changes made)
+(434 real changes made)
+(434 real changes made)
+(434 real changes made)
+(434 real changes made)
+(434 real changes made)
+(434 real changes made)
+(434 real changes made)
+(434 real changes made)
+(434 real changes made)
+(434 real changes made)
+(434 real changes made)
+(434 real changes made)
+(434 real changes made)
+(434 real changes made)
+(434 real changes made)
+(434 real changes made)
+
+. 
+. *Plantation
+. gen plantation = 0
+
+. replace plantation = 1 if Brannen_Plantation > 0.5
+(819 real changes made)
+
+. foreach i of numlist 1900 1910 1920 1925 1930 1935 1940 1945 1950 1954 1960 1964 1970 {
+  2. gen plantation_`i' = 0
+  3. replace plantation_`i' = plantation if year==`i'
+  4. }
+(63 real changes made)
+(63 real changes made)
+(63 real changes made)
+(63 real changes made)
+(63 real changes made)
+(63 real changes made)
+(63 real changes made)
+(63 real changes made)
+(63 real changes made)
+(63 real changes made)
+(63 real changes made)
+(63 real changes made)
+(63 real changes made)
+
+. 
+. *New Deal spending
+. foreach i of numlist 1900 1910 1920 1925 1930 1935 1940 1945 1950 1954 1960 1964 1970 {
+  2. foreach var of varlist pcpubwor pcaaa pcrelief pcndloan pcndins {
+  3. gen ln`var'_`i' = 0
+  4. replace ln`var'_`i' = ln(`var') if year==`i'
+  5. }
+  6. }
+(434 real changes made, 7 to missing)
+(434 real changes made, 8 to missing)
+(434 real changes made, 7 to missing)
+(434 real changes made, 7 to missing)
+(434 real changes made, 7 to missing)
+(434 real changes made, 7 to missing)
+(434 real changes made, 8 to missing)
+(434 real changes made, 7 to missing)
+(434 real changes made, 7 to missing)
+(434 real changes made, 7 to missing)
+(434 real changes made, 7 to missing)
+(434 real changes made, 8 to missing)
+(434 real changes made, 7 to missing)
+(434 real changes made, 7 to missing)
+(434 real changes made, 7 to missing)
+(434 real changes made, 7 to missing)
+(434 real changes made, 8 to missing)
+(434 real changes made, 7 to missing)
+(434 real changes made, 7 to missing)
+(434 real changes made, 7 to missing)
+(434 real changes made, 7 to missing)
+(434 real changes made, 8 to missing)
+(434 real changes made, 7 to missing)
+(434 real changes made, 7 to missing)
+(434 real changes made, 7 to missing)
+(434 real changes made, 7 to missing)
+(434 real changes made, 8 to missing)
+(434 real changes made, 7 to missing)
+(434 real changes made, 7 to missing)
+(434 real changes made, 7 to missing)
+(434 real changes made, 7 to missing)
+(434 real changes made, 8 to missing)
+(434 real changes made, 7 to missing)
+(434 real changes made, 7 to missing)
+(434 real changes made, 7 to missing)
+(434 real changes made, 7 to missing)
+(434 real changes made, 8 to missing)
+(434 real changes made, 7 to missing)
+(434 real changes made, 7 to missing)
+(434 real changes made, 7 to missing)
+(434 real changes made, 7 to missing)
+(434 real changes made, 8 to missing)
+(434 real changes made, 7 to missing)
+(434 real changes made, 7 to missing)
+(434 real changes made, 7 to missing)
+(434 real changes made, 7 to missing)
+(434 real changes made, 8 to missing)
+(434 real changes made, 7 to missing)
+(434 real changes made, 7 to missing)
+(434 real changes made, 7 to missing)
+(434 real changes made, 7 to missing)
+(434 real changes made, 8 to missing)
+(434 real changes made, 7 to missing)
+(434 real changes made, 7 to missing)
+(434 real changes made, 7 to missing)
+(434 real changes made, 7 to missing)
+(434 real changes made, 8 to missing)
+(434 real changes made, 7 to missing)
+(434 real changes made, 7 to missing)
+(434 real changes made, 7 to missing)
+(434 real changes made, 7 to missing)
+(434 real changes made, 8 to missing)
+(434 real changes made, 7 to missing)
+(434 real changes made, 7 to missing)
+(434 real changes made, 7 to missing)
+
+. 
+. *Create county-level controls for lagged values of variables
+. /*lags for variables that exist in 1930, 1920 and 1910*/
+. sort fips year
+
+. foreach var of varlist lnpopulation lnpopulation_black lnfrac_black lnfarms_nonwhite_t lnfracfarms_nonwhite lnlandvalue
+>  lnlandvaluef {
+  2. by fips: gen c2_`var' = `var'[_n-2]
+  3. by fips: gen c3_`var' = `var'[_n-3]
+  4. by fips: gen c4_`var' = `var'[_n-4]
+  5. replace c2_`var' = . if year!=1930
+  6. replace c3_`var' = . if year!=1930
+  7. replace c4_`var' = . if year!=1930
+  8. by fips: egen lc1920_`var' = max(c2_`var')
+  9. by fips: egen lc1910_`var' = max(c3_`var')
+ 10. by fips: egen lc1900_`var' = max(c4_`var')
+ 11. drop c2_`var' c3_`var' c4_`var'
+ 12. }
+(2,604 missing values generated)
+(3,038 missing values generated)
+(3,038 missing values generated)
+(2,604 real changes made, 2,604 to missing)
+(2,170 real changes made, 2,170 to missing)
+(2,170 real changes made, 2,170 to missing)
+(2,604 missing values generated)
+(3,038 missing values generated)
+(3,038 missing values generated)
+(2,604 real changes made, 2,604 to missing)
+(2,170 real changes made, 2,170 to missing)
+(2,170 real changes made, 2,170 to missing)
+(2,604 missing values generated)
+(3,038 missing values generated)
+(3,038 missing values generated)
+(2,604 real changes made, 2,604 to missing)
+(2,170 real changes made, 2,170 to missing)
+(2,170 real changes made, 2,170 to missing)
+(4,340 missing values generated)
+(4,340 missing values generated)
+(4,340 missing values generated)
+(868 real changes made, 868 to missing)
+(868 real changes made, 868 to missing)
+(868 real changes made, 868 to missing)
+(3,038 missing values generated)
+(3,038 missing values generated)
+(3,038 missing values generated)
+(2,170 real changes made, 2,170 to missing)
+(2,170 real changes made, 2,170 to missing)
+(2,170 real changes made, 2,170 to missing)
+(3,472 missing values generated)
+(3,472 missing values generated)
+(3,472 missing values generated)
+(1,736 real changes made, 1,736 to missing)
+(1,736 real changes made, 1,736 to missing)
+(1,736 real changes made, 1,736 to missing)
+(3,472 missing values generated)
+(3,472 missing values generated)
+(3,472 missing values generated)
+(1,736 real changes made, 1,736 to missing)
+(1,736 real changes made, 1,736 to missing)
+(1,736 real changes made, 1,736 to missing)
+
+. foreach i of numlist 1930 1935 1940 1945 1950 1954 1960 1964 1970 {
+  2. foreach var of varlist lnpopulation lnpopulation_black lnfrac_black lnfarms_nonwhite_t lnfracfarms_nonwhite lnlandva
+> lue lnlandvaluef{
+  3. gen lag2_`var'_`i' = 0
+  4. gen lag3_`var'_`i' = 0
+  5. gen lag4_`var'_`i' = 0
+  6. replace lag2_`var'_`i' = lc1920_`var' if year==`i'
+  7. replace lag3_`var'_`i' = lc1910_`var' if year==`i'
+  8. replace lag4_`var'_`i' = lc1900_`var' if year==`i'
+  9. }
+ 10. }
+(434 real changes made)
+(434 real changes made)
+(434 real changes made)
+(434 real changes made)
+(434 real changes made)
+(434 real changes made)
+(434 real changes made)
+(434 real changes made)
+(434 real changes made)
+(434 real changes made)
+(434 real changes made)
+(434 real changes made)
+(434 real changes made)
+(434 real changes made)
+(434 real changes made)
+(434 real changes made)
+(434 real changes made)
+(434 real changes made)
+(434 real changes made)
+(434 real changes made)
+(434 real changes made)
+(434 real changes made)
+(434 real changes made)
+(434 real changes made)
+(434 real changes made)
+(434 real changes made)
+(434 real changes made)
+(434 real changes made)
+(434 real changes made)
+(434 real changes made)
+(434 real changes made)
+(434 real changes made)
+(434 real changes made)
+(434 real changes made)
+(434 real changes made)
+(434 real changes made)
+(434 real changes made)
+(434 real changes made)
+(434 real changes made)
+(434 real changes made)
+(434 real changes made)
+(434 real changes made)
+(434 real changes made)
+(434 real changes made)
+(434 real changes made)
+(434 real changes made)
+(434 real changes made)
+(434 real changes made)
+(434 real changes made)
+(434 real changes made)
+(434 real changes made)
+(434 real changes made)
+(434 real changes made)
+(434 real changes made)
+(434 real changes made)
+(434 real changes made)
+(434 real changes made)
+(434 real changes made)
+(434 real changes made)
+(434 real changes made)
+(434 real changes made)
+(434 real changes made)
+(434 real changes made)
+(434 real changes made)
+(434 real changes made)
+(434 real changes made)
+(434 real changes made)
+(434 real changes made)
+(434 real changes made)
+(434 real changes made)
+(434 real changes made)
+(434 real changes made)
+(434 real changes made)
+(434 real changes made)
+(434 real changes made)
+(434 real changes made)
+(434 real changes made)
+(434 real changes made)
+(434 real changes made)
+(434 real changes made)
+(434 real changes made)
+(434 real changes made)
+(434 real changes made)
+(434 real changes made)
+(434 real changes made)
+(434 real changes made)
+(434 real changes made)
+(434 real changes made)
+(434 real changes made)
+(434 real changes made)
+(434 real changes made)
+(434 real changes made)
+(434 real changes made)
+(434 real changes made)
+(434 real changes made)
+(434 real changes made)
+(434 real changes made)
+(434 real changes made)
+(434 real changes made)
+(434 real changes made)
+(434 real changes made)
+(434 real changes made)
+(434 real changes made)
+(434 real changes made)
+(434 real changes made)
+(434 real changes made)
+(434 real changes made)
+(434 real changes made)
+(434 real changes made)
+(434 real changes made)
+(434 real changes made)
+(434 real changes made)
+(434 real changes made)
+(434 real changes made)
+(434 real changes made)
+(434 real changes made)
+(434 real changes made)
+(434 real changes made)
+(434 real changes made)
+(434 real changes made)
+(434 real changes made)
+(434 real changes made)
+(434 real changes made)
+(434 real changes made)
+(434 real changes made)
+(434 real changes made)
+(434 real changes made)
+(434 real changes made)
+(434 real changes made)
+(434 real changes made)
+(434 real changes made)
+(434 real changes made)
+(434 real changes made)
+(434 real changes made)
+(434 real changes made)
+(434 real changes made)
+(434 real changes made)
+(434 real changes made)
+(434 real changes made)
+(434 real changes made)
+(434 real changes made)
+(434 real changes made)
+(434 real changes made)
+(434 real changes made)
+(434 real changes made)
+(434 real changes made)
+(434 real changes made)
+(434 real changes made)
+(434 real changes made)
+(434 real changes made)
+(434 real changes made)
+(434 real changes made)
+(434 real changes made)
+(434 real changes made)
+(434 real changes made)
+(434 real changes made)
+(434 real changes made)
+(434 real changes made)
+(434 real changes made)
+(434 real changes made)
+(434 real changes made)
+(434 real changes made)
+(434 real changes made)
+(434 real changes made)
+(434 real changes made)
+(434 real changes made)
+(434 real changes made)
+(434 real changes made)
+(434 real changes made)
+(434 real changes made)
+(434 real changes made)
+(434 real changes made)
+(434 real changes made)
+(434 real changes made)
+(434 real changes made)
+(434 real changes made)
+(434 real changes made)
+(434 real changes made)
+(434 real changes made)
+(434 real changes made)
+(434 real changes made)
+(434 real changes made)
+(434 real changes made)
+(434 real changes made)
+(434 real changes made)
+(434 real changes made)
+(434 real changes made)
+(434 real changes made)
+(434 real changes made)
+
+. 
+. /*lags for variables that exist only in 1920 and 1910*/
+. 
+. sort fips year
+
+. foreach var of varlist lncropval_p lncropval_rp {
+  2. by fips: gen c2_`var' = `var'[_n-2]
+  3. by fips: gen c3_`var' = `var'[_n-3]
+  4. replace c2_`var' = . if year!=1930
+  5. replace c3_`var' = . if year!=1930
+  6. by fips: egen lc1920_`var' = max(c2_`var')
+  7. by fips: egen lc1910_`var' = max(c3_`var')
+  8. drop c2_`var' c3_`var'
+  9. }
+(3,038 missing values generated)
+(3,472 missing values generated)
+(2,170 real changes made, 2,170 to missing)
+(1,736 real changes made, 1,736 to missing)
+(3,038 missing values generated)
+(3,472 missing values generated)
+(2,170 real changes made, 2,170 to missing)
+(1,736 real changes made, 1,736 to missing)
+
+. foreach i of numlist 1930 1940 1950 1960 {
+  2. foreach var of varlist lncropval_p lncropval_rp {
+  3. gen lag2_`var'_`i' = 0
+  4. gen lag3_`var'_`i' = 0
+  5. replace lag2_`var'_`i' = lc1920_`var' if year==`i'
+  6. replace lag3_`var'_`i' = lc1910_`var' if year==`i'
+  7. }
+  8. }
+(434 real changes made)
+(434 real changes made)
+(434 real changes made)
+(434 real changes made)
+(434 real changes made)
+(434 real changes made)
+(434 real changes made)
+(434 real changes made)
+(434 real changes made)
+(434 real changes made)
+(434 real changes made)
+(434 real changes made)
+(434 real changes made)
+(434 real changes made)
+(434 real changes made)
+(434 real changes made)
+
+. 
+. /*lags for variables that exist in 1925*/
+. sort fips year
+
+. foreach var of varlist lnvalue_equipment lntractors tractorsperfarm lntractorsperfarm lnmules_horses lnavfarmsize lnlan
+> dbuildingvalue lnlandbuildingvaluef lnfarmland_a cotton_a_a corn_a_a cotton_cc rice_a_a scane_a_a oats_a_a wheat_a_a ln
+> cotton_yield lncorn_yield {
+  2. by fips: gen c1_`var' = `var'[_n-1]
+  3. by fips: gen c2_`var' = `var'[_n-2]
+  4. by fips: gen c3_`var' = `var'[_n-3]
+  5. by fips: gen c4_`var' = `var'[_n-4]
+  6. replace c1_`var' = . if year!=1930
+  7. replace c2_`var' = . if year!=1930
+  8. replace c3_`var' = . if year!=1930
+  9. replace c4_`var' = . if year!=1930
+ 10. by fips: egen lc1925_`var' = max(c1_`var')
+ 11. by fips: egen lc1920_`var' = max(c2_`var')
+ 12. by fips: egen lc1910_`var' = max(c3_`var')
+ 13. by fips: egen lc1900_`var' = max(c4_`var')
+ 14. drop c1_`var' c2_`var' c3_`var' c4_`var'
+ 15. }
+(3,038 missing values generated)
+(3,038 missing values generated)
+(3,038 missing values generated)
+(3,038 missing values generated)
+(2,170 real changes made, 2,170 to missing)
+(2,170 real changes made, 2,170 to missing)
+(2,170 real changes made, 2,170 to missing)
+(2,170 real changes made, 2,170 to missing)
+(3,492 missing values generated)
+(3,492 missing values generated)
+(3,492 missing values generated)
+(3,922 missing values generated)
+(1,720 real changes made, 1,720 to missing)
+(2,150 real changes made, 2,150 to missing)
+(2,150 real changes made, 2,150 to missing)
+(1,720 real changes made, 1,720 to missing)
+(52 missing values generated)
+(5,642 missing values generated)
+(5,642 missing values generated)
+(5,642 missing values generated)
+(3,475 missing values generated)
+(3,475 missing values generated)
+(3,475 missing values generated)
+(3,909 missing values generated)
+(1,736 real changes made, 1,736 to missing)
+(2,167 real changes made, 2,167 to missing)
+(2,167 real changes made, 2,167 to missing)
+(1,733 real changes made, 1,733 to missing)
+(39 missing values generated)
+(5,642 missing values generated)
+(5,642 missing values generated)
+(5,642 missing values generated)
+(3,476 missing values generated)
+(3,476 missing values generated)
+(3,476 missing values generated)
+(3,910 missing values generated)
+(1,736 real changes made, 1,736 to missing)
+(2,166 real changes made, 2,166 to missing)
+(2,166 real changes made, 2,166 to missing)
+(1,732 real changes made, 1,732 to missing)
+(52 missing values generated)
+(5,642 missing values generated)
+(5,642 missing values generated)
+(5,642 missing values generated)
+(1,736 missing values generated)
+(1,736 missing values generated)
+(2,170 missing values generated)
+(2,604 missing values generated)
+(3,472 real changes made, 3,472 to missing)
+(3,472 real changes made, 3,472 to missing)
+(3,038 real changes made, 3,038 to missing)
+(2,604 real changes made, 2,604 to missing)
+(434 missing values generated)
+(868 missing values generated)
+(1,302 missing values generated)
+(1,736 missing values generated)
+(4,774 real changes made, 4,774 to missing)
+(4,340 real changes made, 4,340 to missing)
+(3,906 real changes made, 3,906 to missing)
+(3,472 real changes made, 3,472 to missing)
+(434 missing values generated)
+(868 missing values generated)
+(1,302 missing values generated)
+(1,736 missing values generated)
+(4,774 real changes made, 4,774 to missing)
+(4,340 real changes made, 4,340 to missing)
+(3,906 real changes made, 3,906 to missing)
+(3,472 real changes made, 3,472 to missing)
+(434 missing values generated)
+(868 missing values generated)
+(1,302 missing values generated)
+(1,736 missing values generated)
+(4,774 real changes made, 4,774 to missing)
+(4,340 real changes made, 4,340 to missing)
+(3,906 real changes made, 3,906 to missing)
+(3,472 real changes made, 3,472 to missing)
+(434 missing values generated)
+(868 missing values generated)
+(1,302 missing values generated)
+(1,736 missing values generated)
+(4,774 real changes made, 4,774 to missing)
+(4,340 real changes made, 4,340 to missing)
+(3,906 real changes made, 3,906 to missing)
+(3,472 real changes made, 3,472 to missing)
+(868 missing values generated)
+(1,302 missing values generated)
+(1,736 missing values generated)
+(2,170 missing values generated)
+(4,340 real changes made, 4,340 to missing)
+(3,906 real changes made, 3,906 to missing)
+(3,472 real changes made, 3,472 to missing)
+(3,038 real changes made, 3,038 to missing)
+(868 missing values generated)
+(1,302 missing values generated)
+(1,736 missing values generated)
+(2,170 missing values generated)
+(4,340 real changes made, 4,340 to missing)
+(3,906 real changes made, 3,906 to missing)
+(3,472 real changes made, 3,472 to missing)
+(3,038 real changes made, 3,038 to missing)
+(871 missing values generated)
+(1,305 missing values generated)
+(1,739 missing values generated)
+(2,173 missing values generated)
+(4,337 real changes made, 4,337 to missing)
+(3,903 real changes made, 3,903 to missing)
+(3,469 real changes made, 3,469 to missing)
+(3,035 real changes made, 3,035 to missing)
+(868 missing values generated)
+(1,302 missing values generated)
+(1,736 missing values generated)
+(2,170 missing values generated)
+(4,340 real changes made, 4,340 to missing)
+(3,906 real changes made, 3,906 to missing)
+(3,472 real changes made, 3,472 to missing)
+(3,038 real changes made, 3,038 to missing)
+(868 missing values generated)
+(1,302 missing values generated)
+(1,736 missing values generated)
+(2,170 missing values generated)
+(4,340 real changes made, 4,340 to missing)
+(3,906 real changes made, 3,906 to missing)
+(3,472 real changes made, 3,472 to missing)
+(3,038 real changes made, 3,038 to missing)
+(868 missing values generated)
+(1,302 missing values generated)
+(1,736 missing values generated)
+(2,170 missing values generated)
+(4,340 real changes made, 4,340 to missing)
+(3,906 real changes made, 3,906 to missing)
+(3,472 real changes made, 3,472 to missing)
+(3,038 real changes made, 3,038 to missing)
+(868 missing values generated)
+(1,302 missing values generated)
+(1,736 missing values generated)
+(2,170 missing values generated)
+(4,340 real changes made, 4,340 to missing)
+(3,906 real changes made, 3,906 to missing)
+(3,472 real changes made, 3,472 to missing)
+(3,038 real changes made, 3,038 to missing)
+(900 missing values generated)
+(1,333 missing values generated)
+(1,765 missing values generated)
+(2,199 missing values generated)
+(4,308 real changes made, 4,308 to missing)
+(3,875 real changes made, 3,875 to missing)
+(3,443 real changes made, 3,443 to missing)
+(3,010 real changes made, 3,010 to missing)
+(13 missing values generated)
+(871 missing values generated)
+(1,305 missing values generated)
+(1,739 missing values generated)
+(2,173 missing values generated)
+(4,337 real changes made, 4,337 to missing)
+(3,903 real changes made, 3,903 to missing)
+(3,469 real changes made, 3,469 to missing)
+(3,035 real changes made, 3,035 to missing)
+
+. foreach i of numlist 1930 1935 1940 1945 1950 1954 1960 1964 1970 {
+  2. foreach var of varlist lnvalue_equipment lntractors tractorsperfarm lntractorsperfarm lnmules_horses lnavfarmsize ln
+> landbuildingvalue lnlandbuildingvaluef lnfarmland_a cotton_a_a corn_a_a cotton_cc rice_a_a scane_a_a oats_a_a wheat_a_a
+>  lncotton_yield lncorn_yield {
+  3. gen lag1_`var'_`i' = 0
+  4. gen lag2_`var'_`i' = 0
+  5. gen lag3_`var'_`i' = 0
+  6. gen lag4_`var'_`i' = 0
+  7. replace lag1_`var'_`i' = lc1925_`var' if year==`i'
+  8. replace lag2_`var'_`i' = lc1920_`var' if year==`i'
+  9. replace lag3_`var'_`i' = lc1910_`var' if year==`i'
+ 10. replace lag4_`var'_`i' = lc1900_`var' if year==`i'
+ 11. }
+ 12. }
+(434 real changes made)
+(434 real changes made)
+(434 real changes made)
+(434 real changes made)
+(428 real changes made, 4 to missing)
+(434 real changes made, 434 to missing)
+(434 real changes made, 434 to missing)
+(434 real changes made, 434 to missing)
+(433 real changes made, 3 to missing)
+(434 real changes made, 434 to missing)
+(434 real changes made, 434 to missing)
+(434 real changes made, 434 to missing)
+(434 real changes made, 4 to missing)
+(434 real changes made, 434 to missing)
+(434 real changes made, 434 to missing)
+(434 real changes made, 434 to missing)
+(434 real changes made)
+(434 real changes made)
+(434 real changes made)
+(434 real changes made)
+(434 real changes made)
+(434 real changes made)
+(434 real changes made)
+(434 real changes made)
+(434 real changes made)
+(434 real changes made)
+(434 real changes made)
+(434 real changes made)
+(434 real changes made)
+(434 real changes made)
+(434 real changes made)
+(434 real changes made)
+(434 real changes made)
+(434 real changes made)
+(434 real changes made)
+(434 real changes made)
+(434 real changes made)
+(434 real changes made)
+(434 real changes made)
+(433 real changes made)
+(434 real changes made)
+(434 real changes made)
+(434 real changes made)
+(434 real changes made)
+(434 real changes made)
+(434 real changes made)
+(434 real changes made)
+(433 real changes made)
+(90 real changes made)
+(124 real changes made)
+(148 real changes made)
+(249 real changes made)
+(221 real changes made)
+(292 real changes made)
+(340 real changes made)
+(282 real changes made)
+(405 real changes made)
+(433 real changes made)
+(430 real changes made)
+(432 real changes made)
+(351 real changes made)
+(395 real changes made)
+(296 real changes made)
+(364 real changes made)
+(434 real changes made)
+(434 real changes made)
+(434 real changes made)
+(434 real changes made, 1 to missing)
+(434 real changes made)
+(434 real changes made)
+(434 real changes made)
+(434 real changes made)
+(434 real changes made)
+(434 real changes made)
+(434 real changes made)
+(434 real changes made)
+(428 real changes made, 4 to missing)
+(434 real changes made, 434 to missing)
+(434 real changes made, 434 to missing)
+(434 real changes made, 434 to missing)
+(433 real changes made, 3 to missing)
+(434 real changes made, 434 to missing)
+(434 real changes made, 434 to missing)
+(434 real changes made, 434 to missing)
+(434 real changes made, 4 to missing)
+(434 real changes made, 434 to missing)
+(434 real changes made, 434 to missing)
+(434 real changes made, 434 to missing)
+(434 real changes made)
+(434 real changes made)
+(434 real changes made)
+(434 real changes made)
+(434 real changes made)
+(434 real changes made)
+(434 real changes made)
+(434 real changes made)
+(434 real changes made)
+(434 real changes made)
+(434 real changes made)
+(434 real changes made)
+(434 real changes made)
+(434 real changes made)
+(434 real changes made)
+(434 real changes made)
+(434 real changes made)
+(434 real changes made)
+(434 real changes made)
+(434 real changes made)
+(434 real changes made)
+(434 real changes made)
+(434 real changes made)
+(433 real changes made)
+(434 real changes made)
+(434 real changes made)
+(434 real changes made)
+(434 real changes made)
+(434 real changes made)
+(434 real changes made)
+(434 real changes made)
+(433 real changes made)
+(90 real changes made)
+(124 real changes made)
+(148 real changes made)
+(249 real changes made)
+(221 real changes made)
+(292 real changes made)
+(340 real changes made)
+(282 real changes made)
+(405 real changes made)
+(433 real changes made)
+(430 real changes made)
+(432 real changes made)
+(351 real changes made)
+(395 real changes made)
+(296 real changes made)
+(364 real changes made)
+(434 real changes made)
+(434 real changes made)
+(434 real changes made)
+(434 real changes made, 1 to missing)
+(434 real changes made)
+(434 real changes made)
+(434 real changes made)
+(434 real changes made)
+(434 real changes made)
+(434 real changes made)
+(434 real changes made)
+(434 real changes made)
+(428 real changes made, 4 to missing)
+(434 real changes made, 434 to missing)
+(434 real changes made, 434 to missing)
+(434 real changes made, 434 to missing)
+(433 real changes made, 3 to missing)
+(434 real changes made, 434 to missing)
+(434 real changes made, 434 to missing)
+(434 real changes made, 434 to missing)
+(434 real changes made, 4 to missing)
+(434 real changes made, 434 to missing)
+(434 real changes made, 434 to missing)
+(434 real changes made, 434 to missing)
+(434 real changes made)
+(434 real changes made)
+(434 real changes made)
+(434 real changes made)
+(434 real changes made)
+(434 real changes made)
+(434 real changes made)
+(434 real changes made)
+(434 real changes made)
+(434 real changes made)
+(434 real changes made)
+(434 real changes made)
+(434 real changes made)
+(434 real changes made)
+(434 real changes made)
+(434 real changes made)
+(434 real changes made)
+(434 real changes made)
+(434 real changes made)
+(434 real changes made)
+(434 real changes made)
+(434 real changes made)
+(434 real changes made)
+(433 real changes made)
+(434 real changes made)
+(434 real changes made)
+(434 real changes made)
+(434 real changes made)
+(434 real changes made)
+(434 real changes made)
+(434 real changes made)
+(433 real changes made)
+(90 real changes made)
+(124 real changes made)
+(148 real changes made)
+(249 real changes made)
+(221 real changes made)
+(292 real changes made)
+(340 real changes made)
+(282 real changes made)
+(405 real changes made)
+(433 real changes made)
+(430 real changes made)
+(432 real changes made)
+(351 real changes made)
+(395 real changes made)
+(296 real changes made)
+(364 real changes made)
+(434 real changes made)
+(434 real changes made)
+(434 real changes made)
+(434 real changes made, 1 to missing)
+(434 real changes made)
+(434 real changes made)
+(434 real changes made)
+(434 real changes made)
+(434 real changes made)
+(434 real changes made)
+(434 real changes made)
+(434 real changes made)
+(428 real changes made, 4 to missing)
+(434 real changes made, 434 to missing)
+(434 real changes made, 434 to missing)
+(434 real changes made, 434 to missing)
+(433 real changes made, 3 to missing)
+(434 real changes made, 434 to missing)
+(434 real changes made, 434 to missing)
+(434 real changes made, 434 to missing)
+(434 real changes made, 4 to missing)
+(434 real changes made, 434 to missing)
+(434 real changes made, 434 to missing)
+(434 real changes made, 434 to missing)
+(434 real changes made)
+(434 real changes made)
+(434 real changes made)
+(434 real changes made)
+(434 real changes made)
+(434 real changes made)
+(434 real changes made)
+(434 real changes made)
+(434 real changes made)
+(434 real changes made)
+(434 real changes made)
+(434 real changes made)
+(434 real changes made)
+(434 real changes made)
+(434 real changes made)
+(434 real changes made)
+(434 real changes made)
+(434 real changes made)
+(434 real changes made)
+(434 real changes made)
+(434 real changes made)
+(434 real changes made)
+(434 real changes made)
+(433 real changes made)
+(434 real changes made)
+(434 real changes made)
+(434 real changes made)
+(434 real changes made)
+(434 real changes made)
+(434 real changes made)
+(434 real changes made)
+(433 real changes made)
+(90 real changes made)
+(124 real changes made)
+(148 real changes made)
+(249 real changes made)
+(221 real changes made)
+(292 real changes made)
+(340 real changes made)
+(282 real changes made)
+(405 real changes made)
+(433 real changes made)
+(430 real changes made)
+(432 real changes made)
+(351 real changes made)
+(395 real changes made)
+(296 real changes made)
+(364 real changes made)
+(434 real changes made)
+(434 real changes made)
+(434 real changes made)
+(434 real changes made, 1 to missing)
+(434 real changes made)
+(434 real changes made)
+(434 real changes made)
+(434 real changes made)
+(434 real changes made)
+(434 real changes made)
+(434 real changes made)
+(434 real changes made)
+(428 real changes made, 4 to missing)
+(434 real changes made, 434 to missing)
+(434 real changes made, 434 to missing)
+(434 real changes made, 434 to missing)
+(433 real changes made, 3 to missing)
+(434 real changes made, 434 to missing)
+(434 real changes made, 434 to missing)
+(434 real changes made, 434 to missing)
+(434 real changes made, 4 to missing)
+(434 real changes made, 434 to missing)
+(434 real changes made, 434 to missing)
+(434 real changes made, 434 to missing)
+(434 real changes made)
+(434 real changes made)
+(434 real changes made)
+(434 real changes made)
+(434 real changes made)
+(434 real changes made)
+(434 real changes made)
+(434 real changes made)
+(434 real changes made)
+(434 real changes made)
+(434 real changes made)
+(434 real changes made)
+(434 real changes made)
+(434 real changes made)
+(434 real changes made)
+(434 real changes made)
+(434 real changes made)
+(434 real changes made)
+(434 real changes made)
+(434 real changes made)
+(434 real changes made)
+(434 real changes made)
+(434 real changes made)
+(433 real changes made)
+(434 real changes made)
+(434 real changes made)
+(434 real changes made)
+(434 real changes made)
+(434 real changes made)
+(434 real changes made)
+(434 real changes made)
+(433 real changes made)
+(90 real changes made)
+(124 real changes made)
+(148 real changes made)
+(249 real changes made)
+(221 real changes made)
+(292 real changes made)
+(340 real changes made)
+(282 real changes made)
+(405 real changes made)
+(433 real changes made)
+(430 real changes made)
+(432 real changes made)
+(351 real changes made)
+(395 real changes made)
+(296 real changes made)
+(364 real changes made)
+(434 real changes made)
+(434 real changes made)
+(434 real changes made)
+(434 real changes made, 1 to missing)
+(434 real changes made)
+(434 real changes made)
+(434 real changes made)
+(434 real changes made)
+(434 real changes made)
+(434 real changes made)
+(434 real changes made)
+(434 real changes made)
+(428 real changes made, 4 to missing)
+(434 real changes made, 434 to missing)
+(434 real changes made, 434 to missing)
+(434 real changes made, 434 to missing)
+(433 real changes made, 3 to missing)
+(434 real changes made, 434 to missing)
+(434 real changes made, 434 to missing)
+(434 real changes made, 434 to missing)
+(434 real changes made, 4 to missing)
+(434 real changes made, 434 to missing)
+(434 real changes made, 434 to missing)
+(434 real changes made, 434 to missing)
+(434 real changes made)
+(434 real changes made)
+(434 real changes made)
+(434 real changes made)
+(434 real changes made)
+(434 real changes made)
+(434 real changes made)
+(434 real changes made)
+(434 real changes made)
+(434 real changes made)
+(434 real changes made)
+(434 real changes made)
+(434 real changes made)
+(434 real changes made)
+(434 real changes made)
+(434 real changes made)
+(434 real changes made)
+(434 real changes made)
+(434 real changes made)
+(434 real changes made)
+(434 real changes made)
+(434 real changes made)
+(434 real changes made)
+(433 real changes made)
+(434 real changes made)
+(434 real changes made)
+(434 real changes made)
+(434 real changes made)
+(434 real changes made)
+(434 real changes made)
+(434 real changes made)
+(433 real changes made)
+(90 real changes made)
+(124 real changes made)
+(148 real changes made)
+(249 real changes made)
+(221 real changes made)
+(292 real changes made)
+(340 real changes made)
+(282 real changes made)
+(405 real changes made)
+(433 real changes made)
+(430 real changes made)
+(432 real changes made)
+(351 real changes made)
+(395 real changes made)
+(296 real changes made)
+(364 real changes made)
+(434 real changes made)
+(434 real changes made)
+(434 real changes made)
+(434 real changes made, 1 to missing)
+(434 real changes made)
+(434 real changes made)
+(434 real changes made)
+(434 real changes made)
+(434 real changes made)
+(434 real changes made)
+(434 real changes made)
+(434 real changes made)
+(428 real changes made, 4 to missing)
+(434 real changes made, 434 to missing)
+(434 real changes made, 434 to missing)
+(434 real changes made, 434 to missing)
+(433 real changes made, 3 to missing)
+(434 real changes made, 434 to missing)
+(434 real changes made, 434 to missing)
+(434 real changes made, 434 to missing)
+(434 real changes made, 4 to missing)
+(434 real changes made, 434 to missing)
+(434 real changes made, 434 to missing)
+(434 real changes made, 434 to missing)
+(434 real changes made)
+(434 real changes made)
+(434 real changes made)
+(434 real changes made)
+(434 real changes made)
+(434 real changes made)
+(434 real changes made)
+(434 real changes made)
+(434 real changes made)
+(434 real changes made)
+(434 real changes made)
+(434 real changes made)
+(434 real changes made)
+(434 real changes made)
+(434 real changes made)
+(434 real changes made)
+(434 real changes made)
+(434 real changes made)
+(434 real changes made)
+(434 real changes made)
+(434 real changes made)
+(434 real changes made)
+(434 real changes made)
+(433 real changes made)
+(434 real changes made)
+(434 real changes made)
+(434 real changes made)
+(434 real changes made)
+(434 real changes made)
+(434 real changes made)
+(434 real changes made)
+(433 real changes made)
+(90 real changes made)
+(124 real changes made)
+(148 real changes made)
+(249 real changes made)
+(221 real changes made)
+(292 real changes made)
+(340 real changes made)
+(282 real changes made)
+(405 real changes made)
+(433 real changes made)
+(430 real changes made)
+(432 real changes made)
+(351 real changes made)
+(395 real changes made)
+(296 real changes made)
+(364 real changes made)
+(434 real changes made)
+(434 real changes made)
+(434 real changes made)
+(434 real changes made, 1 to missing)
+(434 real changes made)
+(434 real changes made)
+(434 real changes made)
+(434 real changes made)
+(434 real changes made)
+(434 real changes made)
+(434 real changes made)
+(434 real changes made)
+(428 real changes made, 4 to missing)
+(434 real changes made, 434 to missing)
+(434 real changes made, 434 to missing)
+(434 real changes made, 434 to missing)
+(433 real changes made, 3 to missing)
+(434 real changes made, 434 to missing)
+(434 real changes made, 434 to missing)
+(434 real changes made, 434 to missing)
+(434 real changes made, 4 to missing)
+(434 real changes made, 434 to missing)
+(434 real changes made, 434 to missing)
+(434 real changes made, 434 to missing)
+(434 real changes made)
+(434 real changes made)
+(434 real changes made)
+(434 real changes made)
+(434 real changes made)
+(434 real changes made)
+(434 real changes made)
+(434 real changes made)
+(434 real changes made)
+(434 real changes made)
+(434 real changes made)
+(434 real changes made)
+(434 real changes made)
+(434 real changes made)
+(434 real changes made)
+(434 real changes made)
+(434 real changes made)
+(434 real changes made)
+(434 real changes made)
+(434 real changes made)
+(434 real changes made)
+(434 real changes made)
+(434 real changes made)
+(433 real changes made)
+(434 real changes made)
+(434 real changes made)
+(434 real changes made)
+(434 real changes made)
+(434 real changes made)
+(434 real changes made)
+(434 real changes made)
+(433 real changes made)
+(90 real changes made)
+(124 real changes made)
+(148 real changes made)
+(249 real changes made)
+(221 real changes made)
+(292 real changes made)
+(340 real changes made)
+(282 real changes made)
+(405 real changes made)
+(433 real changes made)
+(430 real changes made)
+(432 real changes made)
+(351 real changes made)
+(395 real changes made)
+(296 real changes made)
+(364 real changes made)
+(434 real changes made)
+(434 real changes made)
+(434 real changes made)
+(434 real changes made, 1 to missing)
+(434 real changes made)
+(434 real changes made)
+(434 real changes made)
+(434 real changes made)
+(434 real changes made)
+(434 real changes made)
+(434 real changes made)
+(434 real changes made)
+(428 real changes made, 4 to missing)
+(434 real changes made, 434 to missing)
+(434 real changes made, 434 to missing)
+(434 real changes made, 434 to missing)
+(433 real changes made, 3 to missing)
+(434 real changes made, 434 to missing)
+(434 real changes made, 434 to missing)
+(434 real changes made, 434 to missing)
+(434 real changes made, 4 to missing)
+(434 real changes made, 434 to missing)
+(434 real changes made, 434 to missing)
+(434 real changes made, 434 to missing)
+(434 real changes made)
+(434 real changes made)
+(434 real changes made)
+(434 real changes made)
+(434 real changes made)
+(434 real changes made)
+(434 real changes made)
+(434 real changes made)
+(434 real changes made)
+(434 real changes made)
+(434 real changes made)
+(434 real changes made)
+(434 real changes made)
+(434 real changes made)
+(434 real changes made)
+(434 real changes made)
+(434 real changes made)
+(434 real changes made)
+(434 real changes made)
+(434 real changes made)
+(434 real changes made)
+(434 real changes made)
+(434 real changes made)
+(433 real changes made)
+(434 real changes made)
+(434 real changes made)
+(434 real changes made)
+(434 real changes made)
+(434 real changes made)
+(434 real changes made)
+(434 real changes made)
+(433 real changes made)
+(90 real changes made)
+(124 real changes made)
+(148 real changes made)
+(249 real changes made)
+(221 real changes made)
+(292 real changes made)
+(340 real changes made)
+(282 real changes made)
+(405 real changes made)
+(433 real changes made)
+(430 real changes made)
+(432 real changes made)
+(351 real changes made)
+(395 real changes made)
+(296 real changes made)
+(364 real changes made)
+(434 real changes made)
+(434 real changes made)
+(434 real changes made)
+(434 real changes made, 1 to missing)
+(434 real changes made)
+(434 real changes made)
+(434 real changes made)
+(434 real changes made)
+
+. 
+. sort fips year
+
+. foreach var of varlist lnmfgestab lnmfgavewages lnmfgavear {
+  2. by fips: gen c2_`var' = `var'[_n-2]
+  3. by fips: gen c4_`var' = `var'[_n-4]
+  4. replace c2_`var' = . if year!=1930
+  5. replace c4_`var' = . if year!=1930
+  6. by fips: egen lc1920_`var' = max(c2_`var')
+  7. by fips: egen lc1900_`var' = max(c4_`var')
+  8. *drop c2_`var' c4_`var'
+. }
+(4,391 missing values generated)
+(4,391 missing values generated)
+(826 real changes made, 826 to missing)
+(817 real changes made, 817 to missing)
+(117 missing values generated)
+(4,391 missing values generated)
+(4,391 missing values generated)
+(826 real changes made, 826 to missing)
+(817 real changes made, 817 to missing)
+(117 missing values generated)
+(4,391 missing values generated)
+(4,391 missing values generated)
+(826 real changes made, 826 to missing)
+(817 real changes made, 817 to missing)
+(117 missing values generated)
+
+. foreach i of numlist 1930 1935 1940 1945 1950 1954 1960 1964 1970 {
+  2. foreach var of varlist lnmfgestab lnmfgavewages lnmfgavear {
+  3. gen lag2_`var'_`i' = 0
+  4. gen lag4_`var'_`i' = 0
+  5. replace lag2_`var'_`i' = lc1920_`var' if year==`i'
+  6. replace lag4_`var'_`i' = lc1900_`var' if year==`i'
+  7. }
+  8. }
+(434 real changes made, 9 to missing)
+(434 real changes made)
+(434 real changes made, 9 to missing)
+(434 real changes made)
+(434 real changes made, 9 to missing)
+(434 real changes made)
+(434 real changes made, 9 to missing)
+(434 real changes made)
+(434 real changes made, 9 to missing)
+(434 real changes made)
+(434 real changes made, 9 to missing)
+(434 real changes made)
+(434 real changes made, 9 to missing)
+(434 real changes made)
+(434 real changes made, 9 to missing)
+(434 real changes made)
+(434 real changes made, 9 to missing)
+(434 real changes made)
+(434 real changes made, 9 to missing)
+(434 real changes made)
+(434 real changes made, 9 to missing)
+(434 real changes made)
+(434 real changes made, 9 to missing)
+(434 real changes made)
+(434 real changes made, 9 to missing)
+(434 real changes made)
+(434 real changes made, 9 to missing)
+(434 real changes made)
+(434 real changes made, 9 to missing)
+(434 real changes made)
+(434 real changes made, 9 to missing)
+(434 real changes made)
+(434 real changes made, 9 to missing)
+(434 real changes made)
+(434 real changes made, 9 to missing)
+(434 real changes made)
+(434 real changes made, 9 to missing)
+(434 real changes made)
+(434 real changes made, 9 to missing)
+(434 real changes made)
+(434 real changes made, 9 to missing)
+(434 real changes made)
+(434 real changes made, 9 to missing)
+(434 real changes made)
+(434 real changes made, 9 to missing)
+(434 real changes made)
+(434 real changes made, 9 to missing)
+(434 real changes made)
+(434 real changes made, 9 to missing)
+(434 real changes made)
+(434 real changes made, 9 to missing)
+(434 real changes made)
+(434 real changes made, 9 to missing)
+(434 real changes made)
+
+. 
+. foreach var of varlist frac_black population_black_a population_a fracfarms_nonwhite {
+  2. by fips: gen ln`var'_d = ln`var'[_n]-ln`var'[_n-1] if year==1920
+  3. }
+(5,208 missing values generated)
+(5,208 missing values generated)
+(5,208 missing values generated)
+(5,208 missing values generated)
+
+. 
+. foreach var of varlist value_equipment_a mules_horses_a avfarmsize farmland_a value_lb_f value_lb_a {
+  2. by fips: gen ln`var'_d = ln`var'[_n]-ln`var'[_n-1] if year==1925
+  3. 
+. }
+(5,208 missing values generated)
+(5,208 missing values generated)
+(5,208 missing values generated)
+(5,208 missing values generated)
+(5,208 missing values generated)
+(5,208 missing values generated)
+
+. 
+. *Sample with counties within 150km of a major river
+. gen main_sample = 0
+
+. replace main_sample = 1 if (state == 42 | state==45 | state==46 | state==54)
+(2,119 real changes made)
+
+. gen riverclose_elsewhere = (distance_river < 50 & main_sample==0)
+
+. gen riverfar_elsewhere = (distance_river > 50 & distance_river < 150 & main_sample==0)
+
+. keep if main_sample==1|riverclose_elsewhere==1|riverfar_elsewhere==1
+(364 observations deleted)
+
+. save preanalysis_south_rivers.dta, replace
+(file preanalysis_south_rivers.dta not found)
+file preanalysis_south_rivers.dta saved
+
+. 
+. *Main sample
+. keep if main_sample==1
+(3,159 observations deleted)
+
+. 
+. *Generate propensity score
+. xi:probit flood lc*_lnfrac_black lc*_cotton_cc  if year ==1920
+
+Iteration 0:  Log likelihood = -111.05822  
+Iteration 1:  Log likelihood = -82.404915  
+Iteration 2:  Log likelihood = -82.057531  
+Iteration 3:  Log likelihood = -82.057352  
+Iteration 4:  Log likelihood = -82.057352  
+
+Probit regression                                       Number of obs =    163
+                                                        LR chi2(7)    =  58.00
+                                                        Prob > chi2   = 0.0000
+Log likelihood = -82.057352                             Pseudo R2     = 0.2611
+
+-------------------------------------------------------------------------------------
+              flood | Coefficient  Std. err.      z    P>|z|     [95% conf. interval]
+--------------------+----------------------------------------------------------------
+lc1920_lnfrac_black |  -.1426914   1.518118    -0.09   0.925    -3.118148    2.832766
+lc1910_lnfrac_black |   .4058561   2.511665     0.16   0.872    -4.516917    5.328629
+lc1900_lnfrac_black |   .2994772   1.502073     0.20   0.842    -2.644533    3.243487
+   lc1925_cotton_cc |  -2.753219   1.459148    -1.89   0.059    -5.613096    .1066586
+   lc1920_cotton_cc |   8.427291   2.162529     3.90   0.000     4.188812    12.66577
+   lc1910_cotton_cc |  -3.832427   1.259524    -3.04   0.002    -6.301049   -1.363804
+   lc1900_cotton_cc |    2.55878   1.830478     1.40   0.162    -1.028891    6.146452
+              _cons |  -1.873202   1.143457    -1.64   0.101    -4.114336    .3679322
+-------------------------------------------------------------------------------------
+
+. predict prop_plant_1920
+(option pr assumed; Pr(flood))
+
+. egen prop_plant_flstate = mean(prop_plant_1920), by(fips)
+
+. drop prop_plant_1920
+
+. sum prop_plant_flstate if flood==1
+
+    Variable |        Obs        Mean    Std. dev.       Min        Max
+-------------+---------------------------------------------------------
+prop_plant~e |        897    .6071031    .2162527   .0249876   .9142364
+
+. gen com_support_flstate = (prop_plant_flstate>`r(min)' & prop_plant_flstate<`r(max)')  if flood==0
+(897 missing values generated)
+
+. sum prop_plant_flstate if flood==0
+
+    Variable |        Obs        Mean    Std. dev.       Min        Max
+-------------+---------------------------------------------------------
+prop_plant~e |      1,222    .2910937    .2337496   .0123165   .8799206
+
+. replace com_support_flstate = (prop_plant_flstate>`r(min)' & prop_plant_flstate<`r(max)') if flood==1
+(897 real changes made)
+
+. foreach i of numlist 1900 1910 1920 1925 1930 1935 1940 1945 1950 1954 1960 1964 1970 {
+  2. gen prop_plant_flstate_`i' = 0
+  3. replace prop_plant_flstate_`i' = prop_plant_flstate if year==`i' & prop_plant_flstate >0 & prop_plant_flstate<1
+  4. }
+(163 real changes made)
+(163 real changes made)
+(163 real changes made)
+(163 real changes made)
+(163 real changes made)
+(163 real changes made)
+(163 real changes made)
+(163 real changes made)
+(163 real changes made)
+(163 real changes made)
+(163 real changes made)
+(163 real changes made)
+(163 real changes made)
+
+. save preanalysis.dta, replace
+(file preanalysis.dta not found)
+file preanalysis.dta saved
+
+. 
+. *Generate post-1930 sample
+. drop if year <1920
+(326 observations deleted)
+
+. /*set all 1920 values equal to missing if 1925 values nonmissing*/
+. foreach var of varlist value_equipment mules_horses avfarmsize farmland avfarmsize farmland_a value_lb_f value_lb_a fra
+> cfarms_nonwhite {
+  2.         replace ln`var' =. if year ==1920 & ln`var'[_n+1] !=.
+  3. }
+(163 real changes made, 163 to missing)
+(163 real changes made, 163 to missing)
+(163 real changes made, 163 to missing)
+(163 real changes made, 163 to missing)
+(0 real changes made)
+(163 real changes made, 163 to missing)
+(163 real changes made, 163 to missing)
+(163 real changes made, 163 to missing)
+(0 real changes made)
+
+. foreach var of varlist lnlandbuildingvalue lnlandbuildingvaluef lncropval_rp lncropval_p lnlandvalue lnlandvaluef lncot
+> ton_yield lncorn_yield{
+  2.         replace `var' =. if year ==1920 & `var'[_n+1] !=.
+  3. }
+(163 real changes made, 163 to missing)
+(163 real changes made, 163 to missing)
+(0 real changes made)
+(0 real changes made)
+(0 real changes made)
+(0 real changes made)
+(163 real changes made, 163 to missing)
+(163 real changes made, 163 to missing)
+
+. save preanalysis_post1930.dta, replace
+(file preanalysis_post1930.dta not found)
+file preanalysis_post1930.dta saved
+
+. 
+. 
+. log close
+      name:  <unnamed>
+       log:  /Users/deniss/Replication_Project_EC280/code/flood_preanalysis.log
+  log type:  text
+ closed on:  27 Oct 2025, 21:29:35
+-------------------------------------------------------------------------------------------------------------------------
